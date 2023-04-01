@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Site Icon -->
+     <link rel="shortcut Icon" type="image/png" href="img/favicon.png">
+
+     <!-- Font Awesome Icons -->
+     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+     <!-- Google Fonts -->
+     <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+<app-nav></app-nav>
+      <main>
+       <button class="glow-on-hover" routerLink="/besoin" type="button">Demander un besoin </button>
+      </main>
+ 
+  <!--Rechercher services-->
+  <ng-container >
+      <h1  style="color:black;height: 0%;text-align:center; padding-top:-20px;" >
+       Réservez vos services</h1>
+        <div class="topbar" style="color:black;height: 0%;text-align:center; padding-top:-20px;">
+          <app-search (searchTextChanged)=" onSearchTextEntered($event)"></app-search>
+        </div>
+        
+  </ng-container>
+
+   <section>
+    <select name="" id="" placeholder="catégorie" class="trie"  style="display: inline-block;margin-left: 400px; margin: top 10px; " (change)="onCategorySelected($event)">
+      <option value="">Tous</option>
+      <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+    </select>
+
+    <select name="" id="" placeholder="sortBy" class="trie" (change)="sortByLatest($event)" style="display: inline-block;margin-left: 60px;">
+        <option value="">Trier par</option>
+        <option value="latest">Derniers services</option>
+        <option value="lowest">Prix le plus bas</option>
+        <option value="highest">Prix le plus élevé</option>
+      </select>
+      <div class="container">
+        <div class="box"  *ngFor="let service of services |  filter: searchText | filter:selectedCategory ">
+          <div class="image">
+            <img src={{service.pictureUrl}}>
+          </div>
+          <div class="details">
+           
+            <h2 class="category">{{service.categoryName}}
+            </h2>
+            <h2 class="title">{{service.title}}</h2>
+            <p class="description">{{service.description}}</p>
+            <p class="price">Prix moyen {{service.price_min}} - {{service.price_max}}</p>
+            <div class="buttons-container" style="display: flex; justify-content: center;margin-top: 20px;">
+              <button class="glow-on-hover" routerLink="/reserve" style="width: 200px; margin-left: 10px; text-align: center;">
+                <b>Réserver</b>
+              </button>
+              <button class="glow-on-hover" routerLink="/detail" style="width: 200px; margin-left: 10px; text-align: center;">
+                <b>Voir détail</b>
+              </button>
+            </div>
+          </div>
+        </div>
+        </div>
+      </section>
+ 
+</body>
+</html>

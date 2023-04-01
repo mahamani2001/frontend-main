@@ -1,0 +1,99 @@
+<div class="outer">
+  <div class="container">
+      <div class="row">
+         <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+          <div class="panel border bg-white">
+            <div class="panel-heading">
+              <h3 class="pt-3 font-weight-blod">
+                  S'inscrire
+              </h3>
+            </div>
+            <div class="panel-body p-3" >
+                  <form [formGroup]="psignUpFrom">
+
+                          <div class="form-group pt-3">
+                              <div class="input-field" [class.error]="psignUpFrom.controls['firstname'].dirty &&  psignUpFrom.hasError('required','firstname')">
+                                  <span class="fa fa-user p-2"></span>
+                                  <input type="text" placeholder="Prénom" formControlName="firstname">
+                              </div>
+                          </div>
+                          <small *ngIf="psignUpFrom.controls['firstname'].dirty &&  psignUpFrom.hasError('required','firstname')" class="text-danger">*firstname is required</small>
+                          
+                          <div class="form-group pt-3">
+                              <div class="input-field" [class.error]="psignUpFrom.controls['lastname'].dirty &&  psignUpFrom.hasError('required','lastname')">
+                                  <span class="fa fa-user p-2"></span>
+                                  <input type="text" placeholder="nom" formControlName="lastname">
+                              </div>
+                          </div>
+                          <small *ngIf="psignUpFrom.controls['lastname'].dirty &&  psignUpFrom.hasError('required','lastname')" class="text-danger">*lastname is required</small>
+                         
+                          <div class="form-group pt-3">
+                              <div class="input-field" [class.error]="psignUpFrom.controls['email'].dirty &&  psignUpFrom.hasError('required','email')">
+                                  <span class="fa fa-envelope p-2"></span>
+                                  <input type="text" placeholder="Email"  formControlName="email" >
+                              </div>
+                          </div>
+                          <small *ngIf="psignUpFrom.controls['email'].dirty &&  psignUpFrom.hasError('required','email')" class="text-danger">*email is required</small>
+                          
+                          <div class="form-group pt-3">
+                              <div class="input-field" [class.error]="psignUpFrom.controls['phone'].dirty &&  psignUpFrom.hasError('required','phone')">
+                                  <span class="fa fa-phone p-2"></span>
+                                  <input type="text"
+                                  formControlName="phone"
+                                   placeholder="Téléphone">
+                              </div>
+                          </div>
+                          <small *ngIf="psignUpFrom.controls['phone'].dirty &&  psignUpFrom.hasError('required','phone')" class="text-danger">*phone is required</small>
+                         
+                          <div class="form-group pt-3">
+                              <div class="input-field" [class.error]="psignUpFrom.controls['numeroCIN'].dirty && psignUpFrom.hasError('required','numeroCIN')">
+                               <span class=" fa fa-address-card p-2"> </span>
+                               <input formControlName="numeroCIN" type="text" placeholder="numeroCIN">
+                             </div>
+                           </div>
+                           <small *ngIf="psignUpFrom.controls['numeroCIN'].dirty && psignUpFrom.hasError('required','numeroCIN')" class="text-danger">*numeroCIN is required</small>
+                           
+                           <div class="form-group pt-3">
+                              <div class="input-field" [class.error]="psignUpFrom.controls['competence'].dirty && psignUpFrom.hasError('required','competence')">
+                               <span class="  fa fa-star p-2"> </span>
+                               <input formControlName="competence" type="text" placeholder="competence">
+                             </div>
+                           </div>
+                           <small *ngIf="psignUpFrom.controls['competence'].dirty && psignUpFrom.hasError('required','competence')" class="text-danger">*compentence is required</small>
+
+                           <div class="form-group pt-3">
+                          
+                   <input type="hidden"  formControlName="role" value="client" >
+                        </div> 
+                        
+
+                           <div class="form-group pt-3">
+                            <div class="input-field" [class.error]="psignUpFrom.controls['password'].dirty &&  psignUpFrom.hasError('required','password')">
+                             <span class="fa fa-lock p-2"> </span>
+                             <input formControlName="password" [type]="type" placeholder="mot de passe">
+                             <span (click) ="hideShowPass()" class=" fa {{eyeIcon}}"></span>
+                           </div>
+                         </div>
+                         <small *ngIf="psignUpFrom.controls['password'].dirty &&  psignUpFrom.hasError('required','password') " class="text-danger">*password is required</small>
+                        
+                         <div class="form-group pt-3">
+                          <div class="input-field" [class.error]="psignUpFrom.controls['confirmpassword'].dirty &&  psignUpFrom.hasError('required','confirmpassword')">
+                           <span class="fa fa-lock p-2"> </span>
+                           <input formControlName="confirmpassword" [type]="type" placeholder="confirmez mot de passe ">
+                           <span (click) ="hideShowPass()" class=" fa {{eyeIcon}}"></span>
+                         </div>
+                       </div>
+                       <small *ngIf="psignUpFrom.controls['confirmpassword'].dirty &&  psignUpFrom.hasError('required','confirmpassword') " class="text-danger">*password is required</small>
+                      
+                      
+                           <button type="submit" class="btn btn-primary btn-block mt-4 w-100" (click)="onSignup()">  S'inscrire</button>
+                     <div class="text-center pt-4 text-muted">Vous avez déjà un compte ?<a id="forget" routerLink="/login"> Connexion</a></div>                     
+                  </form>
+            </div>
+            </div>
+          </div>
+         </div>
+      </div>
+  </div>
+
+

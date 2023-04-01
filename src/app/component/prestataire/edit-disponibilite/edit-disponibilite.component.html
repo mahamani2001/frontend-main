@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <app-navbar></app-navbar>
+  <div class="f">
+    <form [formGroup]="disponibiliteForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="actif">Actif:</label>
+        <input type="checkbox" formControlName="actif">
+      </div>
+      <div class="form-group">
+        <label for="heure">Heure:</label>
+        <input type="text" formControlName="heure">
+      </div>
+      <div class="form-group">
+        <label for="jour">Jour:</label>
+        <select formControlName="jour">
+          <option value="lundi">Lundi</option>
+          <option value="mardi">Mardi</option>
+          <option value="mercredi">Mercredi</option>
+          <option value="jeudi">Jeudi</option>
+          <option value="vendredi">Vendredi</option>
+          <option value="samedi">Samedi</option>
+          <option value="dimanche">Dimanche</option>
+        </select>
+      </div>
+      <button type="submit" [disabled]="disponibiliteForm.invalid" class="btn btn-primary">Update Disponibilite</button>
+    </form>
+  </div>
+
+
+</body>
+</html>

@@ -1,0 +1,137 @@
+
+    
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	 <!-- Site Icon -->
+     	<link rel="shortcut Icon" type="image/png" href="img/favicon.png">
+
+	  <!-- Font Awesome Icons -->
+	  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	  <!-- Google Fonts -->
+	  <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+      <title>Document</title>
+  </head>
+ <body>
+	<app-nav></app-nav>
+	<section class="page-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 blog-form">
+					<h2 class="blog-sidebar-title">Rechercher votre prestataire</h2>
+					<hr />
+					<p class="blog-sidebar-text">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Search" aria-label="Receipient's username" aria-describely="basic-addon2">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2"><i class="fa fa-search"></i></span>
+                            </div>
+                            
+                        </div>
+					<h2 class="blog-sidebar-title">Localistion</h2>
+					<input type="checkbox" name="localisation">
+					<hr/>      
+					<label for="notation" class="blog-sidebar-title"> le plus recommandée<input class="blog-sidebar-title" name="notation" type="radio"></label> 
+				<hr/>
+			
+			
+					<label for="price" class="blog-sidebar-title"> prix<input class="blog-sidebar-title" name="prix" type="radio"></label> 
+					
+					<hr/>
+				
+					<button type="button" class="btn btn-dark btn-lg">Filter</button>
+
+					<hr />
+
+					<div>&nbsp;</div>
+					<div>&nbsp;</div>
+					
+
+
+				</div>
+				<!--END  <div class="col-lg-3 blog-form">-->
+
+				<div class="col-lg-9" style="padding-left: 30px;">
+					<div class="row">
+						<div class="col">
+							
+						</div>
+
+						<div class="col">
+							<select class="form-control">
+								<option value="">Tri par défaut</option>
+								<option value="popularity">par popularité</option>
+						
+							</select>
+						</div>
+
+					</div>
+					<!-- Sorting by <div class="row"> -->
+					<div>&nbsp;</div>
+					<div>&nbsp;</div>
+                 <!--card prestataire start-->
+					<div class="row">
+						<div class="col-sm-3 col-md-6 col-lg-4">
+							<div class="card">
+								<div class="card-body text-center">
+									<img src="./assets/images/ava-3.jpg" class="prestataire-image">
+									<h5 class="card-title"><b>Amine</b></h5>
+									<div class="status"><i class=" fa fa-solid fa-globe"></i><b>online</b></div>
+									  <div><i class="fa fa-star" aria-hidden="true"></i><b class="tags"> 4.5</b></div>                   
+									<p class="card-text small">Bonjour, Je suis sérieux et ponctuel. Je peux ramasser des feuilles,tondre le gazon,arroser le jardin, jardiner et ramasser les déchets vert</p>
+								
+									<a routerLink="/besoin" class="btn btn-success button-text"> Demander un service à Amine</a>
+									<a href="" >voir Profil</a>
+								    
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+                 <!--card prestataire end-->
+
+				<!--END  <div class="col-lg-9">-->
+
+			</div>
+		</div>
+	</section>
+
+
+	<div>&nbsp;</div>
+	<div>&nbsp;</div>
+	<div>&nbsp;</div>
+
+
+ </body>
+</html>
+
+<!--
+    <section>
+        <div class="container">
+            <div class="our__team-wrapper"> 
+                <div class="team__list">
+                  <div class="single__team">
+                     <div class="single__team-img">  
+                        <img src="./assets/images/ava-1.jpg" alt="">
+                    </div>
+                    <div class="single__team-content">
+                        <h2>Amine</h2>
+                        <h4>Jardiner </h4>
+                        <h5>status:online </h5>
+                         <p>je suis jardinier/paysagiste de métier avec 8 ans d'expérience .
+                             je dispose d'un bepa en travaux paysagers et d'une formation en protection de la nature.</p>
+                        <button class="btn">Demander un service à Amine</button>
+                       
+                        <a href="/profil_prestataire" >voir profil</a>
+                    </div>
+                 </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+-->

@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <app-navbar></app-navbar>
+   <div class="f">
+    <form [formGroup]="jobForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="category">Category:</label>
+        <select class="form-control" id="category" formControlName="categoryId">
+          <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+        </select>
+      </div> 
+    
+      <div class="form-group">
+        <label for="title">Service Title:</label>
+        <input type="text" class="form-control" id="title" formControlName="title">
+      </div>
+    
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea class="form-control" id="description" formControlName="description"></textarea>
+      </div>
+    
+      <div class="form-group">
+        <label for="price_min">Price (minimum):</label>
+        <div class="input-group">
+          <input type="number" class="form-control" id="price_min" formControlName="price_min">
+          <div class="input-group-append">
+            <span class="input-group-text">Dinar</span>
+          </div>
+        </div>
+      </div> 
+    
+      <div class="form-group">
+        <label for="price_max">Price (maximum):</label>
+        <div class="input-group">
+          <input type="number" class="form-control" id="price_max" formControlName="price_max">
+          <div class="input-group-append">
+            <span class="input-group-text">Dinar</span>
+          </div>
+        </div>
+      </div> 
+    
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+   </div>
+      
+</body>
+</html>
+

@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.min.css" rel="stylesheet">
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <title>Document</title>
+</head>
+<body>
+    <app-nav></app-nav>
+    
+<!-- Add FormsModule to your module imports for two-way data binding to work -->
+<form [formGroup]="requestForm" (ngSubmit)="onSubmit()">
+  <div class="container">
+      <div class="mb-3">
+          <label for="categorie" class="form-label">Catégorie</label>
+          <select class="form-select" id="categorie" formControlName="categorie">
+              <option value="">Sélectionner une catégorie</option>
+              <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+          </select>
+      </div>
+      <div class="mb-3">
+          <label for="service" class="form-label">Titre Service</label>
+          <input type="text" class="form-control" id="service" formControlName="service">
+      </div>
+      <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea class="form-control" id="description" formControlName="description" rows="3"></textarea>
+      </div>
+      <h5>Quel jour convient le mieux</h5>
+      <div class="mb-3">
+          <label for="startDate" class="form-label">Date de début</label>
+          <input type="date" class="form-control" id="startDate" formControlName="startDate">
+      </div>
+      <div class="mb-3">
+          <label for="endDate" class="form-label">Date de fin</label>
+          <input type="date" class="form-control" id="endDate" formControlName="endDate">
+      </div>
+      <div class="mb-3">
+          <label for="time">Time:</label>
+          <input type="time" class="form-control" id="time" formControlName="time">
+      </div>
+      <div class="mb-3">
+          <label for="location" class="form-label">Quelle est votre adresse</label>
+          <input type="text" class="form-control" id="location" formControlName="location">
+      </div>
+      <button type="submit" class="btn btn-primary">Envoyer</button>
+  </div>
+</form>
+
+           
+</body>
+</html>

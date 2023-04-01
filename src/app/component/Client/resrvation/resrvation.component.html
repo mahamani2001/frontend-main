@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <app-nav></app-nav>
+
+    <div class="container mt-5">
+      <h1>Information de réservation</h1>
+      <form>
+        <div class="form-group">
+          <label for="nom">Nom*:</label>
+          <input type="text" class="form-control" id="nom" placeholder="Entrez votre nom" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email*:</label>
+          <input type="email" class="form-control" id="email" placeholder="Entrez votre email" required>
+        </div>
+        <div class="form-group">
+          <label for="telephone">Numéro de téléphone*:</label>
+          <input type="tel" class="form-control" id="telephone" placeholder="Entrez votre numéro de téléphone" required>
+        </div>
+        <div class="form-group">
+          <label for="code_postal ">Code postal*:</label>
+          <input type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="adresse">Adresse*:</label>
+            <input type="text" class="form-control" id="adresse" placeholder="Entrez votre adresse" required>
+          </div>
+          <div class="form-group">
+            <label for="note">Note*:</label>
+            <textarea class="form-control" id="note" rows="3" placeholder="Entrez une note"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" routerLink="/abilty">Suivante</button>
+        </form>
+        </div>
+
+</body>
+</html>

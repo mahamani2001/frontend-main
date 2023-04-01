@@ -1,0 +1,18 @@
+body{
+    background-color: beige;
+}
+
+.contaienr{
+    margin: 100px;
+    margin-left: 400px;
+    width: 100px;
+}
+.description{
+ width:100px;
+ height:50px;
+
+}
+.note{
+    margin: 100px;
+    margin-left: 100px; 
+}

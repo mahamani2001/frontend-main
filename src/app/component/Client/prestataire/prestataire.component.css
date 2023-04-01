@@ -1,0 +1,199 @@
+/*
+.container{
+    position: relative;
+    margin: left;
+}
+
+.single__team-img{
+    width: 70px;
+    height: 70px;
+    margin:auto;
+    text-align: left;
+    margin-bottom: 30px;
+    
+ 
+}
+.single__team-img img{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.single__team{
+    width: 400px;
+    padding: 20px;
+    background:#e0abc6 ;
+    opacity: 80%;
+    text-align: left;
+    border-radius: 5px;
+}
+.social__icons{
+    margin-top: 30px;
+    
+}
+.header{
+    width:100%;
+    height: 80px;
+    line-height: 80px;
+ 
+  }
+  .container{
+    width: 1140px;
+    margin:auto;
+  
+  
+  }
+  .header__wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+  }
+  .nav__list{
+    list-style:none;
+    display: flex;
+    align-items: center;
+    column-gap: 2rem;
+    
+  }
+  .navigation{
+    display: fex;
+    align-items:center;
+    column-gap: 2rem;
+  }
+  .logo h1{
+   color: #000000;
+  
+  
+  }
+  .nav__list .nav__item a{
+    color:#000000;
+    text-decoration: none;
+    font-size:1.5rem;
+  }
+  .btn{
+    
+  border: none;
+  padding: 10px 30px;
+  background:#b500fc;
+  color:#ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+  }*/
+
+
+.blog-sidebar-title{
+	color: #242424;
+	font-family: 'Kanit',sans-serif;
+	font-size: 18px;
+	font-weight: 900;
+
+}
+
+.blog-sidebar-list{
+	color: #242424;
+	font-family: 'Kanit',sans-serif;
+	font-size: 16px;
+	font-weight: 900;
+}
+
+.blog-sidebar-text{
+	color: #242424;
+	font-family: 'Kanit',sans-serif;
+	font-size: 16px;
+	font-weight: 200;
+}
+
+.blog-form{
+	background-color: #F4F4F4; 
+	padding: 50px;
+	height: 1000px;
+}
+
+.list-icon{
+
+	color: #c0aa83;
+
+}
+
+
+.tags{
+	color: #000000;
+	font-size: 20px;
+
+}
+
+.fa-star{
+  color: #fffb00;
+}
+
+
+.product-sidebar-list{
+	color: #242424;
+}
+
+.product-sidebar-list:hover{
+	color: #c0aa83;
+}
+.card{
+  width: 3000;
+  height: 500;
+  border-radius: 25%;
+
+}
+.card-title{
+	color: #000000;
+	font-family: 'Kanit',sans-serif;
+	font-size: 25px;
+	font-weight: 900;
+}
+
+.card-text{
+	font-family: 'Kanit',sans-serif;
+	font-size: 13px;
+}
+
+.price-tag{
+	color: #c0aa83;
+	font-family: 'Kanit',sans-serif;
+	font-size: 25px;
+	font-weight: 900;
+}
+
+.button-text{
+	font-family: 'Kanit',sans-serif;
+	font-size: 14px;
+	font-weight: 900;
+  color:black;
+}
+
+.prestataire-image{
+	width: 200px;
+	height: 200px;
+  border-radius: 25%;
+}
+.toggle{
+  position:absolute;
+
+}
+.btn {
+ width: 200px;
+ 
+ 
+}
+.btn .btn-success{
+   width:20px;
+   height: 10px;
+}
+a {
+  color: #000000;
+}
+.local{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width:80px;
+  height: 40px;
+  appearance: none
+}
