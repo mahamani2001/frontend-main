@@ -25,7 +25,22 @@ export class RequestJobService {
   getRequestJobs(): Observable<Request[]> {
     return this.http.get<Request[]>(`${this.apiUrl}/job-requests`);
   }
+  postRequestsToProvider(provider_id: number, user_id: number): Observable<any> {
+    const url = 'http://localhost:8000/api/post-requests-to-provider';
+    const body = { provider_id: provider_id, user_id: user_id };
+    return this.http.post(url, body);
+  }
+  providerRequestsUrl='http://localhost:8000/api/providerRequest';
+  getProviderRequests(): Observable<Request[]> {
+    return this.http.get<Request[]>(this.providerRequestsUrl);
+  }
+  getJobRequest(): Observable<Request[]> {
+    return this.http.get<Request[]>(`${this.apiUrl}/job-request`);
+  }
 
-
+  respondToJobRequest(id: number, response: string, prix?: number): Observable<any> {
+    const data = { response: response, prix: prix } as { response: string, prix?: number };
+    return this.http.post(`${this.apiUrl}/requests/${id}/offers`, data);
+  }
 }
 

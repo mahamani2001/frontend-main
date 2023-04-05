@@ -16,7 +16,8 @@
     <div class="row mb-3">
       <div class="col-md-6">
       
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#disponibiliteModal">Add Disponibilite</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#disponibiliteModal" routerLink="/app-add-disponibilite">Add Disponibilite</button>
+    
 
       </div>
     </div>
@@ -51,48 +52,7 @@
     </table>
   </div>
  </div>
-<!-- Modal -->
-<div class="modal fade" id="disponibiliteModal" tabindex="-1" aria-labelledby="disponibiliteModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="disponibiliteModalLabel">Add Disponibilite</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="disponibiliteForm" (ngSubmit)="onSubmit()">
-          <div class="mb-3">
-            <label for="actif" class="form-label">Actif:</label>
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" formControlName="actif" id="actif">
-              <label class="form-check-label" for="actif">Active</label>
-            </div>
-          </div>
-          <div class="mb-3">
-            <label for="heure" class="form-label">Heure:</label>
-            <input type="text" class="form-control" formControlName="heure" id="heure">
-          </div>
-          <div class="mb-3">
-            <label for="jour" class="form-label">Jour:</label>
-            <select class="form-select" formControlName="jour" id="jour">
-              <option value="lundi">Lundi</option>
-              <option value="mardi">Mardi</option>
-              <option value="mercredi">Mercredi</option>
-              <option value="jeudi">Jeudi</option>
-              <option value="vendredi">Vendredi</option>
-              <option value="samedi">Samedi</option>
-              <option value="dimanche">Dimanche</option>
-            </select>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" [disabled]="disponibiliteForm.invalid" class="btn btn-primary">Add Disponibilite</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
+
 
   
 </body>

@@ -54,19 +54,7 @@ export class WorkScheduleComponent implements OnInit {
         },
       );
   }
-
-  /*removeAllDisponibilites(): void {
-    this.disponibiliteService.deleteAll()
-      .subscribe(
-        response => {
-          this.refreshList();
-        },
-        error => {
-          this.errorMessage = error.message;
-        });
-  }*/
   disponibiliteForm!: FormGroup;
-
   onSubmit() {
     // Handle form submission here
   }

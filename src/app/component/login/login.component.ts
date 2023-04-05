@@ -40,7 +40,9 @@ submitlogin(){
           if(this.data.success==true){
             let role = this.data.role;
             console.log(role);
+            localStorage.setItem('access_token', this.data.access_token);
             if(role=="client"){
+          
               this.router.navigate(['/dashboardClient']);
               // redirecte to client dashboard
             } else if(role =="admin"){
@@ -48,7 +50,7 @@ submitlogin(){
               // redirecte to admin dashboard
             }
             else if(role=="prestataire"){
-              this.router.navigate(['/dashboardprestataire']);
+              this.router.navigate(['/post']);
                 // redirecte to prestataire dashboard
             }
           }

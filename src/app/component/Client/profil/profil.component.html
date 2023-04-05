@@ -9,7 +9,8 @@
 <body>
     
     <app-sidebar></app-sidebar>
-
+    <h1>Welcome, !</h1>
+      
     <div class="outer">
         <div class="container">
             <div class="row">
@@ -21,52 +22,43 @@
                     </h3>
                   </div>
                   <div class="panel-body p-3" >
-                        <form >
-    
-                                <div class="form-group pt-3">
-                                    <div class="input-field">
-                                        <input type="text" placeholder="Prénom">
-                                    </div>
-                                </div>
-                                <div class="form-group pt-3">
-                                    <div class="input-field" >
-                                        <input type="text" placeholder="nom">
-                                    </div>
-                                </div>
-                                <div class="form-group pt-3">
-                                    <div class="input-field">
-                                        <input type="text" placeholder="Email"  >
-                                    </div>
-                                </div>
-                            
-                                <div class="form-group pt-3">
-                                    <div class="input-field" >
-                                        <input type="text"
-                                      
-                                         placeholder="phone">
-                                    </div>
-                                </div>
-                            
-                                <div class="form-group pt-3">
-                                    <div class="input-field"  >
-                                        <input type="text"
-                                      
-                                         placeholder="adresse">
-                                    </div>
-                                </div>
-                               
-                        
-                               
-    
-                                <div class="form-group pt-3">
-                                    <div class="input-field" >
-                                     <span class="fa fa-lock p-2"> </span>
-                                     <input [type]="type" placeholder="mot de passe">
-                                     <span (click) ="hideShowPass()" class=" fa {{eyeIcon}}"></span>
-                                   </div>
-                                 </div>
-                                    <button class="btn btn-dark btn -sm mt-4">Mettre à jour</button>         
-                        </form>
+                    <form #myForm="ngForm">
+                        <div class="form-group pt-3">
+                            <div class="input-field">
+                                <input type="text" name="prenom" [(ngModel)]="user.firstname" placeholder="Prénom">
+                            </div>
+                        </div>
+                        <div class="form-group pt-3">
+                            <div class="input-field">
+                                <input type="text" name="nom" [(ngModel)]="user.lastname" placeholder="nom">
+                            </div>
+                        </div>
+                        <div class="form-group pt-3">
+                            <div class="input-field">
+                                <input type="text" name="email" [(ngModel)]="user.email" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group pt-3">
+                            <div class="input-field">
+                                <input type="text" name="phone" [(ngModel)]="user.phone" placeholder="phone">
+                            </div>
+                        </div>
+                        <div class="form-group pt-3">
+                            <div class="input-field">
+                                <input type="text" name="adresse" [(ngModel)]="user.address" placeholder="adresse">
+                            </div>
+                        </div>
+                        <div class="form-group pt-3">
+                            <div class="input-field">
+                                <span class="fa fa-lock p-2"></span>
+                                <input [type]="type" name="password" [(ngModel)]="user.password" placeholder="mot de passe">
+                                <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+                            </div>
+                        </div>
+                        <button class="btn btn-dark btn -sm mt-4" (click)="updateProfile()">Mettre à jour</button>
+                    </form>
+                    
+               
                   </div>
                   </div>
                 </div>

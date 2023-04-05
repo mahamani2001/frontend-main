@@ -26,10 +26,13 @@ export class BesoinComponent implements OnInit {
     services:string ='';
     apiUrl = 'http://localhost:8000/api';
   
-    requestForm!: FormGroup; // Define the requestForm property
+    requestForm!: FormGroup ; // Define the requestForm property
   
   
-    constructor(private http: HttpClient,private category:CategoryService,private data:DataService,private fb:FormBuilder,private request:RequestJobService ){}
+    constructor(private http: HttpClient,private category:CategoryService,private data:DataService,private fb:FormBuilder,private request:RequestJobService )
+    {
+      
+    }
     ngOnInit(): void {
       this.category.getCategories().subscribe((data: any[]) => {
         this.categories= data;
@@ -46,18 +49,13 @@ export class BesoinComponent implements OnInit {
    
       
     }
-  
     onSubmit() {
-      const formValue = this.requestForm.value;
-      this.request.createRequestJob(formValue).subscribe(
-        (response) => {
-          console.log('hi');
+      const provider_id = 1;
+      const user_id = 2;
+      const formData = this.requestForm.value;
+      this.http.post(`${this.apiUrl}/requests-to-provider`, { provider_id, user_id, ...formData })
+        .subscribe(response => {
           console.log(response);
-          alert('Form submitted successfully');
-          // Reset the form to its initial state
-          this.requestForm.reset();
-        }
-      );
-    }
-    
+        });
+    }   
 }

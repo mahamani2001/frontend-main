@@ -13,7 +13,7 @@ export class EditDisponibiliteComponent {
   disponibiliteForm!: FormGroup;
   disponibiliteId: any = null; // Optional - if you want to edit an existing disponibilite
 
-  constructor(private formBuilder: FormBuilder, private workScheduleService: WorkScheduleService) { }
+  constructor(private formBuilder: FormBuilder, private workScheduleService: WorkScheduleService, private router: Router) { }
 
   ngOnInit(): void {
     this.disponibiliteForm = this.formBuilder.group({
@@ -28,6 +28,7 @@ export class EditDisponibiliteComponent {
         (response) => {
           const disponibilite = response.data;
           this.disponibiliteForm.patchValue(disponibilite);
+
         },
         (error) => {
           console.log('Error getting disponibilite data:', error);
@@ -38,15 +39,18 @@ export class EditDisponibiliteComponent {
 
   onSubmit() {
     const formData = this.disponibiliteForm.value;
-
+  
     if (this.disponibiliteId) {
       // We're editing an existing disponibilite
       this.workScheduleService.update(this.disponibiliteId, formData).subscribe(
         (response) => {
           console.log('Disponibilite updated successfully:', response);
+          alert('Disponibilite updated successfully');
+          this.router.navigate(['/availbilty']);
         },
         (error) => {
           console.log('Error updating disponibilite:', error);
+          alert('Error updating disponibilite');
         }
       );
     } else {
@@ -54,9 +58,7 @@ export class EditDisponibiliteComponent {
       this.workScheduleService.create(formData).subscribe(
         (response) => {
           console.log('Disponibilite created successfully:', response);
-        },
-        (error) => {
-          console.log('Error creating disponibilite:', error);
+          alert('Disponibilite created successfully');
         }
       );
     }

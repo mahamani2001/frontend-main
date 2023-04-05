@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" integrity="sha512-Gh8oJpd9Xy1RlYBgYkwCwNiOof1QxZnmz+q3/XoU5F6OW5ue5DzA6rBnbnAnsyHmLXv6gjklCnAXJTD3q3fTTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <h2>Job Requests</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Client Name</th>
+        <th>Category</th>
+        <th>Service Name</th>
+        <th>Location</th>
+        <th>Availability</th>
+        <th>Status</th>
+        <th>Actions</th>
+        <th>Respond</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tbody>
+        <tr *ngFor="let request of jobRequests" (click)="selectedRequest = request">
+          <td>{{request. category_id}}</td>
+          <td>{{ request.title }}</td>
+          <td>{{ request.description }}</td>
+          <td>{{ request.location }}</td>
+          <td>{{ request.start_date}} {{ request. end_date}}</td>
+          <td>{{ request.status }}</td>
+          <td><button class="btn btn-primary" (click)="selectedRequest = request">Select Request</button></td>
+        </tr>
+        <td colspan="1" *ngIf="selectedRequest">
+          <form (submit)="respondToJobRequest()">
+            <div class="row">
+              <div class="col-md-6">
+                <div>
+                  <input type="radio" name="response" value="accepte" [(ngModel)]="response" required> Accepte
+                  <input type="radio" name="response" value="reject" [(ngModel)]="response" required> Reject
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div *ngIf="response === 'accepte'">
+                  <label for="price">Price:</label>
+                  <input type="number" name="price" [(ngModel)]="prix" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+            </form>
+          </td>
+    
+      </tbody>
+      
+  </table>
+  
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js" integrity="sha512-svIbxqx6U/HF+CJmVEbKM2yvLwWLLK8nTzTjTegdi/wNjihWzt9QY4n4Jdax4+6ym1n/UG8jMr7rTwzCJpvpZg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>

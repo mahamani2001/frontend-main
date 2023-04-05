@@ -10,32 +10,20 @@
             </li>
 
             <li>
-                <a routerLink="">
+                <a routerLink="/home">
                    
                     <span class="title">Voir Site</span>
                 </a>
             </li>
 
             <li>
-                <a routerLink="/profil">
+                <a  *ngIf="isLoggedIn()" routerLink="/profile">
                     
                     <span class="title">compte</span>
                 </a>
             </li>
-          <!--
-             <li>
-                <a routerLink="">
-                    <span class="icon">
-                        <ion-icon name="people-outline"></ion-icon>
-                    </span>
-                    <span class="title">Gérer clients</span>
-                </a>
-            </li>
-     
-          --> 
-     
             <li>
-                <a routerLink="/post">
+                <a  routerLink="/post">
                    
                     <span class="title">Services</span>
                 </a>
@@ -43,7 +31,7 @@
 
 
             <li>
-                <a routerLink="/availbilty">
+                <a *ngIf="isLoggedIn()" routerLink="/availbilty">
                     
                     <span class="title">disponiblité</span>
                 </a>
@@ -52,7 +40,7 @@
         
 
             <li>
-                <a routerLink="">
+                <a routerLink="/respondTorequest">
                     
                     <span class="title">Messagerie</span>
                 </a>

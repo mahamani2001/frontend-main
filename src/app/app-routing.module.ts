@@ -23,11 +23,15 @@ import { PostComponent } from './component/prestataire/post/post.component';
 import { DemandeEmploiComponent } from './component/Client/demande-emploi/demande-emploi.component';
 import { CommandeServicesComponent } from './component/Client/commande-services/commande-services.component';
 import { ResrvationComponent } from './component/Client/resrvation/resrvation.component';
-import { AbiltyComponent } from './component/Client/abilty/abilty.component';
+import { AbiltyComponent } from './component/prestataire/abilty/abilty.component';
 import { ContactComponent } from './component/contact/contact.component';
 import { ServiceformComponent } from './component/prestataire/serviceform/serviceform.component';
 import { WorkScheduleComponent } from './component/prestataire/work-schedule/work-schedule.component';
 import { EditDisponibiliteComponent } from './component/prestataire/edit-disponibilite/edit-disponibilite.component';
+import { ProfileComponent } from './component/prestataire/profile/profile.component';
+import { AddDisponibiliteComponent } from './component/prestataire/add-disponibilite/add-disponibilite.component';
+import { RespondToJobRequestComponent } from './component/prestataire/respond-to-job-request/respond-to-job-request.component';
+
 
 
 const routes: Routes = [
@@ -66,10 +70,10 @@ const routes: Routes = [
 {path:'post',component:PostComponent},
 {path:'serviceform',component:ServiceformComponent},
 {path:'availbilty',component:WorkScheduleComponent},
-{path:'edit-disponibilite/:id',component:EditDisponibiliteComponent}
-
-
-
+{path:'edit-disponibilite/:id',component:EditDisponibiliteComponent},
+{path:'profile',component:ProfileComponent},
+{path:'app-add-disponibilite',component:AddDisponibiliteComponent},
+{path:'respondTorequest',component:RespondToJobRequestComponent}
 
 
 

@@ -13,7 +13,7 @@ import { LoginComponent } from './component/login/login.component';
 import { PrestatairesignupComponent } from './component/prestatairesignup/prestatairesignup.component';
 import { ToastrModule } from 'ngx-toastr';
 import { SignupComponent } from './component/signup/signup.component';
-import { HttpClientModule , HttpClientJsonpModule} from '@angular/common/http';
+import { HttpClientModule , HttpClientJsonpModule,HTTP_INTERCEPTORS} from '@angular/common/http';
 import { Router } from '@angular/router';
 import {CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HomeComponent } from './component/home/home.component';
@@ -39,7 +39,7 @@ import { PostComponent } from './component/prestataire/post/post.component';
 import { DemandeEmploiComponent } from './component/Client/demande-emploi/demande-emploi.component';
 import { CommandeServicesComponent } from './component/Client/commande-services/commande-services.component';
 import { ResrvationComponent } from './component/Client/resrvation/resrvation.component';
-import { AbiltyComponent } from './component/Client/abilty/abilty.component';
+import { AbiltyComponent } from './component/prestataire/abilty/abilty.component';
 import { ContactComponent } from './component/contact/contact.component';
 import { ServiceformComponent } from './component/prestataire/serviceform/serviceform.component';
 import { AgendaComponent } from './component/prestataire/agenda/agenda.component';
@@ -50,6 +50,10 @@ import { NavbarComponent } from './component/prestataire/navbar/navbar.component
 import { WorkScheduleComponent } from './component/prestataire/work-schedule/work-schedule.component';
 import { AddDisponibiliteComponent } from './component/prestataire/add-disponibilite/add-disponibilite.component';
 import { EditDisponibiliteComponent } from './component/prestataire/edit-disponibilite/edit-disponibilite.component';
+import { ProfileComponent } from './component/prestataire/profile/profile.component';
+import { RespondToJobRequestComponent } from './component/prestataire/respond-to-job-request/respond-to-job-request.component';
+import { AuthInterceptor } from './component/auth.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -89,6 +93,9 @@ import { EditDisponibiliteComponent } from './component/prestataire/edit-disponi
     WorkScheduleComponent,
     AddDisponibiliteComponent,
     EditDisponibiliteComponent,
+    ProfileComponent,
+    RespondToJobRequestComponent,
+ 
   
  
     
@@ -113,7 +120,13 @@ import { EditDisponibiliteComponent } from './component/prestataire/edit-disponi
     MatInputModule,
     
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
  
 })
