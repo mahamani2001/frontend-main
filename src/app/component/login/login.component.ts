@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup ,Validators} from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup ,Validators} from '@angular/forms';
 import { DataService } from 'src/app/service/data-service.service';
 import { Router } from '@angular/router';
 
@@ -10,55 +10,98 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit{
+
+  submitted = false;
+
   type:string   = "password";
   isText:boolean= false;
   eyeIcon:string= "fa-eye-slash";
   loginForm!:FormGroup;
   data: any;
   token:any;
+  errorMessage = '';
+  isLoginFailed = false; 
+
 constructor(private fb:FormBuilder,private dataServices:DataService  ,private router:Router ){
 
 }
 ngOnInit():void{
-this.loginForm=this.fb.group({
-  email:['',Validators.required],
-  password:['',Validators.required]
-})
+ 
+  this.loginForm = this.fb.group(
+    { 
+      email: ['', [Validators.required, Validators.email]],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(6)
+        ]
+      ], 
+    } 
+  );
+
 }
+get form(): { [key: string]: AbstractControl; }
+{
+    return this.loginForm.controls;
+}
+
+
 hideShowPass(){
-this.isText=!this.isText;
-this.isText ? this.eyeIcon="fa-eye" :this.eyeIcon="fa-eye-slash"
-this.isText ? this.type="text" :this.type="password";
+
+  this.isText=!this.isText;
+  this.isText ? this.eyeIcon="fa-eye" :this.eyeIcon="fa-eye-slash"
+  this.isText ? this.type="text" :this.type="password";
+
 }
 public error:any=[];
+
 submitlogin(){
 
+  this.submitted = true;
+  if (this.loginForm.invalid) {
+    return;
+  }
+  // in case everything fine email & pwd format are OK --> call API
+  console.log(JSON.stringify(this.loginForm.value, null, 2));
   
-     console.log(this.loginForm.value);
-     return  this.dataServices.login(this.loginForm.value).subscribe(res=>{
-          this.data=res;
-          if(this.data.success==true){
-            let role = this.data.role;
-            console.log(role);
-            localStorage.setItem('access_token', this.data.access_token);
-            if(role=="client"){
-          
-              this.router.navigate(['/dashboardClient']);
-              // redirecte to client dashboard
-            } else if(role =="admin"){
-              this.router.navigate(['/dashboard']);
-              // redirecte to admin dashboard
-            }
-            else if(role=="prestataire"){
-              this.router.navigate(['/post']);
-                // redirecte to prestataire dashboard
-            }
-          }
-         else {
-          console.log("---error");
+  return this.dataServices.login(this.loginForm.value)
+     .subscribe(
+      res=> {
+       this.loginForm.reset()
+       this.data=res;
+       if(this.data.success==true){
+         let role = this.data.role; 
+         this.isLoginFailed = false; 
+         if(role == "client"){
+           this.router.navigate(['/dashboardClient']);
+           // redirecte to client dashboard
+         } else if(role =="admin"){
+           this.router.navigate(['/dashboard']);
+           // redirecte to admin dashboard
          }
-       
-        });
-}
+         else if(role=="prestataire"){
+           this.router.navigate(['/post']);
+             // redirecte to prestataire dashboard
+         }
+       }   else {
+        this.errorMessage = this.data.msg; 
+        this.isLoginFailed = true;  
+        this.onReset();
+       //  alert("Something went wrong");
+       }
+     },
+     err => {
+      this.errorMessage = err.error.message; 
+      this.isLoginFailed = true;  
+      alert("Erreur");
+     }) 
+ 
+ 
+    }
+    onReset(): void {
+      this.submitted = false;
+      this.loginForm.reset();
+    }
 }
 

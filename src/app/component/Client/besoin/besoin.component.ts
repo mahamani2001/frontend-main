@@ -50,10 +50,11 @@ export class BesoinComponent implements OnInit {
       
     }
     onSubmit() {
-      const provider_id = 1;
-      const user_id = 2;
+      /*const provider_id = 2;
+      const user_id = 2;*/
       const formData = this.requestForm.value;
-      this.http.post(`${this.apiUrl}/requests-to-provider`, { provider_id, user_id, ...formData })
+      console.log(formData);
+      this.http.post(`${this.apiUrl}/job-requests`, formData )
         .subscribe(response => {
           console.log(response);
         });
