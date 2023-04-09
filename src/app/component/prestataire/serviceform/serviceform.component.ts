@@ -20,7 +20,7 @@ export class ServiceformComponent {
     this.categoryService.getCategories()
       .subscribe(categories => this.categories = categories);
       this.jobForm = this.formBuilder.group({
-        category: [''],
+        categoryId: [''],
         title: [''],
         description: [''],
         price_min: [''],
@@ -30,13 +30,13 @@ export class ServiceformComponent {
   }
   onSubmit() {
     const jobData: Job = {
-      categoryId: this.jobForm.value.category,
+      categoryId: this.jobForm.value.categoryId,
       title: this.jobForm.value.title,
       description: this.jobForm.value.description,
       price_min: this.jobForm.value.price_min,
       price_max: this.jobForm.value.price_max,
       id:0,
-      pictureUrl: '',
+      pictureUrl: 'https://images.app.goo.gl/VC8hwWassK9KLjvt7'
     };
   
     this.jobService.createjob(jobData).subscribe(
@@ -44,9 +44,6 @@ export class ServiceformComponent {
         console.log('Job created successfully', result);
         // reset the form after successful submission
         this.jobForm.reset();
-      },
-      (error) => {
-        console.error('Error creating job', error);
       }
     );
   }
