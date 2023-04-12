@@ -4,6 +4,7 @@ import { Category } from '../category';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Job } from '../job';
 import { DataService } from 'src/app/service/data-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-serviceform',
@@ -14,9 +15,9 @@ export class ServiceformComponent {
   categories: Category[]=[];
   jobForm!:FormGroup;
  
-  constructor(private categoryService: CategoryService, private formBuilder:FormBuilder, private jobService:DataService) {}
+  constructor(private categoryService: CategoryService, private formBuilder:FormBuilder, private jobService:DataService,private router:Router) {}
 
-  ngOnInit() {
+  ngOnInit(): void  {
     this.categoryService.getCategories()
       .subscribe(categories => this.categories = categories);
       this.jobForm = this.formBuilder.group({
@@ -44,6 +45,7 @@ export class ServiceformComponent {
         console.log('Job created successfully', result);
         // reset the form after successful submission
         this.jobForm.reset();
+        this.router.navigate(['/post']);
       }
     );
   }

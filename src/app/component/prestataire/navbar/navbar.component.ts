@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/service/auth.service';
-import { Job } from '../job';
+import { Component, OnInit } from '@angular/core'; 
 import { Router } from '@angular/router';
+import { AuthStateService } from 'src/app/shared/auth-state.service';
+import { TokenService } from 'src/app/shared/token.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,28 +11,30 @@ import { Router } from '@angular/router';
 export class NavbarComponent  implements OnInit{
 
    
+  username:string="";
+ 
 
-  constructor(private authService: AuthService,private router:Router) { 
-  
-  }
+  constructor(private authState: AuthStateService,  private token: TokenService,private router:Router){}
   ngOnInit(): void {
-   
+    this.username= this.token.getUsername();
   }
-  isLoggedIn(): boolean {
-    if (!this.authService.isLoggedIn()) {
+  logout(){
+    this.token.removeToken();
+    this.authState.setAuthState(true);
+    this.router.navigate(['/login']);
+
+  }
+  
+  /*isLoggedIn(): boolean {
+    if (!this.token.isLoggedIn()) {
       // Redirect to the login page if the user is not authenticated
       // Example using Angular Router:
       this.router.navigate(['/login']);}
       
-    return this.authService.isLoggedIn();
-  }
+    return this.token.isLoggedIn();
+  }*/
 
-  getUsername(): string {
-    return this.authService.getUsername();
-  }
 
-  logout(): void {
-    this.authService.logout();
-  }
+ 
   }
 

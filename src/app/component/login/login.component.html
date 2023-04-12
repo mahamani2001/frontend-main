@@ -19,32 +19,51 @@
                 </h3>
               </div>
               <div class="panel-body p-3" >
-                    <form [formGroup]="loginForm" (ngSubmit)="submitlogin()">
-
-                       <div class="form-group pt-3">
-                        <div class="input-field" [class.error]="loginForm.controls['email'].dirty &&  loginForm.hasError('required','email')">
-                          <span class="fa fa-user p-2"> </span>
-                            <input type="text" placeholder="Email"  formControlName="email" >
-                        </div>
+                <form   
+                    [formGroup]="loginForm" 
+                    (ngSubmit)="submitlogin()">
+                  
+                   <div class="form-group">
+                    <label>Email</label>
+                    <div class="input-field" [ngClass]="{ 'is-invalid-input': submitted && form['email'].errors }">
+                      <span class="fa fa-envelope p-2"></span>
+                      <input type="text" formControlName="email" class="form-control" placeholder="Email"  />
+                   </div> 
+                    <div *ngIf="submitted && form['email'].errors">
+                       <div *ngIf="form['email'].errors['required']" class="text-danger">Email is required</div>
+                      <div *ngIf="form['email'].errors['email']" class="text-danger">Email is invalid</div>
+                      </div>
                     </div>
-                    <small *ngIf="loginForm.controls['email'].dirty &&  loginForm.hasError('required','email') "class="text-danger" >*email is required</small>
-
-                    <div class="form-group pt-3">
-                      <div class="input-field" [class.error]="loginForm.controls['password'].dirty &&  loginForm.hasError('required','password')">
-                       <span class="fa fa-lock p-2"> </span>
-                       <input formControlName="password" [type]="type" placeholder="mot de passe">
-                       <span (click) ="hideShowPass()" class=" fa {{eyeIcon}}"></span>
+    
+                  <div class="form-group pt-3">
+                    <label>Mot de passe</label>
+                    <div class="input-field" [ngClass]="{ 'is-invalid-input': submitted && form['password'].errors }">
+                        <span class="fa fa-lock p-2"> </span>
+                        <input formControlName="password" type="password"  class="form-control"
+                              placeholder="Mot de passe" />
+                       <span (click) ="hideShowPass()" class=" fa {{eyeIcon}}"></span> 
+                    </div> 
+                    <div *ngIf="submitted && form['password'].errors" >
+                        <div *ngIf="form['password'].errors['required']" class="text-danger">Password is required</div>
+                        <div *ngIf="form['password'].errors['minlength']" class="text-danger">
+                           Password must be at least 6 characters
+                         </div> 
                      </div>
-                   </div>
-                   <small *ngIf="loginForm.controls['password'].dirty &&  loginForm.hasError('required','password')" class="text-danger">*password is required</small>
-                
-                       <div class="form-inline fr mt-4">
-                        <a id="forget" class="font-weight-blod">Mot de passe oublié?</a>
-                       </div>
+                  </div>
+                  
+                  <div class="form-inline fr mt-4">
+                    <a id="forget" class="font-weight-blod">Mot de passe oublié?</a>
+                  </div>
 
-                       <button  [disabled]="!loginForm.valid"  class="btn btn-primary btn-block mt-4 w-100"> Connexion</button>
-                       <div class="text-center pt-4 text-muted">Vous n'avez pas de compte ?<a id="forget" routerLink="/compte">S'inscrire</a></div>
-                    </form>
+                  <div class="alert alert-danger" *ngIf="isLoginFailed">
+                          Login Error: {{ errorMessage }}
+                  </div>
+
+                  <button class="btn btn-primary btn-block mt-4 w-100"> Connexion</button>
+                  <div class="text-center pt-4 text-muted">Vous n'avez pas de compte ?
+                      <a id="forget" routerLink="/compte">S'inscrire</a>
+                  </div>
+               </form>
 
               </div>
               <div class="mx-3 my-2 py-2 bordert">
@@ -57,10 +76,6 @@
            </div>
         </div>
     </div>
-</div>
-
-
-
-  
+  </div>
  </body>
- </html>
+</html>

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup ,Validators} from '@angular/forms';
 import { DataService } from 'src/app/service/data-service.service';
-import { Router } from '@angular/router';
+import { Router } from '@angular/router'; 
+import { TokenService } from 'src/app/shared/token.service';
+import { AuthStateService } from 'src/app/shared/auth-state.service'; 
+
 
 
 @Component({
@@ -18,11 +21,12 @@ export class LoginComponent implements OnInit{
   eyeIcon:string= "fa-eye-slash";
   loginForm!:FormGroup;
   data: any;
-  token:any;
   errorMessage = '';
   isLoginFailed = false; 
 
-constructor(private fb:FormBuilder,private dataServices:DataService  ,private router:Router ){
+constructor(private fb:FormBuilder,private dataServices:DataService  ,private router:Router,
+  private token: TokenService,
+  private authState: AuthStateService ){
 
 }
 ngOnInit():void{
@@ -67,24 +71,32 @@ submitlogin(){
   
   return this.dataServices.login(this.loginForm.value)
      .subscribe(
-      res=> {
+      res => {
        this.loginForm.reset()
        this.data=res;
-       if(this.data.success==true){
+       if(this.data.success==true) {
          let role = this.data.role; 
          this.isLoginFailed = false; 
+         // here we will save the token on the local storage
+         this.token.saveToken(this.data.token);
+         // we will set state 
+         this.authState.setAuthState(true);
+         
          if(role == "client"){
-           this.router.navigate(['/dashboardClient']);
+          // dashboardClient
+           this.router.navigate(['/profil']);
            // redirecte to client dashboard
          } else if(role =="admin"){
            this.router.navigate(['/dashboard']);
            // redirecte to admin dashboard
          }
          else if(role=="prestataire"){
-           this.router.navigate(['/post']);
+          console.log("---->>> go to prestatire ");
+          this.router.navigate(['/post']);
              // redirecte to prestataire dashboard
          }
-       }   else {
+       }   
+       else {
         this.errorMessage = this.data.msg; 
         this.isLoginFailed = true;  
         this.onReset();
@@ -103,5 +115,6 @@ submitlogin(){
       this.submitted = false;
       this.loginForm.reset();
     }
+  
 }
 

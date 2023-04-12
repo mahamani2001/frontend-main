@@ -1,28 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import { Profile } from '../profile';
 import { DataService } from 'src/app/service/data-service.service';
+import { TokenService } from 'src/app/shared/token.service';
 
 @Component({
   selector: 'app-profil',
   templateUrl: './profil.component.html',
   styleUrls: ['./profil.component.css']
 })
+
 export class ProfilComponent implements OnInit {
-  constructor(private userService:DataService){}
-  ngOnInit(): void {
-    this.userService.getUserProfile().subscribe(
-      user => {
-        this.user = user;
-      },
-      error => {
-        console.log(error);
-      }
-    );
-  }
   isText:boolean= false;
   eyeIcon:string= "fa-eye-slash";
   type:string   = "password";
   user: Profile = {} as Profile;
+  data: any;
+  constructor(private userService:DataService,private token: TokenService){}
+
+  ngOnInit(): void {
+  
+  this.userService.getUserProfile().subscribe(
+     res => { 
+        this.data=res;
+        this.user=this.data.data;
+        this.token.saveUserName(this.user.firstname);
+      },
+     err => {
+      
+      alert("Erreur");
+     }) 
+  }
+
+
   
   hideShowPass(){
     this.isText=!this.isText;

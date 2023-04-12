@@ -1,6 +1,6 @@
 
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Request } from '../interface/request';
 //import { AuthService } from './auth.service';
@@ -30,10 +30,6 @@ export class RequestJobService {
     const body = { provider_id: provider_id, user_id: user_id };
     return this.http.post(url, body);
   }
-  providerRequestsUrl='http://localhost:8000/api/providerRequest';
-  getProviderRequests(): Observable<Request[]> {
-    return this.http.get<Request[]>(this.providerRequestsUrl);
-  }
   getJobRequest(): Observable<Request[]> {
     return this.http.get<Request[]>(`${this.apiUrl}/job-request`);
   }
@@ -42,5 +38,11 @@ export class RequestJobService {
     const data = { response: response, prix: prix } as { response: string, prix?: number };
     return this.http.post(`${this.apiUrl}/requests/${id}/offers`, data);
   }
+  getProviderRequests(): Observable<any[]> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token});
+    return this.http.get<any[]>(`${this.apiUrl}/providerRequest`,{headers: headers});
+  }
+  
 }
 

@@ -3,57 +3,60 @@ import { DataService } from 'src/app/service/data-service.service';
 import { Job } from '../job';
 import { CategoryService } from 'src/app/service/category.service';
 import { Category } from '../category';
-import { AuthService } from 'src/app/service/auth.service';
-import { Router } from '@angular/router';
-
+ import { Router } from '@angular/router';
+ 
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit{
-  constructor(private job: DataService,private authService: AuthService,private categoryService: CategoryService,private dataService:DataService,private router:Router) { 
-    this.jobs = [];
-    this.categories=[];
-  }
-  jobs: Job[] ;
-  categories: Category[] ;
+  searchTitle: string = '';
+
+  categories: Category[]=[];
   selectedCategoryId: number | undefined;
   editingJob: Job | undefined;
   data:any;
-  ngOnInit(): void {
-    this.loadJobsAndCategories();
+  filteredJobs: Job[] = []; // initialize with empty array
   
+  constructor(private job: DataService,private dataService: DataService,private categoryService: CategoryService,private router:Router) { 
+    this.filteredJobs = [];
+    this.categories=[];
+    
   }
-
+  ngOnInit(): void {
+    console.log("----->>> on post compenent ");
+    this.loadJobsAndCategories();
+   
+  }
   isLoggedIn(): boolean {
-    if (!this.authService.isLoggedIn()) {
+    if (!this.dataService.isLoggedIn()) {
       // Redirect to the login page if the user is not authenticated
       // Example using Angular Router:
-      this.router.navigate(['/login']);}
+      this.router.navigate(['/login']);
+    }
       
-    return this.authService.isLoggedIn();
+    return this.dataService.isLoggedIn();
   }
-
-  getUsername(): string {
-     let $user =this.authService.getUsername();
-     return $user;
-  }
-
-  logout(): void {
-    this.authService.logout();
-  }
-
   loadJobsAndCategories() {
+    // Load all jobs
     this.job.getAlljobs().subscribe(jobs => {
-      this.jobs = jobs;
+      this.filteredJobs = jobs;
+      // Apply title filter if searchTitle is not empty
+      if (this.searchTitle) {
+        this.filterJobsByTitle(this.searchTitle);
+      }
     });
 
+    // Load categories
     this.categoryService.getCategories().subscribe(categories => {
       this.categories = categories;
     });
   }
-
+// Function to filter jobs by title
+filterJobsByTitle(title: string) {
+  this.filteredJobs = this.filteredJobs.filter(filteredJobs => filteredJobs.title.toLowerCase().includes(title.toLowerCase()));
+}
   onChangeCategory(categoryId: number) {
     this.selectedCategoryId = categoryId;
     // Perform action using selected category ID
@@ -101,6 +104,17 @@ export class PostComponent implements OnInit{
     console.log('Canceling edit');
     this.editingJob = undefined;
   }
+   
+  
+  searchText: string = "";
+  onSearchTextEntered(searchValue: string) {
+    this.searchText = searchValue;
+    console.log(this.searchText);}
+  
+
+
+
+
   
   }
 

@@ -38,11 +38,11 @@ export class BesoinComponent implements OnInit {
         this.categories= data;
       });
       this.requestForm = this.fb.group({
-        categorie: ['', Validators.required], // Add validation if needed
-        service: ['', Validators.required],
+        categoryId: [''], // Add validation if needed
+        title: [''],
         description: ['', Validators.required],
-        startDate: ['', Validators.required],
-        endDate: ['', Validators.required],
+        start_date: ['', Validators.required],
+        end_date: ['', Validators.required],
         time: ['', Validators.required],
         location: ['', Validators.required]
       }); 
@@ -58,5 +58,9 @@ export class BesoinComponent implements OnInit {
         .subscribe(response => {
           console.log(response);
         });
-    }   
+    } 
+    
+      
+    
+  
 }

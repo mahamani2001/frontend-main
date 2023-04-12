@@ -1,38 +1,47 @@
 <!-- =============== Navigation ================ -->
 <div class="container">
+    
     <div class="navigation">
         <ul>
             <li>
-                <a routerLink="">
+                <a >
                    
-                    <span class="title">Brand Name</span>
+                    <span class="title"> Bienvenue :{{username}}</span>
                 </a>
             </li>
-
+               
             <li>
                 <a routerLink="/home">
-                   
+                    <span class="icon">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                    </span>
                     <span class="title">Voir Site</span>
                 </a>
             </li>
 
             <li>
-                <a  *ngIf="isLoggedIn()" routerLink="/profile">
-                    
+                <a   routerLink="/profile">  
+                    <span class="icon">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                    </span>
                     <span class="title">compte</span>
                 </a>
             </li>
             <li>
                 <a  routerLink="/post">
-                   
+                    <span class="icon">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                    </span>
                     <span class="title">Services</span>
                 </a>
             </li>
 
 
             <li>
-                <a *ngIf="isLoggedIn()" routerLink="/availbilty">
-                    
+                <a routerLink="/availbilty">
+                    <span class="icon">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                    </span>
                     <span class="title">disponiblité</span>
                 </a>
             </li>
@@ -41,17 +50,22 @@
 
             <li>
                 <a routerLink="/respondTorequest">
-                    
+                    <span class="icon">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                    </span>
                     <span class="title">Messagerie</span>
                 </a>
             </li>
 
             <li>
-                <a routerLink="">
-                    
+                <a (click)="logout()">
+                    <span class="icon">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                    </span>
                     <span class="title">Déconnecter</span>
                 </a>
             </li>
+
 
           
         </ul>
@@ -62,7 +76,17 @@
 
 </div>
  
-
+<!-- Welcome message 
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <div class="jumbotron">
+        <h1 class="display-4">Bienvenue, {{username}}!</h1>
+        <p class="lead">This is your dashboard. Here, you can view your account details, access services, check your availability, and manage your messages.</p>
+        <hr class="my-4">
+        <p>Enjoy using our platform!</p>
+      </div>
+    </div>
+  </div>-->
 <!-- =========== Scripts =========  -->
 <script src="assets/js/main.js"></script>
 

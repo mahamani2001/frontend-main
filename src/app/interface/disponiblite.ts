@@ -1,6 +1,7 @@
 export interface Disponiblite {
-    id:any;
-    actif:boolean;
-    heure:string;
-    jour:string;
+    id: number;
+  actif: boolean;
+  heure_debut: string;
+  heure_fin: string | null;
+  jour: string;
 }

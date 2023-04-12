@@ -1,0 +1,90 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <!--
+      <section id="about-me" class="py-5">
+        <div class="container1">
+          <h2 class="mb-4">À propos de moi</h2>
+          <div class="row">
+            <div class="col-md-6">
+              <h3>Compétences</h3>
+              <ul>
+                <li>Compétence 1</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <h3>Expérience</h3>
+              <ul>
+                <li>Expérience 1</li>
+               
+              </ul>
+            </div>
+          </div>
+         
+        </div>
+      </section>
+  -->
+ 
+  <div *ngFor="let day of availability">
+    <h2>{{ day.name }}</h2>
+    <p>Active: {{ day.active }}</p>
+    <p>Start Time: {{ day.startTime }}</p>
+    <p>End Time: {{ day.endTime }}</p>
+  </div>
+
+ <div class="container1">
+  <div class="row">
+    <div class="col-md-4 mb-3" *ngFor="let review of reviews">
+      <div class="card">
+        <div class="card-header">{{ review.rating }}</div>
+        <div class="card-body">
+          <p class="card-text">{{ review.comment }}</p>
+          <p class="card-text"><small class="text-muted">Posted by {{ review.user.name }} on {{ review.created_at }}</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+        <div class="container">
+          <div class="post">
+            <div class="text">Thanks for rating me!</div>
+           <div class="edit">EDIT</div>
+           <script src="main.js"></script>
+          </div>
+          <div class="star-widget">
+               <input type="radio" name="rate" id="rate-5">
+                 <label for="rate-5" class="fas fa fa-star"></label>
+                 <input type="radio" name="rate" id="rate-4">
+                 <label for="rate-4" class="fas fa fa-star"></label>
+                 <input type="radio" name="rate" id="rate-3">
+                 <label for="rate-3" class="fas fa fa-star"></label>
+                 <input type="radio" name="rate" id="rate-2">
+                 <label for="rate-2" class="fas fa fa-star"></label>
+                 <input type="radio" name="rate" id="rate-1">
+                 <label for="rate-1" class="fas fa fa-star"></label>
+              <form action="#">
+                  <header></header>
+                  <div class="textarea">
+                    <textarea cols="30" placeholder="Describe your experience"></textarea>
+                  </div>
+                  <div class="btn">
+                    <button type="submit">Post</button>
+                  </div>
+              </form>
+           </div>
+         </div>    
+            
+      
+      
+     
+</body>
+</html>

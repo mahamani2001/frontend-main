@@ -52,8 +52,9 @@ import { AddDisponibiliteComponent } from './component/prestataire/add-disponibi
 import { EditDisponibiliteComponent } from './component/prestataire/edit-disponibilite/edit-disponibilite.component';
 import { ProfileComponent } from './component/prestataire/profile/profile.component';
 import { RespondToJobRequestComponent } from './component/prestataire/respond-to-job-request/respond-to-job-request.component';
-import { AuthInterceptor } from './component/auth.interceptor';
-
+import { AuthInterceptor } from './shared/auth.interceptor.service';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { PortfolioComponent } from './component/prestataire/portfolio/portfolio.component';
 
 @NgModule({
   declarations: [
@@ -95,7 +96,8 @@ import { AuthInterceptor } from './component/auth.interceptor';
     EditDisponibiliteComponent,
     ProfileComponent,
     RespondToJobRequestComponent,
- 
+    PortfolioComponent,
+  
   
  
     
@@ -118,6 +120,8 @@ import { AuthInterceptor } from './component/auth.interceptor';
     FormsModule,
     MatDatepickerModule,
     MatInputModule,
+    NgxPaginationModule
+ 
     
   ],
   providers: [

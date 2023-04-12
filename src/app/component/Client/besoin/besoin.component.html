@@ -18,14 +18,14 @@
   <div class="container">
       <div class="mb-3">
           <label for="categorie" class="form-label">Catégorie</label>
-          <select class="form-select" id="categorie" formControlName="categorie">
+          <select class="form-control" id="categorie" formControlName="categoryId">
               <option value="">Sélectionner une catégorie</option>
-              <option *ngFor="let category of categories" [value]="category.id">{{ category.id }}</option>
+              <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
           </select>
       </div>
       <div class="mb-3">
           <label for="service" class="form-label">Titre Service</label>
-          <input type="text" class="form-control"  formControlName="service">
+          <input type="text" class="form-control"  formControlName="title">
       </div>
       <div class="mb-3">
           <label for="description" class="form-label">Description</label>
@@ -34,19 +34,20 @@
       <h5>Quel jour convient le mieux</h5>
       <div class="mb-3">
           <label for="startDate" class="form-label">Date de début</label>
-          <input type="date" class="form-control" id="startDate" formControlName="startDate">
+          <input type="date" class="form-control" 
+           formControlName="start_date">
       </div>
       <div class="mb-3">
           <label for="endDate" class="form-label">Date de fin</label>
-          <input type="date" class="form-control" id="endDate" formControlName="endDate">
+          <input type="date" class="form-control"  formControlName="end_date">
       </div>
       <div class="mb-3">
           <label for="time">Time:</label>
-          <input type="time" class="form-control" id="time" formControlName="time">
+          <input type="time" class="form-control"  formControlName="time">
       </div>
       <div class="mb-3">
           <label for="location" class="form-label">Quelle est votre adresse</label>
-          <input type="text" class="form-control" id="location" formControlName="location">
+          <input type="text" class="form-control"  formControlName="location">
       </div>
       <button type="submit" class="btn btn-primary">Envoyer</button>
   </div>

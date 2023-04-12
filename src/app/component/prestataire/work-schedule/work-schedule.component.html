@@ -9,7 +9,7 @@
   <title>Disponibilites</title>
 </head>
 <body>
-  <app-navbar></app-navbar>
+  <app-navbar class="fixed-top"></app-navbar>
   <div class="f">
   <div class="container mt-4">
     <h2 class="text-center mb-4">Disponibilites</h2>
@@ -27,6 +27,8 @@
           <th scope="col">ID</th>
           <th scope="col">Actif</th>
           <th scope="col">Heure</th>
+          <th scope="col">Heure</th>
+
           <th scope="col">Jour</th>
           <th scope="col">Actions</th>
         </tr>
@@ -35,7 +37,12 @@
         <tr *ngFor="let disponibilite of disponibilites">
           <td>{{ disponibilite.id }}</td>
           <td>{{ disponibilite.actif ? 'Yes' : 'No' }}</td>
-          <td>{{ disponibilite.heure }}</td>
+          <td>{{ disponibilite.heure_debut }}
+            
+          </td>
+          <td>{{ disponibilite.heure_debut }}
+            
+          </td>
           <td>{{ disponibilite.jour }}</td>
           <td>
             <a routerLink="/edit-disponibilite/{{ disponibilite.id }}">

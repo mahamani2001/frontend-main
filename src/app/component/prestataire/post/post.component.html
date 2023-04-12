@@ -6,16 +6,17 @@
   <title>Document</title>
 </head>
 <body>
-  <app-navbar></app-navbar>
+  <app-navbar class="fixed-top"></app-navbar>
 
   <div class="container-fluid my-3">
    <div class="f">
     <div class="row mt-3">
       <div class="search">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Search for a job">
-          <button class="btn btn-outline-secondary" type="button" >Search</button>
+          <input type="text" [(ngModel)]="searchTitle" (input)="filterJobsByTitle(searchTitle)" placeholder="Search by job title...">
         </div>
+        
+        
       </div>
       <div class="button">
         <button class="btn btn-primary" routerLink="/serviceform">Ajouter un service</button>
@@ -34,7 +35,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let job of jobs">
+            <tr  *ngFor="let job of filteredJobs ">
               <td>{{ job.id }}</td>
               <td>
                 <ng-container *ngIf="editingJob === job; else showTitleInput">
@@ -47,7 +48,7 @@
                   <input type="text" [(ngModel)]="editingJob.description" class="form-control">
                 </ng-container>
                 <ng-template #showDescriptionInput>{{ job.description }}</ng-template>
-              </td>
+              </td>ss
               <td>
                 <ng-container *ngIf="editingJob === job; else showPrice">
                   <div class="input-group">

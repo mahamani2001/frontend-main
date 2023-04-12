@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Disponiblite } from 'src/app/interface/disponiblite';
 import { WorkScheduleService } from 'src/app/service/work-schedule.service';
+import { TokenService } from 'src/app/shared/token.service';
 
 @Component({
   selector: 'app-add-disponibilite',
@@ -14,29 +15,50 @@ export class AddDisponibiliteComponent {
   currentIndex = -1;
   jour = ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche'];
   errorMessage = '';
+  data: any;
+  disponibilite: Disponiblite = {} as Disponiblite;
 
-  constructor(private disponibiliteService: WorkScheduleService,private formBuilder:FormBuilder) {}
+  constructor(private disponibiliteService: WorkScheduleService,private formBuilder:FormBuilder,private token: TokenService) {}
 
   ngOnInit(): void {
     this.disponibiliteForm = this.formBuilder.group({
       actif: [false],
-      heure: ['', Validators.required],
+      heure_debut: ['', Validators.required],
+      heure_fin: ['', Validators.required],
       jour: ['', Validators.required]
     });
+    this.disponibiliteService.getAll().subscribe(
+      res => { 
+         this.data=res;
+         this.disponibilite=this.data.data;
+         this.token.saveUserName(this.disponibilite)
+       },
+      err => {       
+       alert("Erreur");
+      }) 
+  
   }
 
   disponibiliteForm!: FormGroup;
 
   onSubmit() {
-    const formData = this.disponibiliteForm.value;
-    this.disponibiliteService.create(formData).subscribe(
-      (response) => {
-        console.log('Form data saved to database:', response);
-      },
-      (error) => {
-        console.log('Error saving form data to database:', error);
-      }
-    );
+    if (this.disponibiliteForm.valid) {
+      const disponibilite = {
+        actif: this.disponibiliteForm.value.actif,
+        heure_debut: this.disponibiliteForm.value.heure_debut,
+        heure_fin: this.disponibiliteForm.value.heure_fin || null,
+        jour: this.disponibiliteForm.value.jour
+      };
+      console.log(disponibilite);
+      this.disponibiliteService.create(disponibilite).subscribe(
+        (response) => {
+          console.log('Form data saved to database:', response);
+        },
+        (error) => {
+          console.log('Error saving form data to database:', error);
+        }
+      );
+    }
   }
   
 }

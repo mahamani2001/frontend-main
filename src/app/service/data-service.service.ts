@@ -2,17 +2,22 @@ import { HttpClient ,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 import { Job } from '../component/prestataire/job';
-import { AuthService } from './auth.service';
 import { Profile } from '../component/Client/profile';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DataService {
 
-  constructor(private http:HttpClient,private authService:AuthService) { }
+export class DataService {
+  private baseUrl = 'http://localhost:8000/api';
+  private token!: string | null;
+  private username!: string | null;
+
+
+  constructor(private http:HttpClient) { }
+  
   getData(): Observable<any> {
-    const token = this.authService.getToken();
+    const token = this.getToken();
     
     return this.http.get(`${this.baseUrl}/data`, {
       headers: {
@@ -20,19 +25,41 @@ export class DataService {
       }
     });
   }
- 
-  register(data:any){
-//const headers = new HttpHeaders({ 'content-type': 'application/json','Access-Control-Allow-Headers':'content-type' });
-//{ headers: headers }
-   return this.http.post( 'http://127.0.0.1:8000/api/register',data);
+  login(credentials: {email: string, password: string}): Observable<any> {
+    return this.http.post(`${this.baseUrl}/login`, credentials);
+  }
+  register(data:any){ 
+       return this.http.post( 'http://127.0.0.1:8000/api/register',data);
+    
+  }
+  registerprestataire(data:any){
+    return this.http.post( 'http://127.0.0.1:8000/api/prestataires',data);
+    
+  }
+  
+  logout(): void {
+    this.token = null;
+    this.username = null;
+    localStorage.removeItem('token');
+    localStorage.removeItem('username');
+  }
 
-}
-login(data:any){
-  return this.http.post( 'http://127.0.0.1:8000/api/login',data);
-}
+  getToken(): string {
+    return this.token ?? localStorage.getItem('token') ?? '';
+    
+  }
+  
+  getUsername(): string {
+    return this.username ??localStorage.getItem('firstname')??'';
+  }
+
+  isLoggedIn(): boolean {
+    return !!this.getToken();
+  }
+
 //
 
-private baseUrl = 'http://127.0.0.1:8000/api';
+
 getAlljobs(): Observable<Job[]> {
   return this.http.get<Job[]>(`${this.baseUrl}/job`);
 }
@@ -53,8 +80,6 @@ deletejob(id: number): Observable<any> {
   return this.http.delete(`${this.baseUrl}/job/${id}`);
 }
 //
-
-
 
 respondToJobRequest(id: number, response: string, prix: number): Observable<any> {
   const url = `http://localhost:8000/api/requests/${id}/offers`;

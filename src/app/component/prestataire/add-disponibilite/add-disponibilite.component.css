@@ -1,5 +1,16 @@
 
-    .f{
+    .container{
         margin-left: 300px;
         padding: 100px;
     }
+/* Custom CSS */
+.form-group {
+    margin-bottom: 1rem;
+  }
+  label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  input[type="checkbox"] {
+    margin-right: 0.5rem;
+  }

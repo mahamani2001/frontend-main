@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { DataService } from 'src/app/service/data-service.service';
+import { TokenService } from 'src/app/shared/token.service';
+import { Profile } from '../../Client/profile';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-profile',
@@ -6,16 +11,51 @@ import { Component } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
-  ngOnInit(): void {
-   
-  }
   isText:boolean= false;
   eyeIcon:string= "fa-eye-slash";
   type:string   = "password";
-  
+  user: Profile = {} as Profile;
+  data: any;
+  showUpdateSuccessModal = false;
+  showMessage = false;
+  messageContent!: string;
+  @Input() visible: boolean=false;
+
+  constructor(private userService:DataService,private token: TokenService){}
+
+  ngOnInit(): void {
+    this.userService.getUserProfile().subscribe(
+      res => { 
+         this.data=res;
+         this.user=this.data.data;
+         this.token.saveUserName(this.user.firstname)
+       },
+      err => {       
+       alert("Erreur");
+      }) 
+  }
+ 
   hideShowPass(){
     this.isText=!this.isText;
     this.isText ? this.eyeIcon="fa-eye" :this.eyeIcon="fa-eye-slash"
     this.isText ? this.type="text" :this.type="password";
-    }
+  }
+
+  updateProfile(): void {
+    this.userService.updateProfile(this.user).subscribe(
+      user => {
+        this.user = user;
+        console.log('Profile updated successfully');
+        this.showMessage = true;
+        // hide message after 1.5 seconds
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Profile updated successfully',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }
+    );
+  }    
 }

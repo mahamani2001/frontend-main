@@ -31,6 +31,7 @@ import { EditDisponibiliteComponent } from './component/prestataire/edit-disponi
 import { ProfileComponent } from './component/prestataire/profile/profile.component';
 import { AddDisponibiliteComponent } from './component/prestataire/add-disponibilite/add-disponibilite.component';
 import { RespondToJobRequestComponent } from './component/prestataire/respond-to-job-request/respond-to-job-request.component';
+import { PortfolioComponent } from './component/prestataire/portfolio/portfolio.component';
 
 
 
@@ -73,9 +74,8 @@ const routes: Routes = [
 {path:'edit-disponibilite/:id',component:EditDisponibiliteComponent},
 {path:'profile',component:ProfileComponent},
 {path:'app-add-disponibilite',component:AddDisponibiliteComponent},
-{path:'respondTorequest',component:RespondToJobRequestComponent}
-
-
+{path:'respondTorequest',component:RespondToJobRequestComponent},
+{path:'portfolio',component:PortfolioComponent}
 
  
 

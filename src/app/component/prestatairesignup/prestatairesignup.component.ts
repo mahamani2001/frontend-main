@@ -21,13 +21,18 @@ export class PrestatairesignupComponent {
     this.psignUpFrom=this.fb.group({
       firstname:['',Validators.required],
       lastname:['',Validators.required],
-      email:['',Validators.required],
-      password:['',Validators.required],
-      numeroCIN:['',Validators.required],
-      competence:['',Validators.required],
-      role:['prestataire']
+      email: ['', Validators.required],
+      address:['',Validators.required],
+      phone: ['', Validators.required],
+      numeroCIN: ['', Validators.required],
+      competence: ['', Validators.required],
+      role: ['prestataire'],
+      password: ['', Validators.required],
+      confirmpassword: ['', Validators.required]
 
     })
+   
+  
   }
   hideShowPass(){
     this.isText=!this.isText;
@@ -37,7 +42,7 @@ export class PrestatairesignupComponent {
     
     onSignup(){
       if(this.psignUpFrom.valid){
-            this.dataServices.register(this.psignUpFrom.value).subscribe(res=>{
+            this.dataServices.registerprestataire(this.psignUpFrom.value).subscribe(res=>{
               this.data=res;
               console.log(res);
            
