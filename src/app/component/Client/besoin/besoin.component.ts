@@ -5,6 +5,7 @@ import { CategoryService } from 'src/app/service/category.service';
 import { DataService } from 'src/app/service/data-service.service';
 import { RequestJobService } from 'src/app/service/requestjob.service';
 import { Category } from '../../prestataire/category';
+import { Router } from '@angular/router';
 
 
 
@@ -29,7 +30,7 @@ export class BesoinComponent implements OnInit {
     requestForm!: FormGroup ; // Define the requestForm property
   
   
-    constructor(private http: HttpClient,private category:CategoryService,private data:DataService,private fb:FormBuilder,private request:RequestJobService )
+    constructor(private http: HttpClient,private category:CategoryService,private data:DataService,private fb:FormBuilder,private request:RequestJobService ,private router:Router )
     {
       
     }
@@ -57,6 +58,7 @@ export class BesoinComponent implements OnInit {
       this.http.post(`${this.apiUrl}/post-to-jobber`, formData )
         .subscribe(response => {
           console.log(response);
+          this.router.navigate(['/portfolio']);
         });
     } 
     

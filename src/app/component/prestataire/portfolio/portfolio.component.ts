@@ -20,38 +20,23 @@ data!:any;
   constructor(private http: HttpClient,private reviewService:ReviewServiceService,private token: TokenService,private avaibility:WorkScheduleService,private prestataire:PrestataireService) { }
 
   ngOnInit(): void {
-   /*   this.http.get(`http://127.0.0.1:8000/api/disponibilite`, {
-      headers: {
-        Authorization: `Bearer ${this.token.getToken()}`
-      }
-      
-    }).subscribe(data => {
-      console.log(data);
-      this.availability=this.availability;
-    });
-      */
-
 
       this.avaibility.getUserAvailability()
         .subscribe(data => {
           this.availability = data.disponibilites;
           console.log(this.availability);
         });
-    
-   /* this.http.get<any[]>(`http://127.0.0.1:8000/api/disponibilite/${this.token.getUserId()}`).subscribe(data => {
-        this.availability = data;
-
-    });*/
-
-  
-    this.reviewService.getReviews(this.token.getUserId()).subscribe((response: any) => {
+   /* this.reviewService.getReviews(this.token.getUserId()).subscribe((response: any) => {
       this.reviews = response.reviews;
       
-    });
-   
-    
-    
-    
+    });*/ 
+  
   }
+  onSubmit(jobberId: number, comment: string, rating: number) {
+    this.reviewService.postReview(jobberId, comment, rating)
+      .subscribe(response => console.log(response));
+  }
+ 
+  
  
 }
