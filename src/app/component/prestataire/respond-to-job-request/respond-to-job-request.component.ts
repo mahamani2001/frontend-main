@@ -10,7 +10,7 @@ import { RequestJobService } from 'src/app/service/requestjob.service';
   styleUrls: ['./respond-to-job-request.component.css']
 })
 export class RespondToJobRequestComponent {
-  jobRequests: Request[] = [];
+  jobRequests!:any[];
   response!: string;
   prix!: number;
   selectedRequest: Request | undefined;
@@ -45,29 +45,25 @@ export class RespondToJobRequestComponent {
   
 
   ngOnInit(): void {
-    //hadhia ll prestataire unique
-    /*this.http.get<Request[]>('http://localhost:8000/api/providerRequest').subscribe(
-      data => {
-        console.log(this.jobRequests); 
-        this.jobRequests = data;
-      }
-    );*/
-  //  this.getProviderRequests();
-  this.getJobRequests();
+   this.getJobberRequest();
+  this.jobRequestService.getJobberRequest().subscribe(
+    data => {
+      this.jobRequests = data;
+      console.log(this.jobRequests);
+    },
+    error => console.log(error)
+  );
   }
- /* getProviderRequests(): void {
-    this.jobRequestService.getProviderRequests()
-      .subscribe(jobRequests => this.jobRequests = jobRequests);
-  }
-  */
-  getJobRequests() {
-    this.http.get<any[]>('http://localhost:8000/api/job-request').subscribe(
-      data => {
-        this.jobRequests = data;
-      },
-      error => console.log(error)
-    );
-  }
+getJobberRequest(){
+this.jobRequestService.getJobberRequest().subscribe(
+  data => {
+    this.jobRequests = data;
+    console.log(this.jobRequests);
+  },
+  error => console.log(error)
+);
+}
+
   
 
 }

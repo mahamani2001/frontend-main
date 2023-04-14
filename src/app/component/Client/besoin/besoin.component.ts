@@ -38,7 +38,7 @@ export class BesoinComponent implements OnInit {
         this.categories= data;
       });
       this.requestForm = this.fb.group({
-        categoryId: [''], // Add validation if needed
+        category_id: [''], // Add validation if needed
         title: [''],
         description: ['', Validators.required],
         start_date: ['', Validators.required],
@@ -54,7 +54,7 @@ export class BesoinComponent implements OnInit {
       const user_id = 2;*/
       const formData = this.requestForm.value;
       console.log(formData);
-      this.http.post(`${this.apiUrl}/job-requests`, formData )
+      this.http.post(`${this.apiUrl}/post-to-jobber`, formData )
         .subscribe(response => {
           console.log(response);
         });

@@ -33,20 +33,20 @@
   -->
  
   <div *ngFor="let day of availability">
-    <h2>{{ day.name }}</h2>
-    <p>Active: {{ day.active }}</p>
-    <p>Start Time: {{ day.startTime }}</p>
-    <p>End Time: {{ day.endTime }}</p>
+    <h2>{{ day.jour }}</h2>
+    <p>Active: {{ day.actif }}</p>
+    <p>Start Time: {{ day.heure_debut }}</p>
+    <p>End Time: {{ day.heure_fin }}</p>
   </div>
 
  <div class="container1">
   <div class="row">
     <div class="col-md-4 mb-3" *ngFor="let review of reviews">
       <div class="card">
-        <div class="card-header">{{ review.rating }}</div>
+        <div class="card-header"></div>
         <div class="card-body">
-          <p class="card-text">{{ review.comment }}</p>
-          <p class="card-text"><small class="text-muted">Posted by {{ review.user.name }} on {{ review.created_at }}</small></p>
+          <p class="card-text"></p>
+          <p class="card-text"><small class="text-muted">Posted by</small></p>
         </div>
       </div>
     </div>

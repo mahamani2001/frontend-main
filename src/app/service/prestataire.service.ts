@@ -10,8 +10,13 @@ export class PrestataireService  {
   private apiUrl = 'http://localhost:8000/api';
   constructor(private http:HttpClient) { }
   getAllPrestataires(): Observable<Profile[]> {
-    return this.http.get<Profile[]>(`${this.apiUrl}/prestataire`);
+    return this.http.get<Profile[]>(`${this.apiUrl}/jobber`);
   }
-
-
+  getPrestataireInfo(id: number) {
+    return this.http.get(`${this.apiUrl}/prestataires/${id}`);
+  }
+  getServices(): Observable<any> {
+    return this.http.get(`http://127.0.0.1:8000/api/jobs`);
+  }
+  
 }

@@ -25,6 +25,9 @@ export class JobRequestService {
     return this.http.get<any[]>(`${this.baseUrl}/providerRequest`,{headers: headers});
   }
 
+  getJobberRequest(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/RequestJobber`);
+  }
 
   
 }

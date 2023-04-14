@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Disponiblite } from 'src/app/interface/disponiblite';
 import { WorkScheduleService } from 'src/app/service/work-schedule.service';
+import { TokenService } from 'src/app/shared/token.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -16,7 +17,7 @@ export class WorkScheduleComponent implements OnInit {
   jour = ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche'];
   errorMessage = '';
 
-  constructor(private disponibiliteService: WorkScheduleService,private formBuilder:FormBuilder) {}
+  constructor(private disponibiliteService: WorkScheduleService,private formBuilder:FormBuilder,private token: TokenService) {}
 
   ngOnInit(): void {
     this.retrieveDisponibilites();
@@ -28,12 +29,13 @@ export class WorkScheduleComponent implements OnInit {
   }
 
   retrieveDisponibilites(): void {
-    this.disponibiliteService.getAll()
-      .subscribe(
-        data => {
-          this.disponibilites = data;
-        },
-      );
+     
+        this.disponibiliteService.getUserAvailability()
+      .subscribe(data => {
+        this.disponibilites = data.disponibilites;
+        this.token.saveUserName(this.disponibilites);
+        console.log(this.disponibilites);
+      });
   }
 
   refreshList(): void {

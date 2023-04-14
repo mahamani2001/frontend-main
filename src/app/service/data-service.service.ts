@@ -58,8 +58,6 @@ export class DataService {
   }
 
 //
-
-
 getAlljobs(): Observable<Job[]> {
   return this.http.get<Job[]>(`${this.baseUrl}/job`);
 }
@@ -78,6 +76,9 @@ updatejob(job: Job): Observable<Job> {
 
 deletejob(id: number): Observable<any> {
   return this.http.delete(`${this.baseUrl}/job/${id}`);
+}
+getServices(): Observable<any> {
+  return this.http.get(`http://127.0.0.1:8000/api/jobs`);
 }
 //
 

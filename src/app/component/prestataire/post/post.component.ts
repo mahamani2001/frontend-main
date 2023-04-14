@@ -40,7 +40,8 @@ export class PostComponent implements OnInit{
   }
   loadJobsAndCategories() {
     // Load all jobs
-    this.job.getAlljobs().subscribe(jobs => {
+    console.log('hi') ; 
+     this.job.getServices().subscribe(jobs => {
       this.filteredJobs = jobs;
       // Apply title filter if searchTitle is not empty
       if (this.searchTitle) {
@@ -117,5 +118,3 @@ filterJobsByTitle(title: string) {
 
   
   }
-
-

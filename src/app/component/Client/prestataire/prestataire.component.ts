@@ -13,7 +13,7 @@ export class PrestataireComponent  implements OnInit{
     filteredPrestataires: Profile[] = [];
      searchQuery:string ='';
     
-  
+
     constructor(private service: PrestataireService) {}
   
     ngOnInit(): void {

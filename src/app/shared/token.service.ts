@@ -14,6 +14,9 @@ export class TokenService {
   saveToken(token: any) {
     localStorage.setItem('auth_token', token);
   }
+  saveId(id: any) {
+    localStorage.setItem('id_user', id);
+  }
   saveUserName(userName:any){
     localStorage.setItem('username', userName);
   }
@@ -21,6 +24,9 @@ export class TokenService {
  
   getUsername(): string {
     return localStorage.getItem('username')??'';
+  }
+  getUserId(): string {
+    return localStorage.getItem('id_user')??'';
   }
   
   getToken() {

@@ -79,6 +79,7 @@ submitlogin(){
          this.isLoginFailed = false; 
          // here we will save the token on the local storage
          this.token.saveToken(this.data.token);
+         this.token.saveId(this.data.user.id);
          // we will set state 
          this.authState.setAuthState(true);
          

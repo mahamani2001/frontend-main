@@ -10,6 +10,7 @@ import { Category } from "./category";
         categoryId: number;
         category?: Category;
         categoryName?: string; 
+        jobber_id: string; //
       }
       
 

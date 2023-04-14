@@ -5,6 +5,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Job } from '../job';
 import { DataService } from 'src/app/service/data-service.service';
 import { Router } from '@angular/router';
+import { TokenService } from 'src/app/shared/token.service';
+import { PrestataireService } from 'src/app/service/prestataire.service';
 
 @Component({
   selector: 'app-serviceform',
@@ -14,10 +16,12 @@ import { Router } from '@angular/router';
 export class ServiceformComponent {
   categories: Category[]=[];
   jobForm!:FormGroup;
- 
-  constructor(private categoryService: CategoryService, private formBuilder:FormBuilder, private jobService:DataService,private router:Router) {}
+  data: any;
+  jobs:Job[]=[];
+  constructor(private categoryService: CategoryService, private formBuilder:FormBuilder, private jobService:DataService,private router:Router, private token: TokenService,private prestataire:PrestataireService) {}
 
   ngOnInit(): void  {
+    this.prestataire.getServices();
     this.categoryService.getCategories()
       .subscribe(categories => this.categories = categories);
       this.jobForm = this.formBuilder.group({
@@ -25,8 +29,18 @@ export class ServiceformComponent {
         title: [''],
         description: [''],
         price_min: [''],
-        price_max: ['']
+        price_max: [''],
       });
+      this.prestataire.getServices().subscribe(
+
+        res => { 
+           this.data=res;
+           this.jobs=this.data.data;
+           this.token.saveUserName(this.jobs)
+         },
+        err => {       
+         alert("Erreur");
+        }) 
       
   }
   onSubmit() {
@@ -37,9 +51,11 @@ export class ServiceformComponent {
       price_min: this.jobForm.value.price_min,
       price_max: this.jobForm.value.price_max,
       id:0,
-      pictureUrl: 'https://images.app.goo.gl/VC8hwWassK9KLjvt7'
+      pictureUrl: 'https://images.app.goo.gl/VC8hwWassK9KLjvt7',
+      jobber_id:this.token.getUserId()
+      
     };
-  
+    console.log(jobData);
     this.jobService.createjob(jobData).subscribe(
       (result) => {
         console.log('Job created successfully', result);
