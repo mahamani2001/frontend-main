@@ -27,20 +27,22 @@
         <div class="container">
             <div class="header__wrapper">
             <div class="logo">
-         <h1>logo</h1></div>
+         <h1>Maharat</h1></div>
          <div class="navigation">
             <ul class="nav__list">
                 <li class="nav__item" ><a routerLink="" >Acceuil</a></li>
                 <li class="nav__item"><a routerLink="/service">Services</a></li>
                 <li class="nav__item"><a routerLink="/category">Catégories</a></li>
                 <li class="nav__item"><a routerLink="/prestataire">Prestataires</a></li>
-                <li class="nav__item"><a routerLink="/compte">inscription</a></li>
-                <li class="nav__item"><a routerLink="/login">Connexion</a></li>
                 <li class="nav__item"><a routerLink="/contact">Contact</a></li>
+                <li *ngIf="!userLoggedIn" class="nav__item"><a routerLink="/compte">Inscription </a></li> 
+                <li *ngIf="!userLoggedIn" class="nav__item"><a routerLink="/login">Connexion</a></li> 
+                <li *ngIf="userLoggedIn" class="nav__item user_name_menu"><a routerLink="/dashboardClient">Hello, {{userName}}</a></li> 
+
             </ul>
-            <div class="search__box">
+            <!--div class="search__box">
                 <span><i class="ri-search-eye-line"></i></span>
-            </div>
+            </div-->
           </div>
         </div>
     </div>
@@ -55,7 +57,7 @@
                     <h2>Bienvenue ♥</h2>
                     <p>Tous les services du quotidien, 
                         <br>clé en main</p>
-                 <button routerLink="" class="btn">Demander un service maintenant </button>
+                 <button routerLink="/besoin" class="btn">Demander un service maintenant </button>
                 </div>
                 <div class="hero__img">
                     <img src="./assets/images/hero-img.png" alt="hero-img">
@@ -144,7 +146,7 @@
         <div class="container">
         <div class="row">
         <div class="col-md-12">
-        <h1>Comment ça marche</h1>
+        <h1 class="title_header">Comment ça marche</h1>
         <div class="row">
         <div class="col-md-4">
         <img src="./assets/images/form.png">
@@ -171,7 +173,7 @@
            <section>
             <div class="container">
                 <div class="choose__us-top">
-                    <h2> Ce que nous offrons </h2>
+                    <h2 class="title_header"> Ce que nous offrons </h2>
                     <p>Très facile à contacter, réponse immédiate, 
                     <br> compétence des intervenants, 
                     prestations très efficaces
@@ -208,7 +210,7 @@
            </section>
            <!--offer section end -->
            <!--About us section start -->
-           <section>
+           <section class="we_are_here">
             <div class="container">
                 <div class="search__engine-wrapper about_us">
                    <div class="search__engine-content">
@@ -238,7 +240,7 @@
             <div class="container">
               <div class="customer__review-wrapper">
                   <div class="customer__review-top">
-                        <h1>Les utilisateurs nous font confiance</h1>
+                        <h1 class="title_header">Les utilisateurs nous font confiance</h1>
                         <p>La satisfaction de nos utilisateurs est notre priorité En quelques clics ,vous obtenus vos prestataires à la demande  N'oubliez pas de donner votre avis aussi sur nos fournisseur de services aprés vos experience  
                             <br>Votre avis compte ♥</p>
                  </div>

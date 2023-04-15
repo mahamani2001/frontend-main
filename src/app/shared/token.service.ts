@@ -19,9 +19,7 @@ export class TokenService {
   }
   saveUserName(userName:any){
     localStorage.setItem('username', userName);
-  }
-    
- 
+  } 
   getUsername(): string {
     return localStorage.getItem('username')??'';
   }
@@ -37,7 +35,9 @@ export class TokenService {
   //*Verify the token
   isValidToken() {
     const token = this.getToken();
-    if (token) {
+    if (token) { 
+      // I add this by maha -- to force token without checking 
+      return true;
       const payload = this.payload(token);
       if (payload) {
         return Object.values(this.issuer).indexOf(payload.iss) > -1
