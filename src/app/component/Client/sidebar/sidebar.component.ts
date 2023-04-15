@@ -16,14 +16,7 @@ export class SidebarComponent implements OnInit {
   constructor(private authState: AuthStateService,  private token: TokenService,private router:Router){}
   ngOnInit(): void {
     this.username= this.token.getUsername();
-    // hide message after 1.5 seconds
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'This is your dashboard. Here, you can view your account details, access services, check your availability, and manage your messages.',
-      showConfirmButton: false,
-      timer: 1500
-    });
+  
   }
   logout(){
     this.token.removeToken();

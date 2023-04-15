@@ -83,8 +83,8 @@
 							<div class="status"><i class="fa fa-solid fa-globe"></i><b>{{prestataire.address}}</b></div>
 							<div><i class="fa fa-star" aria-hidden="true"></i><b class="tags"> 4.5</b></div>
 							<p class="card-text small">{{prestataire.competence}}</p>
-							<a routerLink="/besoin" class="btn btn-success button-text"> Demander un service à {{ prestataire.firstname }}</a>
-							<a routerLink="/portfolio">voir Profil</a><!--len nhout l'id eli bech nab3edhou fel url bech ya3tinin profil-->
+							<a routerLink="/besoin/{{prestataire.id}}" class="btn btn-success button-text"> Demander un service à {{ prestataire.firstname }}</a>
+							<a routerLink="/portfolio/{{prestataire.id}}">voir Profil</a><!--len nhout l'id eli bech nab3edhou fel url bech ya3tinin profil-->
 						  </div>
 						</div>
 					  </div>

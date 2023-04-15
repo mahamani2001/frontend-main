@@ -16,7 +16,7 @@ export class WorkScheduleComponent implements OnInit {
   currentIndex = -1;
   jour = ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche'];
   errorMessage = '';
-
+  disponibiliteForm!: FormGroup;
   constructor(private disponibiliteService: WorkScheduleService,private formBuilder:FormBuilder,private token: TokenService) {}
 
   ngOnInit(): void {
@@ -28,8 +28,7 @@ export class WorkScheduleComponent implements OnInit {
     });
   }
 
-  retrieveDisponibilites(): void {
-     
+  retrieveDisponibilites(): void {    
         this.disponibiliteService.getUserAvailability()
       .subscribe(data => {
         this.disponibilites = data.disponibilites;
@@ -96,7 +95,7 @@ export class WorkScheduleComponent implements OnInit {
     });
   }
   
-  disponibiliteForm!: FormGroup;
+ 
   onSubmit() {
     // Handle form submission here
   }

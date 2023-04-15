@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-<app-sidebar></app-sidebar>  
+  
 <section>
    <button class="glow-on-hover" routerLink="/besoin">Demander un besoin</button> 
 </section>
@@ -14,18 +14,35 @@
    <table class="table">
       <thead>
         <tr>
-          <th scope="col">Nom</th>
+          <th scope="col">ID</th>
+          <th scope="col"></th>
+          <th scope="col">Titre</th>
+          <th scope="col">discription</th>
           <th scope="col">Status</th>
+          <th scope="col">start_date</th>
+          <th scope="col">end_date</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Aide à domicile</td>
-          <td>En cours</td>
+        <tr *ngFor="let request of requestJobList">
+          <td>{{ request.id }}</td>
+          <td>{{ request.title }}</td>
+          <td>{{ request.description }}</td>
+          <td>{{ request.status }}</td>
+          <td>{{ request.start_date }}</td>
+          <td>{{ request.end_date }}</td>
+          <td>{{ request.time }}</td>
           <td>
-            <button>Supprimer</button>
-            <button>Modifier</button>
+            <td>
+              <a routerLink="/edit-request/{{ request.id }}">
+                <i class="fa fa fa-trash"></i> Edit
+              </a>
+              
+              
+              <button class="btn btn-sm btn-danger">
+                <i class="fa fa fa-trash" (click)="removeRequest(request.id)"></i> Delete
+              </button>
 
           </td>
         </tr>

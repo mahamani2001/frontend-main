@@ -46,5 +46,17 @@ export class RequestJobService {
   getJobberRequest(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/RequestJobber`);
   }
+
+
+  getClientRequest(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/client`);
+  }
+
+  delete(id: any): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`);
+  }
+  update(id: any, data: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${id}`, data);
+  }
 }
 

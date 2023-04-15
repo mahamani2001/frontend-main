@@ -16,12 +16,14 @@
         <table class="table">
           <thead>
             <tr>
-              <th>Client Name</th>
-              <th>Category</th>
-              <th>Service Name</th>
+              <th>Client</th>
+              <th>Catégorie</th>
+              <th>Titre de service </th>
               <th>description</th>
+              <th>Status</th>
               <th>location</th>
-              <th>start_date</th>
+              <th>date_début</th>
+              <th>date_limite</th>
               <th>Actions</th>
               <th>Respond</th>
             </tr>
@@ -32,8 +34,10 @@
               <td>{{request. category.name}}</td>
               <td>{{ request.title }}</td>
               <td>{{ request.description }}</td>
+              <td>{{ request.status }}</td>
               <td>{{ request.location }}</td>
-              <td>{{ request.start_date}} {{ request. end_date}}</td>
+              <td>{{ request.start_date}} </td>
+              <td>  {{ request. end_date}}</td>
             <!-- <td>{{ request.status }}</td> -->  
               <td><button class="btn btn-primary" (click)="selectedRequest = request">Select Request</button></td>
             </tr>

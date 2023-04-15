@@ -61,7 +61,9 @@ const routes: Routes = [
 {path:'commandeService',component:CommandeServicesComponent},
 {path:'reserve',component:ResrvationComponent},
 {path:'abilty',component:AbiltyComponent},
-
+{path:'besoin/:id',component:BesoinComponent},
+{path:'portfolio/:id',component:PortfolioComponent},
+{path:'besoin',component:BesoinComponent},
 
 
 

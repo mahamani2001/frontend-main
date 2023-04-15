@@ -57,10 +57,10 @@ data!:any;
 
   submitReview() {
     // Get the jobber ID from the URL
-    const jobberId = Number(window.location.pathname.split('/').pop());
+    const jobber_id = Number(window.location.pathname.split('/').pop());
 
     // Submit the review to the API
-    this.reviewService.postReview(jobberId, this.comment, Number(this.rating))
+    this.reviewService.postReview(jobber_id, this.comment, Number(this.rating))
       .subscribe(
         response => {
           console.log(response);
