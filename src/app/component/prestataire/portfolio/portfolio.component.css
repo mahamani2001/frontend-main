@@ -1,5 +1,87 @@
+.container2{
+  margin:50px  ;
 
+}
+.container2 ul{
+  list-style: none;
+  margin:0;
+  padding:0;
+  position:0;
+  position:relative;
+}
 
+.container2 ul:before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  width:0px;
+  height:100%;
+  border:1px dashed #aaa;
+}
+.container2 ul li {
+  margin:50px 60px;
+  position:relative;
+}
+.container2 ul li > span{
+  content:'';
+  position:absolute;
+  top:0;
+  left: -60px;
+  width:0px;
+  height:100%;
+  border:1px solid #aaa;
+}
+
+.container2  ul li >span:before,.container2  ul li > span:after{
+content:'';
+width:10px;
+height:10px;
+border:2px solid #aaa;
+position:absolute;
+border-radius :50px;
+left:-7px;
+background:#fff;
+}
+.container2 ul li > span:before{
+top:-10px
+}
+.container2 ul li > span:after{
+  top:100%;
+  }
+  .container2 ul li .time span{
+    position:absolute;
+    font-size: 12px;
+    left:-105px;
+    text-align:right;
+    }
+    .container2 ul li .time span:first-child{
+    
+      top:-12px;
+      }
+      .container2 ul li .time span:last-child{
+        top:100%;
+        }
+
+  .container2 ul li span{
+    content:'';
+    position:absolute;
+    top:0;
+    left:-60px;
+    width:0px;
+    height:100%;
+    border:1px solid #aaa;
+  }
+  .container2 ul li .box{
+    
+      width: 250px;
+      height: 70px;
+      background-color: #B2DFDB; /* Couleur pastel verte d'eau */
+      border: 1px solid #ccc;
+      padding: 10px;
+    
+    
+  }
 .container{
   position:relative;
   width: 400px;

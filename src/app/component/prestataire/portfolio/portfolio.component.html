@@ -32,6 +32,27 @@
       </section>
   -->
   <section>
+    <div class="container2">
+        <ul>
+          <li>
+            <span></span>
+            <div class="box">
+              <div class="title">Active:</div>
+              <div class="info">Jour : </div>
+            
+            </div>
+           
+             <div class="time">
+              <span>9:00</span>
+              <span>10:00</span>
+             </div>
+          </li>
+ 
+
+        </ul>
+    </div>
+  </section>
+  <section>
     <div *ngFor="let day of availability">
       <h2>{{ day.jour }}</h2>
       <p>Active: {{ day.actif }}</p>
@@ -43,51 +64,52 @@
   <section>
     <div class="container1">
       <div class="row">
-        <div class="col-md-4 mb-3" *ngFor="let review of reviews">
+        <div class="col-md-4 mb-3">
           <div class="card">
-            <div class="card-header"></div>
+            <div class="card-header">i liked</div>
             <div class="card-body">
-              <p class="card-text"></p>
-              <p class="card-text"><small class="text-muted">Posted by</small></p>
+              <p class="card-text">ggggggggg</p>
+              <p class="card-text">rrr<small class="text-muted">Posted by</small></p>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+  
 
 
       <section>
         <div class="container">
           <div class="post">
-            <div class="text">Thanks for rating me!</div>
            <div class="edit">EDIT</div>
            <script src="main.js"></script>
           </div>
           <div class="star-widget">
-               <input type="radio" name="rate" id="rate-5">
+               <input type="radio" name="rate" id="rate-5" [(ngModel)]="rating" value="5">
                  <label for="rate-5" class="fas fa fa-star"></label>
-                 <input type="radio" name="rate" id="rate-4">
+                 <input type="radio" name="rate" id="rate-4"[(ngModel)]="rating" value="4">
                  <label for="rate-4" class="fas fa fa-star"></label>
-                 <input type="radio" name="rate" id="rate-3">
+                 <input type="radio" name="rate" id="rate-3" [(ngModel)]="rating" value="3">
                  <label for="rate-3" class="fas fa fa-star"></label>
-                 <input type="radio" name="rate" id="rate-2">
+                 <input type="radio" name="rate" id="rate-2"  [(ngModel)]="rating" value="2">
                  <label for="rate-2" class="fas fa fa-star"></label>
-                 <input type="radio" name="rate" id="rate-1">
+                 <input type="radio" name="rate" id="rate-1" [(ngModel)]="rating" value="1">
                  <label for="rate-1" class="fas fa fa-star"></label>
-              <form action="#" >
+                 <form (ngSubmit)="submitReview()" #reviewForm="ngForm">
                   <header></header>
                   <div class="textarea">
-                    <textarea cols="30" placeholder="Describe your experience"></textarea>
+                    <textarea cols="30" placeholder="Describe your experience" [(ngModel)]="comment" name="comment" required></textarea>
                   </div>
                   <div class="btn">
 
-                    <button type="submit">Submit</button>
+                    <button type="submit" [disabled]="!reviewForm.valid">Submit</button>
                   </div>
               </form>
            </div>
          </div> 
       </section>
+      
 
          
 </body>

@@ -21,7 +21,8 @@ export class ReviewServiceService {
   }*/
   postReview(jobberId: number, comment: string, rating: number) {
     // Send the request to the API
-    return this.http.post('http://localhost:8000/api/reviews/' + jobberId, { comment, rating });
+    return this.http.post('http://localhost:8000/api/jobbers/' + jobberId + '/reviews', { comment, rating })
+
   }
   
 
