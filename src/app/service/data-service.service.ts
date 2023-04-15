@@ -33,7 +33,7 @@ export class DataService {
     
   }
   registerprestataire(data:any){
-    return this.http.post( 'http://127.0.0.1:8000/api/prestataires',data);
+    return this.http.post( 'http://127.0.0.1:8000/api/jobbers',data);
     
   }
   
@@ -82,12 +82,7 @@ getServices(): Observable<any> {
 }
 //
 
-respondToJobRequest(id: number, response: string, prix: number): Observable<any> {
-  const url = `http://localhost:8000/api/requests/${id}/offers`;
-  const body = { response, prix };
-  console.log(`Sending HTTP request with response: ${response}, prix: ${prix}`);
-  return this.http.post(url, body);
-}
+
 
 getUserProfile(): Observable<Profile> {
   return this.http.get<Profile>(`http://127.0.0.1:8000/api/profile`);

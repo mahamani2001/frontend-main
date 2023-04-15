@@ -31,36 +31,39 @@
         </div>
       </section>
   -->
- 
-  <div *ngFor="let day of availability">
-    <h2>{{ day.jour }}</h2>
-    <p>Active: {{ day.actif }}</p>
-    <p>Start Time: {{ day.heure_debut }}</p>
-    <p>End Time: {{ day.heure_fin }}</p>
-  </div>
+  <section>
+    <div *ngFor="let day of availability">
+      <h2>{{ day.jour }}</h2>
+      <p>Active: {{ day.actif }}</p>
+      <p>Start Time: {{ day.heure_debut }}</p>
+      <p>End Time: {{ day.heure_fin }}</p>
+    </div>
+  </section>
 
- <div class="container1">
-  <div class="row">
-    <div class="col-md-4 mb-3" *ngFor="let review of reviews">
-      <div class="card">
-        <div class="card-header"></div>
-        <div class="card-body">
-          <p class="card-text"></p>
-          <p class="card-text"><small class="text-muted">Posted by</small></p>
+  <section>
+    <div class="container1">
+      <div class="row">
+        <div class="col-md-4 mb-3" *ngFor="let review of reviews">
+          <div class="card">
+            <div class="card-header"></div>
+            <div class="card-body">
+              <p class="card-text"></p>
+              <p class="card-text"><small class="text-muted">Posted by</small></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </section>
 
-    
+
+      <section>
         <div class="container">
           <div class="post">
             <div class="text">Thanks for rating me!</div>
            <div class="edit">EDIT</div>
            <script src="main.js"></script>
           </div>
-          
           <div class="star-widget">
                <input type="radio" name="rate" id="rate-5">
                  <label for="rate-5" class="fas fa fa-star"></label>
@@ -72,20 +75,20 @@
                  <label for="rate-2" class="fas fa fa-star"></label>
                  <input type="radio" name="rate" id="rate-1">
                  <label for="rate-1" class="fas fa fa-star"></label>
-              <form action="#">
+              <form action="#" >
                   <header></header>
                   <div class="textarea">
                     <textarea cols="30" placeholder="Describe your experience"></textarea>
                   </div>
                   <div class="btn">
-                    <button type="submit">Submit Review</button>
+
+                    <button type="submit">Submit</button>
                   </div>
               </form>
            </div>
-         </div>    
-            
-      
-      
-     
+         </div> 
+      </section>
+
+         
 </body>
 </html>

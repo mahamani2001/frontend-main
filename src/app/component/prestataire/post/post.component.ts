@@ -41,8 +41,8 @@ export class PostComponent implements OnInit{
   loadJobsAndCategories() {
     // Load all jobs
     console.log('hi') ; 
-     this.job.getServices().subscribe(jobs => {
-      this.filteredJobs = jobs;
+     this.job.getServices().subscribe(res => {
+      this.filteredJobs = res.job;
       // Apply title filter if searchTitle is not empty
       if (this.searchTitle) {
         this.filterJobsByTitle(this.searchTitle);

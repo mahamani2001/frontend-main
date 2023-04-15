@@ -44,7 +44,7 @@ export class PrestatairesignupComponent {
     onSignup(){
       if(this.psignUpFrom.valid){
            console.log(this.psignUpFrom);
-            this.dataServices.addprestataire(this.psignUpFrom.value).subscribe(res=>{
+            this.dataServices.registerprestataire(this.psignUpFrom.value).subscribe(res=>{
               this.data=res;
               console.log(res);
            

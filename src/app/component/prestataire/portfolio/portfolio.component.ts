@@ -17,11 +17,11 @@ export class PortfolioComponent {
 data!:any;
 
 
-  constructor(private http: HttpClient,private reviewService:ReviewServiceService,private token: TokenService,private avaibility:WorkScheduleService,private prestataire:PrestataireService) { }
+  constructor(private http: HttpClient,private reviewService:ReviewServiceService,private token: TokenService,private disponibilite:WorkScheduleService,private prestataire:PrestataireService) { }
 
   ngOnInit(): void {
 
-      this.avaibility.getUserAvailability()
+      this.disponibilite.getUserAvailability()
         .subscribe(data => {
           this.availability = data.disponibilites;
           console.log(this.availability);

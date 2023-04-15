@@ -32,7 +32,7 @@ export class ServiceComponent implements OnInit {
         }
       }
     );
-    this.category.getCategories().subscribe(categories => this.categories = categories);
+this.category.getCategories().subscribe(categories => this.categories = categories);
   }
 
 

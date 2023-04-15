@@ -14,7 +14,7 @@ export class RespondToJobRequestComponent {
   response!: string;
   prix!: number;
   selectedRequest: Request | undefined;
-  
+  data!:any;
   constructor(private jobRequestService: RequestJobService, private http: HttpClient) {}
 
   /*respondToJobRequest() {
@@ -45,23 +45,17 @@ export class RespondToJobRequestComponent {
   
 
   ngOnInit(): void {
-   this.getJobberRequest();
-  this.jobRequestService.getJobberRequest().subscribe(
-    data => {
-      this.jobRequests = data;
+    this.getJobberRequest();
+  }
+  getJobberRequest(){
+    this.jobRequestService.getJobberRequest().subscribe(
+    res => {
+      this.data=res;
+      this.jobRequests = this.data.requestJobs;
       console.log(this.jobRequests);
     },
-    error => console.log(error)
-  );
-  }
-getJobberRequest(){
-this.jobRequestService.getJobberRequest().subscribe(
-  data => {
-    this.jobRequests = data;
-    console.log(this.jobRequests);
-  },
-  error => console.log(error)
-);
+   error => console.log(error)
+ );
 }
 
   
