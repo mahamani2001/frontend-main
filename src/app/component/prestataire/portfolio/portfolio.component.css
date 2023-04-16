@@ -82,7 +82,7 @@ top:-10px
     
     
   }
-.container{
+.containerRating{
   position:relative;
   width: 400px;
   background: #111;
@@ -208,3 +208,80 @@ top:-10px
   form .btn button:hover{
     background: #1b1b1b;
   }
+
+  .prestataire-image{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+
+  .title_header{
+    color: black;
+    margin: 30px 0;
+    text-align: center;
+    font-size: 45px;
+  }
+  .bg_grey{
+    background-color: #f2f2f2;
+    padding: 50px 0;
+  }
+  .spacer50{
+    height: 50px;
+  }
+  section{
+    padding: 50px 0;
+  }
+  .fa{
+    padding-right: 5px;
+  }
+
+
+
+  .menu_prest { 
+    list-style: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu_prest li {
+    float: left;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    margin: 10px 0;
+    background: rgb(241 241 241);
+    z-index: 5;
+    position: relative;
+    cursor: pointer;
+    transition: all .4s;
+    border-radius: 30px;
+    margin-right: 10px;
+  }
+  .menu_prest li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    z-index: -1; 
+  }
+  .menu_prest li a{
+    text-decoration: none;
+    color: black;
+  }
+  .menu_prest li:hover {
+    background-color: #141315;
+  }
+  
+  .menu_prest li:hover  a{
+    color: white;
+    text-decoration: none;
+  }
+  .border-left-success {
+    border-left: 0.25rem solid #1cc88a!important;
+}
+.text-success {
+  color: #000000!important;
+  font-weight: bold;
+}

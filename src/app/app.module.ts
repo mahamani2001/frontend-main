@@ -55,6 +55,7 @@ import { RespondToJobRequestComponent } from './component/prestataire/respond-to
 import { AuthInterceptor } from './shared/auth.interceptor.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { PortfolioComponent } from './component/prestataire/portfolio/portfolio.component';
+import { OffreComponent } from './component/Client/offre/offre.component';
 
 @NgModule({
   declarations: [
@@ -96,14 +97,8 @@ import { PortfolioComponent } from './component/prestataire/portfolio/portfolio.
     EditDisponibiliteComponent,
     ProfileComponent,
     RespondToJobRequestComponent,
-    PortfolioComponent,
-  
-  
- 
-    
-    
-
-    
+    PortfolioComponent,  
+    OffreComponent,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

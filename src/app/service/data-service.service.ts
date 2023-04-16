@@ -88,6 +88,14 @@ getUserProfile(): Observable<Profile> {
   return this.http.get<Profile>(`http://127.0.0.1:8000/api/profile`);
 }
 
+getPrestataire(id:number): Observable<Profile> {
+  return this.http.get<Profile>(`http://127.0.0.1:8000/api/prestataires/${id}`);
+}
+
+getJobsByPrestatire(id:number)  {
+  return this.http.get(`http://127.0.0.1:8000/api/job/${id}`);
+}
+
 updateProfile(user: Profile): Observable<Profile> {
   const httpOptions = {
     headers: new HttpHeaders({

@@ -17,6 +17,7 @@ export class PrestataireComponent  implements OnInit{
     constructor(private service: PrestataireService) {}
   
     ngOnInit(): void {
+      
       this.service.getAllPrestataires().subscribe((response: any) => {
         this.prestataires = response.data; // extract the prestataires array from the API response
         this.filteredPrestataires =  response.data;

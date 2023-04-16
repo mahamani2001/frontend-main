@@ -7,6 +7,9 @@ import { Disponiblite } from 'src/app/interface/disponiblite';
 import { WorkScheduleService } from 'src/app/service/work-schedule.service';
 import { PrestataireService } from 'src/app/service/prestataire.service';
 import { ActivatedRoute } from '@angular/router';
+import { DataService } from 'src/app/service/data-service.service';
+import { Profile } from '../../Client/profile';
+import { Job } from '../job';
 @Component({
   selector: 'app-portfolio',
   templateUrl: './portfolio.component.html',
@@ -15,16 +18,39 @@ import { ActivatedRoute } from '@angular/router';
 export class PortfolioComponent {
   availability!: Disponiblite[];
   reviews !:Review[];
-data!:any;
+  data!:any;
+  prestataire: Profile = {} as Profile;
+  mesJobs: Job[] = [];
 
-
-  constructor(private reviewService:ReviewServiceService
+  constructor(
+    private userService:DataService,
+    private reviewService:ReviewServiceService
     ,private token: TokenService,private disponibilite:WorkScheduleService,
-    private prestataire:PrestataireService
-    ,private route: ActivatedRoute) { }
+    private route: ActivatedRoute) { }
 
   
   ngOnInit(): void {
+    const jobber_id = Number(window.location.pathname.split('/').pop());
+
+    this.userService.getPrestataire(jobber_id).subscribe(
+      res => { 
+         this.data=res;
+         this.prestataire=this.data.data; 
+       },
+      err => {       
+       alert("Erreur");
+      }) 
+
+
+      this.userService.getJobsByPrestatire(jobber_id).subscribe(
+        (res:any) => {  
+          console.log(res)
+           this.mesJobs=res;
+         },
+        err => {       
+         alert("Erreur");
+        }) 
+    
 
       this.disponibilite.getUserAvailability()
         .subscribe(data => {

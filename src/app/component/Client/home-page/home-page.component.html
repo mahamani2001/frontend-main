@@ -23,30 +23,7 @@
   </head>
   <body>
     <!-- ========== header start ========== -->
-    <header class="header">
-        <div class="container">
-            <div class="header__wrapper">
-            <div class="logo">
-         <h1>Maharat</h1></div>
-         <div class="navigation">
-            <ul class="nav__list">
-                <li class="nav__item" ><a routerLink="" >Acceuil</a></li>
-                <li class="nav__item"><a routerLink="/service">Services</a></li>
-                <li class="nav__item"><a routerLink="/category">Catégories</a></li>
-                <li class="nav__item"><a routerLink="/prestataire">Prestataires</a></li>
-                <li class="nav__item"><a routerLink="/contact">Contact</a></li>
-                <li *ngIf="!userLoggedIn" class="nav__item"><a routerLink="/compte">Inscription </a></li> 
-                <li *ngIf="!userLoggedIn" class="nav__item"><a routerLink="/login">Connexion</a></li> 
-                <li *ngIf="userLoggedIn" class="nav__item user_name_menu"><a routerLink="/dashboardClient">Hello, {{userName}}</a></li> 
-
-            </ul>
-            <!--div class="search__box">
-                <span><i class="ri-search-eye-line"></i></span>
-            </div-->
-          </div>
-        </div>
-    </div>
-    </header>
+    <app-nav></app-nav>
     <!-- ========== header end ========== -->
 
     <!-- ========== main start ========== -->

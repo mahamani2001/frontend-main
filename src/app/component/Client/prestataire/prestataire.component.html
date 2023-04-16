@@ -3,19 +3,17 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	   <!-- Site Icon -->
-		   <link rel="shortcut Icon" type="image/png" href="img/favicon.png">
-  
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <!-- Site Icon -->
+	  <link rel="shortcut Icon" type="image/png" href="img/favicon.png">
 		<!-- Font Awesome Icons -->
 		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  
 		<!-- Google Fonts -->
 		<link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
 		<title>Document</title>
 	</head>
-   <body>
+  <body>
 	  <app-nav></app-nav>
 	  <section class="page-section">
 		  <div class="container">
@@ -27,8 +25,7 @@
 						  <div class="input-group mb-3">
 							  <div class="search">
 								  <label>
-									  <input type="text" class="form-control" id="search" [(ngModel)]="searchQuery" (input)="filterPrestataires()">
-								  
+									  <input type="text" placeholder="Rechercher" class="form-control" id="search" [(ngModel)]="searchQuery" (input)="filterPrestataires()">
 								  </label>
 							  </div>							
 						  </div>
@@ -36,76 +33,53 @@
 					  <input type="checkbox" name="localisation">
 					  <hr/>      
 					  <label for="notation" class="blog-sidebar-title"> le plus recommandée<input class="blog-sidebar-title" name="notation" type="radio"></label> 
-				  <hr/>
-			  
-			  
+				    <hr/> 
 					  <label for="price" class="blog-sidebar-title"> prix<input class="blog-sidebar-title" name="prix" type="radio"></label> 
-					  
-					  <hr/>
-				  
-					  <button type="button" class="btn btn-dark btn-lg">Filter</button>
-  
-					  <hr />
-  
+					  <hr/> 
+					  <button type="button" class="btn btn-dark btn-lg">Filter</button> 
+					  <hr /> 
 					  <div>&nbsp;</div>
-					  <div>&nbsp;</div>
-					  
-  
-  
+					  <div>&nbsp;</div> 
 				  </div>
 				  <!--END  <div class="col-lg-3 blog-form">-->
   
 				  <div class="col-lg-9" style="padding-left: 30px;">
 					  <div class="row">
-						  <div class="col">
-							  
-						  </div>
-  
+						  <div class="col"> 
+						  </div> 
 						  <div class="col">
 							  <select class="form-control">
 								  <option value="">Tri par défaut</option>
-								  <option value="popularity">par popularité</option>
-						  
+								  <option value="popularity">par popularité</option> 
 							  </select>
-						  </div>
-  
+						  </div> 
 					  </div>
 					  <!-- Sorting by <div class="row"> -->
 					  <div>&nbsp;</div>
 					  <div>&nbsp;</div>
 				   <!--card prestataire start-->
-				   <div class="row" *ngFor="let prestataire of filteredPrestataires ">
-					  <div class="col-sm-3 col-md-6 col-lg-4 d-inline-block">
-						<div class="card">
-						  <div class="card-body text-center">
+				  <div class="row" >
+					  <div class="col-sm-3 col-md-6 col-lg-4 d-inline-block" *ngFor="let prestataire of filteredPrestataires ">
+						  <div class="card">
+						   <div class="card-body text-center">
 							  <img class="prestataire-image" src={{prestataire.photo}} crossorigin="anonymous">
 							<h5 class="card-title"><b>{{ prestataire.firstname }}</b></h5>
 							<div class="status"><i class="fa fa-solid fa-globe"></i><b>{{prestataire.address}}</b></div>
 							<div><i class="fa fa-star" aria-hidden="true"></i><b class="tags"> 4.5</b></div>
 							<p class="card-text small">{{prestataire.competence}}</p>
 							<a routerLink="/besoin/{{prestataire.id}}" class="btn btn-success button-text"> Demander un service à {{ prestataire.firstname }}</a>
-							<a routerLink="/portfolio/{{prestataire.id}}">voir Profil</a><!--len nhout l'id eli bech nab3edhou fel url bech ya3tinin profil-->
+						  <br>
+            	<a routerLink="/portfolio/{{prestataire.id}}">voir Profil</a><!--len nhout l'id eli bech nab3edhou fel url bech ya3tinin profil-->
 						  </div>
-						</div>
+					  	</div>
 					  </div>
-					</div>
-					
-					
+					</div>  
 				  </div>
 				   <!--card prestataire end-->
-  
 				  <!--END  <div class="col-lg-9">-->
-  
 			  </div>
 		  </div>
 	  </section>
-  
-  
-	  <div>&nbsp;</div>
-	  <div>&nbsp;</div>
-	  <div>&nbsp;</div>
-  
-  
    </body>
   </html>
   

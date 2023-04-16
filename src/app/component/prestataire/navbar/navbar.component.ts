@@ -19,8 +19,10 @@ export class NavbarComponent  implements OnInit{
     this.username= this.token.getUsername();
   }
   logout(){
-    this.token.removeToken();
-    this.authState.setAuthState(true);
+    console.log("--->> Logout ");
+   // this.token.removeToken();
+    this.token.clearStorage();
+    this.authState.setAuthState(false);
     this.router.navigate(['/login']);
 
   }

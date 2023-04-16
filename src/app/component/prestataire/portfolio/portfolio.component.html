@@ -5,9 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
 </head>
 <body>
+  <app-nav></app-nav>
+  <div class="container breadcrumb_section">
+    <div class="row">
+      <div class="col-md-12">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Portfolio</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+ 
     <!--
       <section id="about-me" class="py-5">
         <div class="container1">
@@ -31,6 +44,156 @@
         </div>
       </section>
   -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <ol class="menu_prest">
+            <li><a href="http://localhost:4200/portfolio/{{prestataire.id}}#details">Profile details</a></li>
+            <li><a href="http://localhost:4200/portfolio/{{prestataire.id}}#services">Mes services</a></li>
+            <li><a href="http://localhost:4200/portfolio/{{prestataire.id}}#reviews">Reviews</a></li>
+          </ol>
+        </div>
+      </div>
+      <hr>
+      <br>
+      <div class="row" id="details"> 
+        <div class="col-lg-4 d-inline-block">
+          <div class="card mb-4">
+            <div class="card-body text-center">
+              <img src={{prestataire.photo}} alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+              <h5 class="my-3">{{prestataire.firstname}}</h5>
+							<div class="status"><i class="fa fa-solid fa-globe"></i><b>{{prestataire.address}}</b></div>
+              <div><i class="fa fa-star" aria-hidden="true"></i><b class="tags"> 4.5</b></div>
+              <p class="card-text small"> {{prestataire.competence}}  </p>
+                <div class="d-flex justify-content-center mb-2">
+                <a routerLink="/besoin/1" class="btn btn-success button-text"> Demander un service</a>
+                <button type="button" class="btn btn-outline-primary ms-1">Message</button>
+              </div>
+            </div>
+          </div> 
+        </div>
+
+
+        <div class="col-lg-8">
+          <div class="card mb-4">
+            <div class="card-body">
+             
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0"><i class="fa fa-user" style="color: #9C27B0;"></i>  Full Name</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{prestataire.firstname}} {{prestataire.lastname}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0"><i class="fa fa-envelope" style="color: #31a59a;"></i>Email</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{prestataire.email}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0"><i class="fa fa-phone" style="color: #c3473d;"></i>Phone</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{prestataire.phone}}</p>
+                </div>
+              </div> 
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0"><i class="fa fa-globe" style="color: #260606;"></i> Address</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{prestataire.address}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+ 
+         <div class="row">
+
+          <div class=" col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                Job succefully done</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class=" col-md-6 mb-4">
+          <div class="card border-left-success shadow h-100 py-2">
+              <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                              Clients</div>
+                          <div class="h5 mb-0 font-weight-bold text-gray-800">10</div>
+                      </div>
+                      <div class="col-auto">
+                          <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+         </div>
+        </div>
+      </div>
+  
+
+    </div>
+  </section>
+
+  <section class="bg_grey" id="services">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="title_header">Mes Services</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4"   *ngFor="let job of mesJobs"> 
+         <div class="card" style="width: 18rem;">
+           <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/182.webp" class="card-img-top" alt="Sunset Over the Sea">
+           <div class="card-body">
+            <h1>{{job.title}}</h1>
+             <p class="card-text">
+               Some quick example text to build on the card title and make up the bulk of the card's
+               content.
+             </p>
+           </div>
+         </div>
+        </div>
+     </div>
+     <div class="spacer50"></div>
+    </div>
+  </section>
+  <section id="reviews">  
+    <div class="container">
+
+     <div class="row">
+      <div class="col-md-12">
+        <h2 class="title_header">Reviews:</h2>
+      </div>
+    </div>
+    </div>
+  </section>
   <section>
     <div class="container2">
         <ul>
@@ -80,7 +243,7 @@
 
 
       <section>
-        <div class="container">
+        <div class="container containerRating">
           <div class="post">
            <div class="edit">EDIT</div>
            <script src="main.js"></script>

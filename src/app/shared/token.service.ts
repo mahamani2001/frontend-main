@@ -26,9 +26,11 @@ export class TokenService {
   getUserId(): string {
     return localStorage.getItem('id_user')??'';
   }
-  
   getToken() {
     return localStorage.getItem('auth_token');
+  }
+  clearStorage(){
+   return localStorage.clear();
   }
 
   

@@ -8,10 +8,6 @@ import { Category } from '../../prestataire/category';
 import { Router } from '@angular/router';
 
 
-
-
-
-
 @Component({
   selector: 'app-besoin',
   templateUrl: './besoin.component.html',
@@ -45,20 +41,26 @@ export class BesoinComponent implements OnInit {
         start_date: ['', Validators.required],
         end_date: ['', Validators.required],
         time: ['', Validators.required],
-        location: ['', Validators.required]
+        location: ['', Validators.required],
+        jobber_id:['']
       }); 
    
       
     }
     onSubmit() {
-      /*const provider_id = 2;
-      const user_id = 2;*/
+      const jobberId = Number(window.location.pathname.split('/').pop()); 
+      console.log("-- Jobber Id" +jobberId);
+      this.requestForm.controls['jobber_id'].setValue(jobberId); 
       const formData = this.requestForm.value;
       console.log(formData);
       this.http.post(`${this.apiUrl}/post-to-jobber`, formData )
         .subscribe(response => {
           console.log(response);
-          this.router.navigate(['/portfolio']);
+          console.log(jobberId)
+          if(!isNaN(jobberId))
+            this.router.navigate(['/portfolio/'+jobberId]);
+            else 
+            alert("--- Send to all")
         });
     } 
     

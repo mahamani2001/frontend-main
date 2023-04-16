@@ -16,13 +16,11 @@ export class SidebarComponent implements OnInit {
   constructor(private authState: AuthStateService,  private token: TokenService,private router:Router){}
   ngOnInit(): void {
     this.username= this.token.getUsername();
-  
   }
   logout(){
-    this.token.removeToken();
-    this.authState.setAuthState(true);
+    this.token.clearStorage();
+    this.authState.setAuthState(false);
     this.router.navigate(['/login']);
-
   }
   
 }
