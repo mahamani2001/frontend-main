@@ -8,10 +8,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class OffreService {
-  private apiUrl = `http://127.0.0.1:8000/offres`;
-
+  private apiUrl = `http://127.0.0.1:8000/api/offres`;
   constructor(private http: HttpClient) { }
-
   getOffre(): Observable<Offre[]> {
     return this.http.get<Offre[]>(this.apiUrl);
   }

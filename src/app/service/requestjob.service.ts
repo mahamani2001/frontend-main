@@ -34,8 +34,9 @@ export class RequestJobService {
     return this.http.get<Request[]>(`${this.apiUrl}/job-request`);
   }
 
-  respondToJobRequest(id: number, response: string, prix?: number): Observable<any> {
-    const data = { response: response, prix: prix } as { response: string, prix?: number };
+  respondToJobRequest(id: number, response: string, prix?: number,user_id? : number): Observable<any> {
+    const data = { response: response, prix: prix,user_id:user_id } as { response: string, prix?: number ,user_id:number};
+     
     return this.http.post(`${this.apiUrl}/requests/${id}/offers`, data);
   }
   getProviderRequests(): Observable<any[]> {
@@ -58,5 +59,6 @@ export class RequestJobService {
   update(id: any, data: any): Observable<any> {
     return this.http.put(`${this.apiUrl}/${id}`, data);
   }
+ 
 }
 

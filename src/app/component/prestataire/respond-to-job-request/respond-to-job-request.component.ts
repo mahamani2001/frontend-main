@@ -13,6 +13,7 @@ export class RespondToJobRequestComponent {
   jobRequests!:any[];
   response!: string;
   prix!: number;
+  userId!:number;
   selectedRequest: Request | undefined;
   data!:any;
   constructor(private jobRequestService: RequestJobService, private http: HttpClient) {}
@@ -36,8 +37,8 @@ export class RespondToJobRequestComponent {
     }
     console.log('Response:', this.response);
     console.log('Prix:', this.prix);
-  
-    this.jobRequestService.respondToJobRequest(this.selectedRequest.id, this.response, this.prix)
+     this.userId=this.selectedRequest.user_id;
+    this.jobRequestService.respondToJobRequest(this.selectedRequest.id, this.response, this.prix,this.userId)
       .subscribe(
         response => console.log(response)
       );

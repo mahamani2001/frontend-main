@@ -32,6 +32,7 @@ import { ProfileComponent } from './component/prestataire/profile/profile.compon
 import { AddDisponibiliteComponent } from './component/prestataire/add-disponibilite/add-disponibilite.component';
 import { RespondToJobRequestComponent } from './component/prestataire/respond-to-job-request/respond-to-job-request.component';
 import { PortfolioComponent } from './component/prestataire/portfolio/portfolio.component';
+import { OffreComponent } from './component/Client/offre/offre.component';
 
 
 
@@ -64,7 +65,7 @@ const routes: Routes = [
 {path:'besoin/:id',component:BesoinComponent},
 {path:'portfolio/:id',component:PortfolioComponent},
 {path:'besoin',component:BesoinComponent},
-
+{path:'offre',component:OffreComponent},
 
 
 

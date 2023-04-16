@@ -3,34 +3,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
     <title>Document</title>
 </head>
 <body>
-    
-<table>
-  <thead>
-    <tr>
-      <th>Provider Name</th>
-      <th>Offer Price</th>
-      <th>Date Sent</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let offre of offres">
-      <td>{{ offre.providerName }}</td>
-      <td>{{ offre.offerPrice }}</td>
-      <td>{{ offre.dateSent }}</td>
-      <td>
-        <fa-icon [icon]="offre.status === 'accepted' ? ['fas', 'check'] : ['fas', 'times']"></fa-icon>
-        <mat-badge *ngIf="offre.status === 'sent'">Sent</mat-badge>
-        <mat-badge *ngIf="offre.status === 'accepted'" color="primary">Accepted</mat-badge>
-        <mat-badge *ngIf="offre.status === 'rejected'" color="warn">Rejected</mat-badge>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Jobber Name</th>
+          <th>Offer Price</th>
+          <th>Date Sent</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let offre of offres">
+          <td class="status-cell">
+            <i class="fas fa  fa-{{offre.statut === 'accepte' ? 'check' : 'times'}}"></i>
+            <span class="status-badge {{offre.statut}}">{{offre.statut}}</span>
+          </td>
+          <td>{{offre.user_id}}</td>
+          <td>{{offre.prix}}</td>
+          <td>{{offre.created_at}}</td>
+          <td>
+            <button class="accept-button">
+              <i class="fas fa fa-check"></i>
+              Accept
+            </button>
+            <button class="reject-button">
+              <i class="fas fa fa-times"></i>
+              Reject
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   
 </body>
 </html>
