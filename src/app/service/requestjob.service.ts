@@ -54,7 +54,8 @@ export class RequestJobService {
   }
 
   delete(id: any): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/${id}`);
+    console.log("---- delete ");
+    return this.http.delete(`${this.apiUrl}/job-requests/${id}`);
   }
   update(id: any, data: any): Observable<any> {
     return this.http.put(`${this.apiUrl}/${id}`, data);
