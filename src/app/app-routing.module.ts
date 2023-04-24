@@ -66,7 +66,7 @@ const routes: Routes = [
 {path:'portfolio/:id',component:PortfolioComponent},
 {path:'besoin',component:BesoinComponent},
 {path:'offre',component:OffreComponent},
-
+{path:'offre/:id',component:OffreComponent},
 
 
 

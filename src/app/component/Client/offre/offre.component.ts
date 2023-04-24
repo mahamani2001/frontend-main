@@ -10,24 +10,26 @@ import { TokenService } from 'src/app/shared/token.service';
   styleUrls: ['./offre.component.css']
 })
 export class OffreComponent implements OnInit {
-   offres:Offre[]=[];
-   offre!: Offre;
-   data!:any; 
-   constructor(private offreService:OffreService,private token:TokenService) { }
+  offres:Offre[]=[];
+  offre!: Offre;
+  data!:any; 
+  constructor(private offreService:OffreService,private token:TokenService) { }
 
-  ngOnInit() {
-    this.getOffres();
-  }
-  getOffres(): void{
-    this.offreService.getOffre().subscribe(res => {
-      this.data=res;
-      this.offres = this.data.Offre; 
-      console.log(this.offres)
-    });
+ ngOnInit() {
+   this.getOffres();
+ }
+ getOffres(): void{
+   const demandeId = Number(window.location.pathname.split('/').pop()); 
+   console.log(this.offre);
+   this.offreService.getOffresByDemandes(demandeId).subscribe(res => {
+     this.data=res;
+     this.offres = this.data.Offre; 
+     console.log(this.offres)
+   });
 }
 acceptOffre(id:any): void {
-  this.offreService.acceptOffre(id)
-    .subscribe(offre => this.offre = offre);
+ this.offreService.acceptOffre(id)
+   .subscribe(offre => this.offre = offre);
+}
 }
 
-}
