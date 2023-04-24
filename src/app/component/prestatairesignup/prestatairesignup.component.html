@@ -37,9 +37,18 @@
                                   <input type="text" placeholder="Email"  formControlName="email" >
                               </div>
                           </div>
-                          <div *ngIf="submitted && form['email'].errors">
-                            <div *ngIf="form['email'].errors['required']" class="text-danger">Email is required  </div> 
+                          <div *ngIf="submitted && form['address'].errors">
+                            <div *ngIf="form['address'].errors['required']" class="text-danger">address is required  </div> 
                           </div>     
+                          <div class="form-group pt-3">
+                            <div class="input-field" [ngClass]="{ 'is-invalid-input': submitted && form['address'].errors }">
+                                <span class="fa fa-envelope p-2"></span>
+                                <input type="text" placeholder="address"  formControlName="address" >
+                            </div>
+                        </div>
+                        <div *ngIf="submitted && form['email'].errors">
+                          <div *ngIf="form['email'].errors['required']" class="text-danger">Email is required  </div> 
+                        </div>   
 
                           <div class="form-group pt-3">
                               <div class="input-field"  [ngClass]="{ 'is-invalid-input': submitted && form['phone'].errors }">

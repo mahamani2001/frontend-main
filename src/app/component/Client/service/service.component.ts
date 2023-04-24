@@ -13,7 +13,7 @@ import { Job } from '../../prestataire/job';
 export class ServiceComponent implements OnInit {
   services!: Job[];
   categories: Category[] = [];
-  data!: any[]; // declare the categoryId variable and set it to a default value
+  data!: any[]; // declare the category_id variable and set it to a default value
 
   
   
@@ -22,11 +22,12 @@ export class ServiceComponent implements OnInit {
     this.service.getAlljobs().subscribe(
       jobs => {
         this.services = jobs;
+         console.log(this.services);
         // Get category names for each job
         for (const job of this.services) {
-          this.category.getCategoryName(job.categoryId).subscribe(
+          this.category.getCategoryName(job.category_id).subscribe(
             categoryName => {
-              job.category = { id: job.categoryId, name: categoryName };
+              job.category = { id: job.category_id, name: categoryName };
             }
           );
         }

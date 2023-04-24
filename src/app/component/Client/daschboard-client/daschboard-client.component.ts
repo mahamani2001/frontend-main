@@ -23,7 +23,7 @@ export class DaschboardClientComponent {
       Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'This is your dashboard. Here, you can view your account details, access services, check your availability, and manage your messages.',
+        title: 'Ceci est votre tableau de bord. Ici, vous pouvez afficher les détails de votre compte, accéder aux demandes et gérer vos messages.',
         showConfirmButton: false,
         timer: 2500
       });

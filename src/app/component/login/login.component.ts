@@ -80,6 +80,8 @@ submitlogin(){
          // here we will save the token on the local storage
          this.token.saveToken(this.data.token);
          this.token.saveId(this.data.user.id);
+         this.token.setRole(role);
+         this.token.saveUserName(this.data.user.firstname);
          // we will set state 
          this.authState.setAuthState(true);
          

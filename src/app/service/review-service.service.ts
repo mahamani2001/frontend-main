@@ -19,6 +19,17 @@ export class ReviewServiceService {
       }
     });
   }*/
+ 
+  getReviewsByJobber(jobberId:any){
+    return this.http.get(this.apiUrl+'/jobbers/' + jobberId + '/reviews');
+  }
+ /* postReview(id:any){
+    this.http.post(`http://127.0.0.1:8000/api/review`, {
+      headers: {
+        Authorization: `Bearer ${this.token.getToken()}`
+      }
+    });
+  }*/
   postReview(jobberId: number, comment: string, rating: number) {
     // Send the request to the API
     return this.http.post('http://localhost:8000/api/jobbers/' + jobberId + '/reviews', { comment, rating })

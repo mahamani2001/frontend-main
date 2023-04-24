@@ -27,7 +27,6 @@ export class WorkScheduleComponent implements OnInit {
       jour: ['', Validators.required]
     });
   }
-
   retrieveDisponibilites(): void {    
         this.disponibiliteService.getUserAvailability()
       .subscribe(data => {

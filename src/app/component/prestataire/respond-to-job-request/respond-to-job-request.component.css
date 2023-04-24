@@ -1,4 +1,35 @@
-.f{
-    margin-left: 500px;
-    padding: 100px;
-}
+.marging_left30{
+    margin-left: 30px;
+ }
+ .pending_job{
+     background-color: #fbf0da;
+     border-color: #a17112;
+ }
+ .flex-nowrap{
+    padding:100px;
+ }
+ .active_job{
+     background-color: #fbf0da;
+     border-color: #a17112;
+ }
+ .categ_span{
+     background-color: #dddddd;
+     margin-bottom: 20px;
+     border-radius: 20px;
+     display: inline-block;
+     padding: 5px 15px;
+     font-size: 14px;
+ }
+ .card_job{
+     margin-bottom: 30px;
+ }
+ 
+ modal {
+     /* modals are hidden by default */
+     display: none;
+ }
+ 
+ body.modal-open {
+     /* body overflow is hidden to hide main scrollbar when modal window is open */
+     overflow: hidden;
+ }

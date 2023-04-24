@@ -18,36 +18,26 @@ export class RespondToJobRequestComponent {
   data!:any;
   constructor(private jobRequestService: RequestJobService, private http: HttpClient) {}
 
-  /*respondToJobRequest() {
-    if (!this.selectedRequest) {
-      console.error('No request selected');
-      return;
-    }
-    this.jobRequestService.respondToJobRequest(this.selectedRequest.id, this.response, this.prix).subscribe(
-      response => console.log(response),
-    
-    );
-  }*/
- 
-  respondToJobRequest() {
-   
-    if (!this.selectedRequest) {
-      console.error('No request selected');
-      return;
-    }
-    console.log('Response:', this.response);
-    console.log('Prix:', this.prix);
-     this.userId=this.selectedRequest.user_id;
-    this.jobRequestService.respondToJobRequest(this.selectedRequest.id, this.response, this.prix,this.userId)
-      .subscribe(
-        response => console.log(response)
-      );
-  }
-  
-
   ngOnInit(): void {
     this.getJobberRequest();
   }
+  respondToJobRequest() {
+    if (!this.selectedRequest) {
+      console.error('No request selected');
+      return;
+    }
+     
+    this.userId=this.selectedRequest.user_id;
+    this.jobRequestService.respondToJobRequest(this.selectedRequest.id, this.response, this.prix,this.userId)
+      .subscribe(
+        response => {
+          console.log(response);
+          alert('Offre envoyée avec succès');
+        }
+      );
+}
+
+   
   getJobberRequest(){
     this.jobRequestService.getJobberRequest().subscribe(
     res => {
@@ -55,9 +45,9 @@ export class RespondToJobRequestComponent {
       this.jobRequests = this.data.requestJobs;
       console.log(this.jobRequests);
     },
-   error => console.log(error)
- );
-}
+    error => console.log(error)
+    );
+  }
 
   
 

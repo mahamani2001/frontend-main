@@ -139,19 +139,19 @@ top:-10px
   }
  
   #rate-1:checked ~ form header:before{
-    content: "I just hate  it 😠";
+    content: "I just love it 😍";
   }
   #rate-2:checked ~ form header:before{
-    content: "I don't like it 😒 ";
-  }
-  #rate-3:checked ~ form header:before{
     content: "It is awesome 😊 ";
   }
-  #rate-4:checked ~ form header:before{
+  #rate-3:checked ~ form header:before{
     content: "I just like it 😎 ";
   }
+  #rate-4:checked ~ form header:before{
+    content: "I don't like it 😒 ";
+  }
   #rate-5:checked ~ form header:before{
-    content: "I just love it 😍 ";
+    content: "I just hate  it 😠 ";
   }
   .container form{
     display:none ;

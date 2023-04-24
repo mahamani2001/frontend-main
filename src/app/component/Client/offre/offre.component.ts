@@ -11,7 +11,8 @@ import { TokenService } from 'src/app/shared/token.service';
 })
 export class OffreComponent implements OnInit {
    offres:Offre[]=[];
-  data!:any; 
+   offre!: Offre;
+   data!:any; 
    constructor(private offreService:OffreService,private token:TokenService) { }
 
   ngOnInit() {
@@ -24,4 +25,9 @@ export class OffreComponent implements OnInit {
       console.log(this.offres)
     });
 }
+acceptOffre(): void {
+  this.offreService.acceptOffre(this.offre)
+    .subscribe(offre => this.offre = offre);
+}
+
 }

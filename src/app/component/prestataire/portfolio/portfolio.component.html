@@ -8,15 +8,18 @@
 </head>
 <body>
   <app-nav></app-nav>
-  <div class="container breadcrumb_section">
+  <div class="container-fluid breadcrumb_section">
     <div class="row">
       <div class="col-md-12">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Portfolio</li>
-          </ol>
-        </nav>
+        <div class="container">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Portfolio</li>
+            </ol>
+          </nav>
+        </div>
+      
       </div>
     </div>
   </div>
@@ -24,18 +27,18 @@
     <!--
       <section id="about-me" class="py-5">
         <div class="container1">
-          <h2 class="mb-4">À propos de moi</h2>
+          <h2 class="mb-4">Ã€ propos de moi</h2>
           <div class="row">
             <div class="col-md-6">
-              <h3>Compétences</h3>
+              <h3>CompÃ©tences</h3>
               <ul>
-                <li>Compétence 1</li>
+                <li>CompÃ©tence 1</li>
               </ul>
             </div>
             <div class="col-md-6">
-              <h3>Expérience</h3>
+              <h3>ExpÃ©rience</h3>
               <ul>
-                <li>Expérience 1</li>
+                <li>ExpÃ©rience 1</li>
                
               </ul>
             </div>
@@ -50,8 +53,10 @@
         <div class="col-md-12 text-center">
           <ol class="menu_prest">
             <li><a href="http://localhost:4200/portfolio/{{prestataire.id}}#details">Profile details</a></li>
-            <li><a href="http://localhost:4200/portfolio/{{prestataire.id}}#services">Mes services</a></li>
+            <li><a href="http://localhost:4200/portfolio/{{prestataire.id}}#services">Services</a></li>
             <li><a href="http://localhost:4200/portfolio/{{prestataire.id}}#reviews">Reviews</a></li>
+            <li><a href="http://localhost:4200/portfolio/{{prestataire.id}}#disponibilite">Disponobiltes</a></li>
+
           </ol>
         </div>
       </div>
@@ -62,7 +67,7 @@
           <div class="card mb-4">
             <div class="card-body text-center">
               <img src={{prestataire.photo}} alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
-              <h5 class="my-3">{{prestataire.firstname}}</h5>
+              <h5 class="my-3 prest_name">{{prestataire.firstname}}</h5>
 							<div class="status"><i class="fa fa-solid fa-globe"></i><b>{{prestataire.address}}</b></div>
               <div><i class="fa fa-star" aria-hidden="true"></i><b class="tags"> 4.5</b></div>
               <p class="card-text small"> {{prestataire.competence}}  </p>
@@ -164,18 +169,18 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h2 class="title_header">Mes Services</h2>
+          <h2 class="title_header">Services</h2>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-4"   *ngFor="let job of mesJobs"> 
-         <div class="card" style="width: 18rem;">
-           <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/182.webp" class="card-img-top" alt="Sunset Over the Sea">
+        <div class="col-md-4" *ngFor="let job of mesJobs"> 
+         <div class="card card_service">
+           <img src="{{job.pictureUrl}}" class="card-img-top" alt="Sunset Over the Sea">
            <div class="card-body">
             <h1>{{job.title}}</h1>
+            <span>Category name</span>
              <p class="card-text">
-               Some quick example text to build on the card title and make up the bulk of the card's
-               content.
+              {{job.description}}
              </p>
            </div>
          </div>
@@ -183,97 +188,98 @@
      </div>
      <div class="spacer50"></div>
     </div>
-  </section>
+  </section> 
   <section id="reviews">  
-    <div class="container">
-
+    <div class="container"> 
      <div class="row">
       <div class="col-md-12">
-        <h2 class="title_header">Reviews:</h2>
+        <h2 class="title_header">Disponibilite</h2>
       </div>
     </div>
-    </div>
-  </section>
-  <section>
-    <div class="container2">
-        <ul>
-          <li>
-            <span></span>
-            <div class="box">
-              <div class="title">Active:</div>
-              <div class="info">Jour : </div>
-            
-            </div>
-           
-             <div class="time">
-              <span>9:00</span>
-              <span>10:00</span>
-             </div>
-          </li>
+    <div class="row">
+      <div class="col-md-3" *ngFor="let disponiliblity of availability">
  
-
-        </ul>
-    </div>
-  </section>
-  <section>
-    <div *ngFor="let day of availability">
-      <h2>{{ day.jour }}</h2>
-      <p>Active: {{ day.actif }}</p>
-      <p>Start Time: {{ day.heure_debut }}</p>
-      <p>End Time: {{ day.heure_fin }}</p>
-    </div>
-  </section>
-
-  <section>
-    <div class="container1">
-      <div class="row">
-        <div class="col-md-4 mb-3">
-          <div class="card">
-            <div class="card-header">i liked</div>
-            <div class="card-body">
-              <p class="card-text">ggggggggg</p>
-              <p class="card-text">rrr<small class="text-muted">Posted by</small></p>
-            </div>
-          </div>
+        <div [ngClass]="disponiliblity.actif ? 'alert alert-success' : 'alert alert-danger'"
+         role="alert"  >
+          <b>{{capitalize(disponiliblity.jour)}}</b><br>
+          Heure de début de travail: : {{disponiliblity.heure_debut}} <br>
+          Heure de fin de: {{disponiliblity.heure_fin}}<br>
+          Active : {{disponiliblity.actif ? "Oui" : "Non"}}
         </div>
       </div>
     </div>
+    </div>
+    <div class="spacer40"></div>
   </section>
-  
+  <section id="reviews" class="bg_grey">  
+    <div class="container">
+     <div class="row">
+      <div class="col-md-12">
+        <h2 class="title_header">Reviews</h2>
+      </div>
+    </div>
 
-
-      <section>
-        <div class="container containerRating">
-          <div class="post">
-           <div class="edit">EDIT</div>
-           <script src="main.js"></script>
+    <div class="row">
+      <div class="row d-flex">
+        <div class="col-md-8" >
+          <div class="card text-dark" *ngFor="let review of reviews">
+            <div class="card-body p-4"> 
+              <div class="d-flex flex-start">
+                <img class="rounded-circle shadow-1-strong me-3 img_review" src="https://st.depositphotos.com/2218212/2938/i/450/depositphotos_29387653-stock-photo-facebook-profile.jpg" alt="avatar" width="60" height="60">
+                <div>
+                  <h6 class="fw-bold mb-1">Username</h6>
+                  <div class="d-flex align-items-center ">
+                    <p class="mb-0 padding_right_5">
+                       {{review.created_at| date:'mediumDate'}}  
+                    </p> 
+                    <i class="fa fa-star active_star" *ngFor="let i of getNumberArray(review.rating)"> </i>  
+                    <i class="fa fa-star-o inactive" *ngFor="let i of getNumberArray(5-review.rating)"> </i>  
+                  </div>
+                  <span class="badge bg-primary badge_categ">Bricolage</span>
+                  <p class="mb-0">
+                   {{review.comment}}
+                  </p>
+                </div>
+              </div>
+            </div> 
+            <hr class="my-0" style="height: 1px;"> 
           </div>
-          <div class="star-widget">
-               <input type="radio" name="rate" id="rate-5" [(ngModel)]="rating" value="5">
-                 <label for="rate-5" class="fas fa fa-star"></label>
-                 <input type="radio" name="rate" id="rate-4"[(ngModel)]="rating" value="4">
-                 <label for="rate-4" class="fas fa fa-star"></label>
-                 <input type="radio" name="rate" id="rate-3" [(ngModel)]="rating" value="3">
-                 <label for="rate-3" class="fas fa fa-star"></label>
-                 <input type="radio" name="rate" id="rate-2"  [(ngModel)]="rating" value="2">
-                 <label for="rate-2" class="fas fa fa-star"></label>
-                 <input type="radio" name="rate" id="rate-1" [(ngModel)]="rating" value="1">
-                 <label for="rate-1" class="fas fa fa-star"></label>
-                 <form (ngSubmit)="submitReview()" #reviewForm="ngForm">
-                  <header></header>
-                  <div class="textarea">
-                    <textarea cols="30" placeholder="Describe your experience" [(ngModel)]="comment" name="comment" required></textarea>
-                  </div>
-                  <div class="btn">
+        </div>
 
-                    <button type="submit" [disabled]="!reviewForm.valid">Submit</button>
-                  </div>
-              </form>
-           </div>
-         </div> 
-      </section>
-      
-
+        <div class="col-md-4">
          
+          <div class="card card_review containerRating"> 
+          <h3>Ajouter un feedback</h3> 
+            <div class="star-widget" >
+              <input type="radio" name="rate" id="rate-1"  [(ngModel)]="rating" value="1">
+              <label for="rate-1" class="fas fa fa-star"></label>
+              <input type="radio" name="rate" id="rate-2"  [(ngModel)]="rating" value="2">
+              <label for="rate-2" class="fas fa fa-star"></label>
+              <input type="radio" name="rate" id="rate-3" [(ngModel)]="rating" value="3">
+              <label for="rate-3" class="fas fa fa-star"></label>
+              <input type="radio" name="rate" id="rate-4"[(ngModel)]="rating" value="4">
+              <label for="rate-4" class="fas fa fa-star"></label> 
+              <input type="radio" name="rate" id="rate-5" [(ngModel)]="rating" value="5">
+              <label for="rate-5" class="fas fa fa-star"></label> 
+                
+                   <form (ngSubmit)="submitReview()" #reviewForm="ngForm">
+                    <header></header>
+                    <div class="textarea">
+                      <textarea cols="30" placeholder="Describe your experience" [(ngModel)]="comment" name="comment" required></textarea>
+                    </div>
+                    <div class="btn">
+  
+                      <button type="submit" [disabled]="!reviewForm.valid">Submit</button>
+                    </div>
+                </form>
+             </div>
+          
+        </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section> 
+ 
 </body>
 </html>

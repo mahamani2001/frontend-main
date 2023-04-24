@@ -17,10 +17,22 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
     this.username= this.token.getUsername();
   }
-  logout(){
-    this.token.clearStorage();
-    this.authState.setAuthState(false);
-    this.router.navigate(['/login']);
+  logout() {
+    Swal.fire({
+      title: 'Êtes-vous sûr(e) de vouloir vous déconnecter ? 😊',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, log out'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.token.clearStorage();
+        this.authState.setAuthState(false);
+        this.router.navigate(['/login']);
+      }
+    });
   }
+
   
 }

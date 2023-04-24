@@ -35,6 +35,7 @@ export class ProfileComponent {
       }) 
   }
  
+ 
   hideShowPass(){
     this.isText=!this.isText;
     this.isText ? this.eyeIcon="fa-eye" :this.eyeIcon="fa-eye-slash"
@@ -45,13 +46,13 @@ export class ProfileComponent {
     this.userService.updateProfile(this.user).subscribe(
       user => {
         this.user = user;
-        console.log('Profile updated successfully');
+        console.log('Profil mis à jour avec succès');
         this.showMessage = true;
         // hide message after 1.5 seconds
         Swal.fire({
           position: 'center',
           icon: 'success',
-          title: 'Profile updated successfully',
+          title: 'Profil mis à jour avec succès',
           showConfirmButton: false,
           timer: 1500
         });

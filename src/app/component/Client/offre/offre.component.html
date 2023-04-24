@@ -11,30 +11,30 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Status</th>
-          <th>Jobber Name</th>
-          <th>Offer Price</th>
-          <th>Date Sent</th>
+          <th>Demande</th>
+          <th>Nom du prestataire</th>
+          <th>Prix de l'offre</th>
+          <th>Date d'envoi de l'offre</th>
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let offre of offres">
+        <tr *ngFor="let offre of offres ">
           <td class="status-cell">
             <i class="fas fa  fa-{{offre.statut === 'accepte' ? 'check' : 'times'}}"></i>
             <span class="status-badge {{offre.statut}}">{{offre.statut}}</span>
           </td>
           <td>{{offre.user_id}}</td>
           <td>{{offre.prix}}</td>
-          <td>{{offre.created_at}}</td>
+          <td>{{offre.created_at| date:'yyyy-MM-dd'}}</td>
           <td>
-            <button class="accept-button">
+            <button class="accept-button"(click)="acceptOffre()" >
               <i class="fas fa fa-check"></i>
-              Accept
-            </button>
-            <button class="reject-button">
+              Accepter l'offre</button>
+            <button  class="reject-button" >
+              Refuser l'offre
               <i class="fas fa fa-times"></i>
-              Reject
+              
             </button>
           </td>
         </tr>

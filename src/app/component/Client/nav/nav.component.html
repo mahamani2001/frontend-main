@@ -12,7 +12,7 @@
             <li class="nav__item"><a routerLink="/contact">Contact</a></li>
             <li *ngIf="!userLoggedIn" class="nav__item"><a routerLink="/compte">Inscription </a></li> 
             <li *ngIf="!userLoggedIn" class="nav__item"><a routerLink="/login">Connexion</a></li> 
-            <li *ngIf="userLoggedIn" class="nav__item user_name_menu"><a routerLink="/dashboardClient">Hello, {{userName}}</a></li> 
+            <li *ngIf="userLoggedIn" class="nav__item user_name_menu"><a (click)="navigateDashboard()">Hello, {{userName}}  </a></li> 
         </ul>
         <!--div class="search__box">
             <span><i class="ri-search-eye-line"></i></span>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 import { DataService } from 'src/app/service/data-service.service'; 
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-signup',
@@ -13,7 +15,7 @@ export class SignupComponent implements OnInit {
   eyeIcon:string= "fa-eye-slash";
   signUpFrom!:FormGroup;
   data:any;
-  constructor(private fb : FormBuilder,private dataServices:DataService){}
+  constructor(private fb : FormBuilder,private dataServices:DataService,private route:Router){}
   ngOnInit(): void {
     this.signUpFrom=this.fb.group({
       firstname:['',Validators.required],
@@ -35,11 +37,24 @@ export class SignupComponent implements OnInit {
     public error:any=[];
 
     onSignup(){
-          console.log(this.signUpFrom);
-          this.dataServices.register(this.signUpFrom.value).subscribe(res=>{
-            this.data=res;
-            console.log(res);
-             });
+      console.log(this.signUpFrom);
+      this.dataServices.register(this.signUpFrom.value).subscribe(res=>{
+        this.data=res;
+        console.log(res);
+        // SweetAlert success message
+        Swal.fire({
+          icon: 'success',
+          title: 'Welcome to our platform!',
+          text: 'You have successfully registered.',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Go to homepage'
+        }).then((result) => {
+          if (result.isConfirmed) {
+           // this.route.navigate(['/home']);
+          }
+        });
+      });
     }
+    
 
 }

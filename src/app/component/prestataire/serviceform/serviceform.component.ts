@@ -25,7 +25,7 @@ export class ServiceformComponent {
     this.categoryService.getCategories()
       .subscribe(categories => this.categories = categories);
       this.jobForm = this.formBuilder.group({
-        categoryId: [''],
+        category_id: [''],
         title: [''],
         description: [''],
         price_min: [''],
@@ -45,7 +45,7 @@ export class ServiceformComponent {
   }
   onSubmit() {
     const jobData: Job = {
-      categoryId: this.jobForm.value.categoryId,
+      category_id: this.jobForm.value.category_id,
       title: this.jobForm.value.title,
       description: this.jobForm.value.description,
       price_min: this.jobForm.value.price_min,

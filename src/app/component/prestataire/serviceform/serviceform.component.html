@@ -11,7 +11,7 @@
     <form [formGroup]="jobForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="category">Category:</label>
-        <select class="form-control"  formControlName="categoryId">
+        <select class="form-control"  formControlName="category_id">
           <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
         </select>
       </div> 

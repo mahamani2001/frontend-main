@@ -45,6 +45,10 @@ export class DemandeComponent implements OnInit {
     this.currentRequest = null;
     this.currentIndex = -1;
   }
+  setActiveRequest(request: any, index: number): void {
+    this.currentRequest = request;
+    this.currentIndex = index;
+  }
   removeRequest(id: number): void {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {

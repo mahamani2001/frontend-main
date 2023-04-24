@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Profile } from '../profile';
 import { DataService } from 'src/app/service/data-service.service';
 import { TokenService } from 'src/app/shared/token.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-profil',
@@ -15,6 +16,7 @@ export class ProfilComponent implements OnInit {
   type:string   = "password";
   user: Profile = {} as Profile;
   data: any;
+  showMessage = false;
   constructor(private userService:DataService,private token: TokenService){}
 
   ngOnInit(): void {
@@ -46,8 +48,21 @@ export class ProfilComponent implements OnInit {
     updateProfile(): void {
       this.userService.updateProfile(this.user).subscribe(
         user => {
-          this.user = user;
-          console.log('Profile updated successfully');
+          if( this.user = user){
+            this.showMessage = true;
+            // hide message after 1.5 seconds
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Profil mis à jour avec succès.',
+              showConfirmButton: false,
+              timer: 1500
+            });
+              console.log('Profil mis à jour avec succès.');
+              
+          }
+         
+       
         },
         error => {
           console.log(error);

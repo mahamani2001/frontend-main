@@ -4,6 +4,7 @@ import { Job } from '../job';
 import { CategoryService } from 'src/app/service/category.service';
 import { Category } from '../category';
  import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
  
 @Component({
   selector: 'app-post',
@@ -74,13 +75,32 @@ filterJobsByTitle(title: string) {
 
   deleteJob(jobId: number) {
     console.log('Deleting job with ID:', jobId);
+    
     // Use the deletejob method of the DataService to delete the job
     this.job.deletejob(jobId).subscribe(
       res => {
         console.log('Job deleted successfully:', res);
+        
+        // Show success alert
+        Swal.fire({
+          icon: 'success',
+          title: ' service supprimé avec succès',
+          timer: 3000,
+          timerProgressBar: true
+        });
+  
         this.loadJobsAndCategories(); // Reload data after deletion
       },
-      err => console.error('Error deleting job:', err)
+      err => {
+        console.error('Error deleting job:', err);
+  
+        // Show error alert
+        Swal.fire({
+          icon: 'error',
+          title: 'Error deleting job',
+          text: err.message
+        });
+      }
     );
   }
   
@@ -94,7 +114,9 @@ filterJobsByTitle(title: string) {
     this.job.updatejob(this.editingJob!).subscribe(
       res => {
         console.log('Job updated successfully:', res);
-        this.editingJob = undefined;
+        if (this.editingJob === res) { // add this check
+          this.editingJob = undefined;
+        }
         this.loadJobsAndCategories(); // Reload data after edit
       },
       err => console.error('Error updating job:', err)
@@ -103,18 +125,17 @@ filterJobsByTitle(title: string) {
   
   cancelEdit() {
     console.log('Canceling edit');
-    this.editingJob = undefined;
+    if (this.editingJob) { // add this check
+      this.editingJob = undefined;
+    }
   }
-   
+  
+ 
   
   searchText: string = "";
   onSearchTextEntered(searchValue: string) {
     this.searchText = searchValue;
     console.log(this.searchText);}
   
-
-
-
-
   
   }

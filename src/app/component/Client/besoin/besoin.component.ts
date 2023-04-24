@@ -6,6 +6,7 @@ import { DataService } from 'src/app/service/data-service.service';
 import { RequestJobService } from 'src/app/service/requestjob.service';
 import { Category } from '../../prestataire/category';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -57,14 +58,22 @@ export class BesoinComponent implements OnInit {
         .subscribe(response => {
           console.log(response);
           console.log(jobberId)
+          
           if(!isNaN(jobberId))
             this.router.navigate(['/portfolio/'+jobberId]);
             else 
-            alert("--- Send to all")
-        });
-    } 
+            Swal.fire({
+              title: 'Send to all',
+              text: 'Are you sure you want to send your request to all jobbers?',
+              icon: 'question',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Yes, send to all'
+           });
+          } );
     
-      
+        }
     
   
 }

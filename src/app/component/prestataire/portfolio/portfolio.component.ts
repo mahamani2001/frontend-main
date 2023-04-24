@@ -16,7 +16,7 @@ import { Job } from '../job';
   styleUrls: ['./portfolio.component.css']
 })
 export class PortfolioComponent {
-  availability!: Disponiblite[];
+  availability: Disponiblite[]=[];
   reviews !:Review[];
   data!:any;
   prestataire: Profile = {} as Profile;
@@ -50,11 +50,23 @@ export class PortfolioComponent {
         err => {       
          alert("Erreur");
         }) 
+
+        this.reviewService.getReviewsByJobber(jobber_id).subscribe(
+          (res:any) => {  
+            
+
+            console.log(res);
+             this.reviews=res.reviews;
+           },
+          err => {       
+           alert("Erreur");
+          }) 
+        
     
 
-      this.disponibilite.getUserAvailability()
+      this.disponibilite.get(jobber_id)
         .subscribe(data => {
-          this.availability = data.disponibilites;
+          this.availability = data;
           console.log(this.availability);
         });
    /* this.reviewService.getReviews(this.token.getUserId()).subscribe((response: any) => {
@@ -69,13 +81,14 @@ export class PortfolioComponent {
       .subscribe(response => console.log(response));
   }
 
-
- 
-
- 
- 
+  getNumberArray(maxNumber: number): number[] {
+    return Array(maxNumber).fill(0).map((x, i) => i);
+  }
   
-
+  capitalize(value: string): string {
+    return value.charAt(0).toUpperCase() + value.slice(1);
+  }
+  
   comment: string = '';
   rating: string = '';
 

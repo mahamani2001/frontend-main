@@ -7,7 +7,7 @@ import { Category } from "./category";
         price_max: number;
         price_min: number;
         pictureUrl: string;
-        categoryId: number;
+        category_id: number;
         category?: Category;
         categoryName?: string; 
         jobber_id: string; //

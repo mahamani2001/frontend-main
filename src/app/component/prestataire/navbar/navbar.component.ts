@@ -10,7 +10,6 @@ import { TokenService } from 'src/app/shared/token.service';
 })
 export class NavbarComponent  implements OnInit{
 
-   
   username:string="";
  
 
@@ -19,12 +18,10 @@ export class NavbarComponent  implements OnInit{
     this.username= this.token.getUsername();
   }
   logout(){
-    console.log("--->> Logout ");
-   // this.token.removeToken();
+    console.log("--->> Logout "); 
     this.token.clearStorage();
     this.authState.setAuthState(false);
-    this.router.navigate(['/login']);
-
+    this.router.navigate(['/login']); 
   }
   
   /*isLoggedIn(): boolean {

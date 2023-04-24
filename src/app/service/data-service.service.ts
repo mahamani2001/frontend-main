@@ -96,6 +96,9 @@ getJobsByPrestatire(id:number)  {
   return this.http.get(`http://127.0.0.1:8000/api/job/${id}`);
 }
 
+ 
+
+
 updateProfile(user: Profile): Observable<Profile> {
   const httpOptions = {
     headers: new HttpHeaders({

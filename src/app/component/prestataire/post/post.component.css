@@ -1,33 +1,23 @@
 .table{
-    margin-left: 290px;
-    margin-top: 40px;
-  }
-
-
+  margin-top: 40px;
+}
+.marging_left30{
+margin-left: 30px;
+}
 body{
- background-color: rgb(255, 255, 255);
+background-color: rgb(255, 255, 255);
 }
 
-
-
-  .f{
-    margin-left: -50px;
-    padding: 50px;
-    width: 800px;
-    
-
-}
 .table-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50vh; /* set the height of the container to the full viewport height */
+display: flex;
+justify-content: center;
+align-items: center;
+height: 50vh; /* set the height of the container to the full viewport height */
 }
 .search{
-  margin-left: 300px;
+margin-top: 50px;
 }
-.button{
-  margin-left: 800px;
-
+.containt{
+padding: 100px;
 }
 

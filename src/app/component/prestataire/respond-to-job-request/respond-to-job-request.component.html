@@ -4,71 +4,80 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" integrity="sha512-Gh8oJpd9Xy1RlYBgYkwCwNiOof1QxZnmz+q3/XoU5F6OW5ue5DzA6rBnbnAnsyHmLXv6gjklCnAXJTD3q3fTTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+  <div class="f">
 
   <div class="container-fluid">
-    <div class="row mt-5">
-      <div class="col-md-12">
-        <h2>Job Requests</h2>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Client</th>
-              <th>Catégorie</th>
-              <th>Titre de service </th>
-              <th>description</th>
-              <th>Status</th>
-              <th>location</th>
-              <th>date_début</th>
-              <th>date_limite</th>
-              <th>Actions</th>
-              <th>Respond</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let request of jobRequests" (click)="selectedRequest = request">
-              <td>{{request.user.firstname}}</td>
-              <td>{{request. category.name}}</td>
-              <td>{{ request.title }}</td>
-              <td>{{ request.description }}</td>
-              <td>{{ request.status }}</td>
-              <td>{{ request.location }}</td>
-              <td>{{ request.start_date}} </td>
-              <td>  {{ request. end_date}}</td>
-            <!-- <td>{{ request.status }}</td> -->  
-              <td><button class="btn btn-primary" (click)="selectedRequest = request">Select Request</button></td>
-            </tr>
-            <td colspan="1" *ngIf="selectedRequest">
-              <form (submit)="respondToJobRequest()">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div>
-                      <input type="radio" name="response" value="accepte" [(ngModel)]="response" required> Accepte
-                      <input type="radio" name="response" value="refuse" [(ngModel)]="response" required> refuse
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+              <app-navbar class="fixed-top"></app-navbar>
+              <hr>
+                
+            </div>
+        </div>
+        <div class="col py-3 marging_left90">
+          <div class="row mt-5">
+            <div class="col-md-12">
+              <h2>Demandes services</h2>
+              
+              <div class="row">
+                <div class="col-md-4" *ngFor="let request of jobRequests" (click)="selectedRequest = request">
+                  <div class="card card_job">
+                    <div class="card-header">
+                      {{ request.title }}
                     </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div *ngIf="response === 'accepte'">
-                      <label for="price">Price:</label>
-                      <input type="number" name="price" [(ngModel)]="prix" required>
+                    <div class="card-body"> 
+                      <span class="categ_span">{{request.category.name}}</span>
+                      <p class="card-text">
+                        {{ request.description }}<br>
+                      </p>
+                        <hr>
+                        <p class="card-text">
+                        Client :{{request.user.firstname}} <br>  
+                        Location :{{ request.location }} <br>
+                        Date debut: {{ request.start_date}}<br>
+                        Date Limit :{{ request.end_date}} <br>
+                        Status: {{ request.status }}<br>
+                      </p>
+                      <button class="btn btn-primary" (click)="selectedRequest = request">sélectionner une demande</button>
                     </div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+              <div  *ngIf="selectedRequest">
+                <form (submit)="respondToJobRequest()">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div>
+                        <input type="radio" name="response" value="accepte" [(ngModel)]="response" required> Accepte
+                        <input type="radio" name="response" value="refuse" [(ngModel)]="response" required> refuse
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div *ngIf="response === 'accepte'">
+                        <label for="price">Price:</label>
+                        <input type="number" name="price" [(ngModel)]="prix" required>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </form>
-            </td>
-          </tbody>
-        </table>
-      </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <button type="submit" class="btn btn-primary">envoyer</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+             
+        </div>
     </div>
+</div>
+
   </div>
+ 
   </body>
   </html>
   

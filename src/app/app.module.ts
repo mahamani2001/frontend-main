@@ -1,8 +1,8 @@
 import { MbscModule } from '@mobiscroll/angular';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule ,FormsModule} from '@angular/forms';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CompteComponent } from './component/compte/compte.component';
@@ -112,10 +112,10 @@ import { OffreComponent } from './component/Client/offre/offre.component';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     HttpClientJsonpModule,
-    FormsModule,
     MatDatepickerModule,
     MatInputModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule
  
     
   ],

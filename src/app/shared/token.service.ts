@@ -21,7 +21,7 @@ export class TokenService {
     localStorage.setItem('username', userName);
   } 
   getUsername(): string {
-    return localStorage.getItem('username')??'';
+    return localStorage.getItem('username') ?? '';
   }
   getUserId(): string {
     return localStorage.getItem('id_user')??'';
@@ -32,8 +32,12 @@ export class TokenService {
   clearStorage(){
    return localStorage.clear();
   }
-
-  
+  setRole(role:string){
+    localStorage.setItem('role', role);
+  }
+  isClient():boolean {
+    return localStorage.getItem('role') =="client" ? true : false;
+  }
   //*Verify the token
   isValidToken() {
     const token = this.getToken();
@@ -64,8 +68,6 @@ export class TokenService {
   // Remove token
   removeToken() {
     localStorage.removeItem('auth_token');
-    localStorage.removeItem('usename');
-
  
   }
   
