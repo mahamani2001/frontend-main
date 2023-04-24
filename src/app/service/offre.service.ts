@@ -14,8 +14,8 @@ export class OffreService {
     return this.http.get<Offre[]>(this.apiUrl);
   }
 
-  acceptOffre(offre: Offre): Observable<Offre> {
-    const url = `${this.apiUrl}/${offre.id}/accept`;
-    return this.http.post<Offre>(url, {});
+  acceptOffre(idOffre:any): Observable<Offre> {
+    const url = `${this.apiUrl}/${idOffre}/accepte`;
+    return this.http.put<Offre>(url, {});
   }
 }

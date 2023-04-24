@@ -28,7 +28,7 @@
           <td>{{offre.prix}}</td>
           <td>{{offre.created_at| date:'yyyy-MM-dd'}}</td>
           <td>
-            <button class="accept-button"(click)="acceptOffre()" >
+            <button class="accept-button" (click)="acceptOffre(offre.id)" >
               <i class="fas fa fa-check"></i>
               Accepter l'offre</button>
             <button  class="reject-button" >

@@ -25,8 +25,8 @@ export class OffreComponent implements OnInit {
       console.log(this.offres)
     });
 }
-acceptOffre(): void {
-  this.offreService.acceptOffre(this.offre)
+acceptOffre(id:any): void {
+  this.offreService.acceptOffre(id)
     .subscribe(offre => this.offre = offre);
 }
 
