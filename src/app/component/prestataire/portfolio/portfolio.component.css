@@ -139,19 +139,19 @@ top:-10px
   }
  
   #rate-1:checked ~ form header:before{
-    content: "I just love it 😍";
+    content: "J'adore 😍";
   }
   #rate-2:checked ~ form header:before{
-    content: "It is awesome 😊 ";
+    content: "C'est génial 😊 ";
   }
   #rate-3:checked ~ form header:before{
-    content: "I just like it 😎 ";
+    content: "J'aime juste ça 😎 ";
   }
   #rate-4:checked ~ form header:before{
-    content: "I don't like it 😒 ";
+    content: "je n'aime pas ça 😒 ";
   }
   #rate-5:checked ~ form header:before{
-    content: "I just hate  it 😠 ";
+    content: "je déteste ça 😠 ";
   }
   .container form{
     display:none ;

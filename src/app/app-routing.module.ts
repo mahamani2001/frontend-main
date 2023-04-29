@@ -33,6 +33,8 @@ import { AddDisponibiliteComponent } from './component/prestataire/add-disponibi
 import { RespondToJobRequestComponent } from './component/prestataire/respond-to-job-request/respond-to-job-request.component';
 import { PortfolioComponent } from './component/prestataire/portfolio/portfolio.component';
 import { OffreComponent } from './component/Client/offre/offre.component';
+import { TestComponent } from './test/test.component';
+import { CategorieComponent } from './component/Admin/categorie/categorie.component';
 
 
 
@@ -42,8 +44,7 @@ const routes: Routes = [
   {path:'signup',component:SignupComponent},
  {path:'compte',component:CompteComponent},
  {path:'psignup',component:PrestatairesignupComponent},
-{path:'contact',component:ContactComponent},
-
+ {path:'contact',component:ContactComponent},
  //Admin
   {path:'dashboard',component:DashboardAdminComponent},
  {path:'gererutilisateur',component:GererutilisateurComponent},
@@ -67,9 +68,6 @@ const routes: Routes = [
 {path:'besoin',component:BesoinComponent},
 {path:'offre',component:OffreComponent},
 {path:'offre/:id',component:OffreComponent},
-
-
-
 //prestataire
 {path:'post',component:PostComponent},
 {path:'serviceform',component:ServiceformComponent},
@@ -78,14 +76,9 @@ const routes: Routes = [
 {path:'profile',component:ProfileComponent},
 {path:'app-add-disponibilite',component:AddDisponibiliteComponent},
 {path:'respondTorequest',component:RespondToJobRequestComponent},
-{path:'portfolio',component:PortfolioComponent}
-
- 
-
-
-
- 
-  
+{path:'portfolio',component:PortfolioComponent},
+{path:'categorie',component:CategorieComponent},
+{path:'test',component:TestComponent} 
 ];
 
 @NgModule({

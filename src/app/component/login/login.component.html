@@ -26,7 +26,7 @@
                    <div class="form-group">
                     <label>Email</label>
                     <div class="input-field" [ngClass]="{ 'is-invalid-input': submitted && form['email'].errors }">
-                      <span class="fa fa-envelope p-2"></span>
+                      <span class="fa fa-envelope p-2 "style="color:#BFD7EA"></span>
                       <input type="text" formControlName="email" class="form-control" placeholder="Email"  />
                    </div> 
                     <div *ngIf="submitted && form['email'].errors">
@@ -38,7 +38,7 @@
                   <div class="form-group pt-3">
                     <label>Mot de passe</label>
                     <div class="input-field" [ngClass]="{ 'is-invalid-input': submitted && form['password'].errors }">
-                        <span class="fa fa-lock p-2"> </span>
+                        <span class="fa fa-lock p-2" style="color:#BFD7EA"> </span>
                         <input formControlName="password" type="password"  class="form-control"
                               placeholder="Mot de passe" />
                        <span (click) ="hideShowPass()" class=" fa {{eyeIcon}}"></span> 
@@ -52,16 +52,16 @@
                   </div>
                   
                   <div class="form-inline fr mt-4">
-                    <a id="forget" class="font-weight-blod">Mot de passe oublié?</a>
+                    <a id="forget" class="font-weight-blod" style="color: #1F1F1F;">Mot de passe oublié?</a>
                   </div>
 
                   <div class="alert alert-danger" *ngIf="isLoginFailed">
                           Login Error: {{ errorMessage }}
                   </div>
 
-                  <button class="btn btn-primary btn-block mt-4 w-100"> Connexion</button>
-                  <div class="text-center pt-4 text-muted">Vous n'avez pas de compte ?
-                      <a id="forget" routerLink="/compte">S'inscrire</a>
+                  <button class="btn  btn-block mt-4 w-100"> Connexion</button>
+                  <div class="text-center pt-4 text-muted" style="color: #1F1F1F">Vous n'avez pas de compte ?
+                      <a id="forget" routerLink="/compte"    style=" color:#FF7F50">S'inscrire</a>
                   </div>
                </form>
 

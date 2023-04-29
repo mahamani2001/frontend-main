@@ -80,7 +80,11 @@
   border-radius: 5px;
   cursor: pointer;
   }*/
-
+  body {
+    background-color:  #EDE5F5  ;
+    color: #333333;
+    
+  }
 
 .blog-sidebar-title{
 	color: #242424;
@@ -104,8 +108,9 @@
 }
 
 .blog-form{
-	background-color: #F4F4F4; 
+  background-color:  #D6C8E9;
 	padding: 50px; 
+  border: 1px solid #F2E7EC;
 }
 
 .list-icon{
@@ -132,6 +137,7 @@
 .card{
   border-radius: 15px;
   margin-bottom: 30px;
+  background-color: #E6B8CA;
 
 }
 .card-title{
@@ -172,6 +178,7 @@
 .btn {
   width: 200px;
   margin-bottom: 10px;
+
 }
 .btn .btn-success{
    width:20px;
@@ -179,7 +186,19 @@
 }
 a {
   color: #000000;
+  background-color: #E6B8CA;
+  text-decoration: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
+
+a:hover {
+  background-color: #F2E7EC;
+  transform: translateY(-3px);
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
 .local{
   position: absolute;
   top: 50%;

@@ -24,10 +24,8 @@ export class JobRequestService {
     const headers = new HttpHeaders({'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token});
     return this.http.get<any[]>(`${this.baseUrl}/providerRequest`,{headers: headers});
   }
-
   getJobberRequest(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/RequestJobber`);
   }
 
-  
 }

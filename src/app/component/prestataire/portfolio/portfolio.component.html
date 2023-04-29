@@ -23,30 +23,6 @@
       </div>
     </div>
   </div>
- 
-    <!--
-      <section id="about-me" class="py-5">
-        <div class="container1">
-          <h2 class="mb-4">Ã€ propos de moi</h2>
-          <div class="row">
-            <div class="col-md-6">
-              <h3>CompÃ©tences</h3>
-              <ul>
-                <li>CompÃ©tence 1</li>
-              </ul>
-            </div>
-            <div class="col-md-6">
-              <h3>ExpÃ©rience</h3>
-              <ul>
-                <li>ExpÃ©rience 1</li>
-               
-              </ul>
-            </div>
-          </div>
-         
-        </div>
-      </section>
-  -->
   <section>
     <div class="container">
       <div class="row">
@@ -54,8 +30,8 @@
           <ol class="menu_prest">
             <li><a href="http://localhost:4200/portfolio/{{prestataire.id}}#details">Profile details</a></li>
             <li><a href="http://localhost:4200/portfolio/{{prestataire.id}}#services">Services</a></li>
-            <li><a href="http://localhost:4200/portfolio/{{prestataire.id}}#reviews">Reviews</a></li>
-            <li><a href="http://localhost:4200/portfolio/{{prestataire.id}}#disponibilite">Disponobiltes</a></li>
+            <li><a href="http://localhost:4200/portfolio/{{prestataire.id}}#reviews">Commentaires</a></li>
+            <li><a href="http://localhost:4200/portfolio/{{prestataire.id}}#disponibilite">Disponobiltés</a></li>
 
           </ol>
         </div>
@@ -130,7 +106,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                Job succefully done</div>
+                              Services Fait Avec Succés</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
                         </div>
                         <div class="col-auto">
@@ -193,7 +169,7 @@
     <div class="container"> 
      <div class="row">
       <div class="col-md-12">
-        <h2 class="title_header">Disponibilite</h2>
+        <h2 class="title_header">Disponibilités</h2>
       </div>
     </div>
     <div class="row">
@@ -202,7 +178,7 @@
         <div [ngClass]="disponiliblity.actif ? 'alert alert-success' : 'alert alert-danger'"
          role="alert"  >
           <b>{{capitalize(disponiliblity.jour)}}</b><br>
-          Heure de début de travail: : {{disponiliblity.heure_debut}} <br>
+          Heure de début de travail: {{disponiliblity.heure_debut}} <br>
           Heure de fin de: {{disponiliblity.heure_fin}}<br>
           Active : {{disponiliblity.actif ? "Oui" : "Non"}}
         </div>
@@ -215,7 +191,7 @@
     <div class="container">
      <div class="row">
       <div class="col-md-12">
-        <h2 class="title_header">Reviews</h2>
+        <h2 class="title_header">Commentaires</h2>
       </div>
     </div>
 
@@ -227,7 +203,7 @@
               <div class="d-flex flex-start">
                 <img class="rounded-circle shadow-1-strong me-3 img_review" src="https://st.depositphotos.com/2218212/2938/i/450/depositphotos_29387653-stock-photo-facebook-profile.jpg" alt="avatar" width="60" height="60">
                 <div>
-                  <h6 class="fw-bold mb-1">Username</h6>
+                  <h6 class="fw-bold mb-1">Prénom</h6>
                   <div class="d-flex align-items-center ">
                     <p class="mb-0 padding_right_5">
                        {{review.created_at| date:'mediumDate'}}  
@@ -249,7 +225,7 @@
         <div class="col-md-4">
          
           <div class="card card_review containerRating"> 
-          <h3>Ajouter un feedback</h3> 
+          <h3>Ajouter un commentaire</h3> 
             <div class="star-widget" >
               <input type="radio" name="rate" id="rate-1"  [(ngModel)]="rating" value="1">
               <label for="rate-1" class="fas fa fa-star"></label>
@@ -265,11 +241,11 @@
                    <form (ngSubmit)="submitReview()" #reviewForm="ngForm">
                     <header></header>
                     <div class="textarea">
-                      <textarea cols="30" placeholder="Describe your experience" [(ngModel)]="comment" name="comment" required></textarea>
+                      <textarea cols="30" placeholder="Décrivez votre expérience" [(ngModel)]="comment" name="comment" required></textarea>
                     </div>
                     <div class="btn">
   
-                      <button type="submit" [disabled]="!reviewForm.valid">Submit</button>
+                      <button type="submit" [disabled]="!reviewForm.valid">Poster</button>
                     </div>
                 </form>
              </div>

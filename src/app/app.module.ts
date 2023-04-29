@@ -56,6 +56,9 @@ import { AuthInterceptor } from './shared/auth.interceptor.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { PortfolioComponent } from './component/prestataire/portfolio/portfolio.component';
 import { OffreComponent } from './component/Client/offre/offre.component';
+import { TestComponent } from './test/test.component';
+import { CategorieComponent } from './component/Admin/categorie/categorie.component';
+import { SidebarAdminComponent } from './component/Admin/sidebar-admin/sidebar-admin.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +101,9 @@ import { OffreComponent } from './component/Client/offre/offre.component';
     ProfileComponent,
     RespondToJobRequestComponent,
     PortfolioComponent,  
-    OffreComponent,
+    
+    OffreComponent, TestComponent, CategorieComponent, SidebarAdminComponent,
+    
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
