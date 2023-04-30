@@ -19,6 +19,13 @@ createUser(user: Profile): Observable<any> {
   const url = `${this.apiUrl}/users`;
   return this.http.post(url, user);
 }
+private resetPasswordUrl = 'http://127.0.0.1:8000/api/reset-password';
 
+
+
+  resetPassword(currentPassword: string, newPassword: string, confirmPassword: string): Observable<any> {
+    const body = { currentPassword, newPassword, confirmPassword };
+    return this.http.post<any>(this.resetPasswordUrl, body);
+  }
  
 }
