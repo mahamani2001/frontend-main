@@ -61,6 +61,7 @@ import { CategorieComponent } from './component/Admin/categorie/categorie.compon
 import { SidebarAdminComponent } from './component/Admin/sidebar-admin/sidebar-admin.component';
 import { ChatComponent } from './component/Client/chat/chat.component';
 import { NgxEmojiPickerModule } from 'ngx-emoji-picker';
+import { PasswordComponent } from './component/Client/password/password.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -104,7 +105,7 @@ import { NgxEmojiPickerModule } from 'ngx-emoji-picker';
     PortfolioComponent,  
     
     OffreComponent, TestComponent, CategorieComponent, SidebarAdminComponent, 
-    ChatComponent,
+    ChatComponent, PasswordComponent,
 
     
   ],

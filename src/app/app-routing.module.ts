@@ -36,6 +36,7 @@ import { OffreComponent } from './component/Client/offre/offre.component';
 import { TestComponent } from './test/test.component';
 import { CategorieComponent } from './component/Admin/categorie/categorie.component';
 import { ChatComponent } from './component/Client/chat/chat.component';
+import { PasswordComponent } from './component/Client/password/password.component';
 
 
 
@@ -80,7 +81,8 @@ const routes: Routes = [
 {path:'respondTorequest',component:RespondToJobRequestComponent},
 {path:'portfolio',component:PortfolioComponent},
 {path:'categorie',component:CategorieComponent},
-{path:'test',component:TestComponent} 
+{path:'test',component:TestComponent} ,
+{path:'password',component:PasswordComponent}
 ];
 
 @NgModule({
