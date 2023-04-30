@@ -285,3 +285,17 @@ top:-10px
   color: #000000!important;
   font-weight: bold;
 }
+/* chat box container */
+.chat-box-container {
+  width: 400px;
+  height: 500px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+

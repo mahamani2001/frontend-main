@@ -49,13 +49,11 @@
               <p class="card-text small"> {{prestataire.competence}}  </p>
                 <div class="d-flex justify-content-center mb-2">
                 <a routerLink="/besoin/1" class="btn btn-success button-text"> Demander un service</a>
-                <button type="button" class="btn btn-outline-primary ms-1">Message</button>
+                <button (click)="openChat()">Discussion with Prestataire</button>  
               </div>
             </div>
           </div> 
         </div>
-
-
         <div class="col-lg-8">
           <div class="card mb-4">
             <div class="card-body">

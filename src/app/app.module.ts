@@ -59,7 +59,8 @@ import { OffreComponent } from './component/Client/offre/offre.component';
 import { TestComponent } from './test/test.component';
 import { CategorieComponent } from './component/Admin/categorie/categorie.component';
 import { SidebarAdminComponent } from './component/Admin/sidebar-admin/sidebar-admin.component';
-
+import { ChatComponent } from './component/Client/chat/chat.component';
+import { NgxEmojiPickerModule } from 'ngx-emoji-picker';
 @NgModule({
   declarations: [
     AppComponent,
@@ -102,7 +103,9 @@ import { SidebarAdminComponent } from './component/Admin/sidebar-admin/sidebar-a
     RespondToJobRequestComponent,
     PortfolioComponent,  
     
-    OffreComponent, TestComponent, CategorieComponent, SidebarAdminComponent,
+    OffreComponent, TestComponent, CategorieComponent, SidebarAdminComponent, 
+    ChatComponent,
+
     
   ],
   schemas: [
@@ -120,8 +123,12 @@ import { SidebarAdminComponent } from './component/Admin/sidebar-admin/sidebar-a
     MatDatepickerModule,
     MatInputModule,
     NgxPaginationModule,
-    FormsModule
- 
+    FormsModule,
+    NgxEmojiPickerModule,
+   
+    
+  
+    
     
   ],
   providers: [

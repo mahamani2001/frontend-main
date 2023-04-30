@@ -35,6 +35,7 @@ import { PortfolioComponent } from './component/prestataire/portfolio/portfolio.
 import { OffreComponent } from './component/Client/offre/offre.component';
 import { TestComponent } from './test/test.component';
 import { CategorieComponent } from './component/Admin/categorie/categorie.component';
+import { ChatComponent } from './component/Client/chat/chat.component';
 
 
 
@@ -68,6 +69,7 @@ const routes: Routes = [
 {path:'besoin',component:BesoinComponent},
 {path:'offre',component:OffreComponent},
 {path:'offre/:id',component:OffreComponent},
+{path:'chat',component:ChatComponent},
 //prestataire
 {path:'post',component:PostComponent},
 {path:'serviceform',component:ServiceformComponent},
