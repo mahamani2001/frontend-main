@@ -2,6 +2,7 @@ export class Profile {
     id:any;
     "firstname":string;
     "lastname":string;
+    "role":string;
     "email":string;
     "password":string;
     "address":string;

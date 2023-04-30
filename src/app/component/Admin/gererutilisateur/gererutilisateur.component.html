@@ -32,156 +32,39 @@
                             <tr>
                                 <td>Id</td>
                                 <td>Prénom</td>
+                                <td>Nom</td>
                                 <td>Role</td>
                                 <td>Email_verification</td>
+                                <td>adresse</td>
+                                <td>numéro de téléphone</td>
+                                <td>Compétence</td>
+                                <td>numero_cin</td>
                                 <td>Action</td>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Maha</td>
-                                <td>Prestataire</td>
-                                <td>maha@gmail.com</td>
-                                    <td>  
-                                          <button class="btn btn-sm btn-danger">
-                                            <i class="fa fa fa-trash"></i> Supprimer
-                                          </button>
-                                    </td>
-                            </tr>
-
-                            <tr>
-                                <td>1</td>
-                                <td>Maha</td>
-                                <td>Prestataire</td>
-                                <td>maha@gmail.com</td>
-                                    <td>  
-                                          <button class="btn btn-sm btn-danger">
-                                            <i class="fa fa fa-trash"></i> Supprimer
-                                          </button>
-                                    </td>
-                            </tr>
-
-                            <tr>
-                                <td>1</td>
-                                <td>Maha</td>
-                                <td>Prestataire</td>
-                                <td>maha@gmail.com</td>
-                                    <td>  
-                                          <button class="btn btn-sm btn-danger">
-                                            <i class="fa fa fa-trash"></i> Supprimer
-                                          </button>
-                                    </td>
-                            </tr>
-
-                            <tr>
-                                <td>1</td>
-                                <td>Maha</td>
-                                <td>Prestataire</td>
-                                <td>maha@gmail.com</td>
-                                    <td>  
-                                          <button class="btn btn-sm btn-danger">
-                                            <i class="fa fa fa-trash"></i> Supprimer
-                                          </button>
-                                    </td>
-                            </tr>
-
-                            <tr>
-                                <td>1</td>
-                                <td>Maha</td>
-                                <td>Prestataire</td>
-                                <td>maha@gmail.com</td>
-                                    <td>  
-                                          <button class="btn btn-sm btn-danger">
-                                            <i class="fa fa fa-trash"></i> Supprimer
-                                          </button>
-                                    </td>
-                            </tr>
+                          <tr  *ngFor="let user of users">
+                            <td>{{ user.id }}</td>
+                            <td>{{ user.firstname }}</td>
+                            <td>{{ user.lastname}}</td>
+                            <td>{{ user.role }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.address }}</td>
+                            <td>{{ user.phone }}</td>
+                            <td>{{user.competence}}</td>
+                            <td>{{ user.numero_cin }}</td>
+                            <td></td>
+                            <td>  
+                                <td><button (click)="onDeleteUser(user)">
+                                  <i class="fa fa fa-trash"></i> Supprimer
+                                </button>
+                          </td>
                         </tbody>
                     </table>
                 </div> 
-                <div class="recentCustomers">
-                    <div class="cardHeader">
-                        <h2>Recent Customers</h2>
-                    </div>
-
-                    <table>
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/admin/imgs/customer02.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
+          </div>
+          </div>
     </div>
    
     <!-- =========== Scripts =========  -->
