@@ -95,4 +95,78 @@ export class DemandeComponent implements OnInit {
       }
     });
   }
-}
+  showForm(){
+    Swal.fire({
+      title: 'edit demande ',
+      html: `
+      <div class="form-group">
+      
+      <input type="text" class="form-control" id="title" name="title" placeholder="Taper  préfirstname">
+    </div>
+
+    <div class="form-group">
+      <label for="description"></label>
+      <input type="text" class="form-control" id="description"  name="description" placeholder="Taper  title">
+    </div>
+    <div class="form-group">
+    <label for="status"></label>
+    <input type="text" class="form-control" id="status"  placeholder="Taper status">
+  </div>
+
+  <div class="form-group">
+  <label for="start_date"></label>
+  <input type="start_date" class="form-control" id="start_date" name="start_date"  placeholder="Taper l' start_date">
+</div>
+
+    <div class="form-group">
+      <label for="end_date"></label>
+      <input type="text" class="form-control" id="end_date" name="end_date"  placeholder="Taper  end_date">
+    </div>
+
+    <div class="form-group">
+    <label for="location"></label>
+    <input type="text" class="form-control" id="location" name="location"  placeholder="Taper  location">
+  </div>
+
+    <div class="form-group">
+      <label for="time"></label>
+      <input type="text" class="form-control" id="time" name="time" placeholder="Taper numéro de télétime" >
+    </div>
+      `,
+      showCancelButton: true,
+      confirmButtonText: 'Enregistrer',
+      cancelButtonText: 'Annuler',
+      preConfirm: () => {
+        const title = (<HTMLInputElement>document.getElementById('title')).value;
+        const description = (<HTMLInputElement>document.getElementById('description')).value;
+        const status = (<HTMLInputElement>document.getElementById('status')).value;
+        const end_date = (<HTMLInputElement>document.getElementById('end_date')).value;
+        const start_date = (<HTMLInputElement>document.getElementById('start_date')).value;
+        const time = (<HTMLInputElement>document.getElementById('time')).value;
+        const location = (<HTMLInputElement>document.getElementById('location')).value;
+
+        // You can add your own logic for validating the form data here
+
+        return { title, description, status,end_date, start_date, time ,location};
+      }
+    }).then((result: any) => {
+      if (result.value) {
+        // Handle form submission
+        this.requestJobService.update(result.value).subscribe(
+          (response) => {
+            console.log('User created successfully!', response);
+            // Show success message
+            Swal.fire('Success', 'User created successfully!', 'success');
+          },
+          (error) => {
+            console.error('Error creating user', error);
+            // Show error message
+            Swal.fire('Error', 'Failed to create user', 'error');
+
+          }
+        );
+      }
+    });
+  }
+
+  }

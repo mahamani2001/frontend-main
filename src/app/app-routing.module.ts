@@ -37,6 +37,7 @@ import { TestComponent } from './test/test.component';
 import { CategorieComponent } from './component/Admin/categorie/categorie.component';
 import { ChatComponent } from './component/Client/chat/chat.component';
 import { PasswordComponent } from './component/Client/password/password.component';
+import { PasswordPrestataireComponent } from './component/prestataire/password-prestataire/password-prestataire.component';
 
 
 
@@ -82,7 +83,8 @@ const routes: Routes = [
 {path:'portfolio',component:PortfolioComponent},
 {path:'categorie',component:CategorieComponent},
 {path:'test',component:TestComponent} ,
-{path:'password',component:PasswordComponent}
+{path:'password',component:PasswordComponent},
+{path:'passwordprestataire',component:PasswordPrestataireComponent}
 ];
 
 @NgModule({

@@ -63,7 +63,6 @@ export class GererutilisateurComponent {
     </div>
 
    
-
     <div class="form-group">
       <label for="phone"></label>
       <input type="text" class="form-control" id="phone" name="phone" placeholder="Taper numéro de téléphone" >

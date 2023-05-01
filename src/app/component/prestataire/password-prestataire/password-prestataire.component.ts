@@ -3,12 +3,12 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { AdminService } from 'src/app/service/admin.service';
 
 @Component({
-  selector: 'app-password',
-  templateUrl: './password.component.html',
-  styleUrls: ['./password.component.css']
+  selector: 'app-password-prestataire',
+  templateUrl: './password-prestataire.component.html',
+  styleUrls: ['./password-prestataire.component.css']
 })
-export class PasswordComponent {
-  resetPasswordForm: FormGroup;
+export class PasswordPrestataireComponent {
+  resetPasswordForm!: FormGroup;
 
   constructor(private resetPasswordService: AdminService, private formBuilder: FormBuilder) {
     this.resetPasswordForm = this.formBuilder.group({
