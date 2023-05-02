@@ -20,7 +20,7 @@
     
                                 <div class="form-group pt-3">
                                     <div class="input-field" [class.error]="signUpFrom.controls['firstname'].dirty &&  signUpFrom.hasError('required','firstname')">
-                                        <span class="fa fa-user p-2"></span>
+                                        <span class="fa fa-user p-2" style="color:black"></span>
                                         <input type="text" placeholder="Prénom" formControlName="firstname">
                                     </div>
                                 </div>
@@ -28,14 +28,14 @@
                                 
                                 <div class="form-group pt-3">
                                     <div class="input-field" [class.error]="signUpFrom.controls['lastname'].dirty &&  signUpFrom.hasError('required','lastname')">
-                                        <span class="fa fa-user p-2"></span>
+                                        <span class="fa fa-user p-2" style="color:black"></span>
                                         <input type="text" placeholder="nom" formControlName="lastname">
                                     </div>
                                 </div>
                                 <small *ngIf="signUpFrom.controls['lastname'].dirty &&  signUpFrom.hasError('required','lastname')" class="text-danger">*lastname is required</small>
                                 <div class="form-group pt-3">
                                     <div class="input-field" [class.error]="signUpFrom.controls['email'].dirty &&  signUpFrom.hasError('required','email')">
-                                        <span class="fa fa-envelope p-2"></span>
+                                        <span class="fa fa-envelope p-2" style="color:black"></span>
                                         <input type="text" placeholder="Email"  formControlName="email" >
                                     </div>
                                 </div>
@@ -43,7 +43,7 @@
                               
                                 <div class="form-group pt-3">
                                     <div class="input-field" [class.error]="signUpFrom.controls['phone'].dirty &&  signUpFrom.hasError('required','phone')">
-                                        <span class="fa fa-phone p-2"></span>
+                                        <span class="fa fa-phone p-2" style="color:black"></span>
                                         <input type="text"
                                         formControlName="phone"
                                          placeholder="phone">
@@ -53,7 +53,7 @@
                                
                                 <div class="form-group pt-3">
                                     <div class="input-field"  [class.error]="signUpFrom.controls['address'].dirty &&  signUpFrom.hasError('required','address')">
-                                        <span class="fa fa-map-marker p-2"></span>
+                                        <span class="fa fa-map-marker p-2" style="color:black"></span>
                                         <input type="text"
                                         formControlName="address"
                                          placeholder="adresse">
@@ -69,23 +69,23 @@
     
                                 <div class="form-group pt-3">
                                     <div class="input-field" [class.error]="signUpFrom.controls['password'].dirty &&  signUpFrom.hasError('required','password')">
-                                     <span class="fa fa-lock p-2"> </span>
+                                     <span class="fa fa-lock p-2" style="color:black"> </span>
                                      <input formControlName="password" [type]="type" placeholder="mot de passe">
-                                     <span (click) ="hideShowPass()" class=" fa {{eyeIcon}}"></span>
+                                     <span (click) ="hideShowPass()" class=" fa {{eyeIcon}}" style="color:black"></span>
                                    </div>
                                  </div>
                                  <small *ngIf="signUpFrom.controls['password'].dirty &&  signUpFrom.hasError('required','password') " class="text-danger">*password is required</small>
                                 
                                  <div class="form-group pt-3">
                                     <div class="input-field" [class.error]="signUpFrom.controls['confirmpassword'].dirty &&  signUpFrom.hasError('required','confirmpassword')">
-                                     <span class="fa fa-lock p-2"> </span>
+                                     <span class="fa fa-lock p-2" style="color:black"> </span>
                                      <input formControlName="confirmpassword" [type]="type" placeholder="confirmez mot de passe ">
-                                     <span (click) ="hideShowPass()" class=" fa {{eyeIcon}}"></span>
+                                     <span (click) ="hideShowPass()" class=" fa {{eyeIcon}}" style="color:black"></span>
                                    </div>
                                  </div>
                                  <small *ngIf="signUpFrom.controls['confirmpassword'].dirty &&  signUpFrom.hasError('required','confirmpassword') " class="text-danger">*password is required</small>
                                 
-                                 <button type="submit" class="btn btn-primary btn-block mt-4 w-100" (click)="onSignup()">S'inscrire</button>
+                                 <button type="submit" class="btn  btn-block mt-4 w-100" (click)="onSignup()">S'inscrire</button>
                            <div class="text-center pt-4 text-muted">Vous avez déjà un compte ?<a id="forget" routerLink="/login">Connexion</a></div>                     
                         </form>
                   </div>

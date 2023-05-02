@@ -1,6 +1,6 @@
 .outer{
     height: 100vh;
-    background-color: #EDE5F5 ;
+      background-color: #ad8db5;
 }
 .panel-heading{
     text-align: center;
@@ -11,6 +11,7 @@
     margin-left:auto;
     text-decoration: none;
     cursor: pointer;
+    color:#0a4bdd;
 }
 a:hover{
     text-decoration: none;
@@ -23,7 +24,7 @@ a:hover{
 .btn{
     margin-top:20px;
     border-radius: 15px;
-    background-color: #E6B28D;
+    background-color:#be8de6;
 
 }
 .panel{
@@ -38,7 +39,7 @@ a:hover{
     display:flex;
     align-items: center;
     cursor:pointer;
-    border:1px solid #ddd;
+    border:1px solid #000;
     color:#4343ff;
 }
 .input-field.error{

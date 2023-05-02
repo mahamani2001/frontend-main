@@ -44,29 +44,28 @@
                                 <div class="form-group pt-3">
                                     <div class="input-field" >
                                         <input type="text"
-                                      
-                                         placeholder="phone" name="phone" [(ngModel)]="user.phone" placeholder="phone">
+                                         
+                                         placeholder="phone" name="phone" [(ngModel)]= "user.phone" placeholder="phone">
                                     </div>
                                 </div>
                             
-                                <div class="form-group pt-3">
+                             <div class="form-group pt-3">
                                     <div class="input-field"  >
-                                        <input type="text"
-                                      
-                                          name="adresse" [(ngModel)]="user.address" placeholder="adresse">
+                                        <input type="text"   name="adresse" [(ngModel)]="user.address" placeholder="adresse">
                                     </div>
-                                </div>
-                                <div class="form-group pt-3">
-                                    <div class="input-field" >
-                                     <span class="fa fa-lock p-2"> </span>
-                                     <input [type]="type" placeholder="mot de passe" name="password" [(ngModel)]="user.password" >
-                                     <span (click) ="hideShowPass()" class=" fa {{eyeIcon}}"></span>
-                                   </div>
+                             </div>
+                             <div class="form-group pt-3">
+                                  <div class="input-field"  >
+                                       <input type="text"   name="competence" [(ngModel)]="user.competence" placeholder="competence">
                                  </div>
-                               
-                                    <button class="btn btn-dark btn -sm mt-4" (click)="updateProfile()">Mettre à jour</button> 
-                                    
-                                  </form>
+                            </div>
+                            <div class="form-group pt-3">
+                                <div class="input-field"  >
+                                     <input type="text"   name="numero_cin" [(ngModel)]="user.numero_cin" placeholder="numero_cin">
+                               </div>
+                          </div>
+                                    <button class="btn btn-dark btn -sm mt-4 " (click)="updateProfile()">Mettre à jour</button>        
+                        </form>
                   </div>
                   </div>
                 </div>

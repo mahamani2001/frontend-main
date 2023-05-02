@@ -2,3 +2,16 @@
     margin-left: 300px;
     padding: 100px;
 }
+
+
+ .delete{ 
+    background-color: rgb(241 13 13 / 70%);
+    position: relative;
+    right: -13px;
+    border: white;
+}
+.edit{
+    position: relative;
+    background-color: #8aff8a;
+    border: white;
+}

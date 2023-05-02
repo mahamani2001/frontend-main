@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 
@@ -9,28 +10,18 @@ import { Component } from '@angular/core';
 })
 
 export class ChatComponent {
-  message: string = ''; // Message input field value
-  emojiPicker: boolean = false;
-  
-  chatDialogVisible: boolean = false;
-   // Function to open the chat dialog
-  toggleEmojiPicker() {
-    console.log('toggleEmojiPicker() called');
-    console.log('this.emojiPicker before toggle:', this.emojiPicker);
-    this.emojiPicker = !this.emojiPicker;
-    console.log('this.emojiPicker after toggle:', this.emojiPicker);
-  }
-  
+  messages: any = { sent: [], received: [] };
+    data!:any;
+  constructor(private http: HttpClient) { }
 
-  // Function to add the selected emoji to the message input field
-  addEmoji(event: any) {
-    this.message += event.emoji.native;
+  ngOnInit() {
+    this.http.get('/api/messages').subscribe(data => {
+      this.messages = data;
+    });
   }
-
-  // Function to send the message
-  sendMessage() {
-    // your code here to handle sending the message
+  deleteMessage(){
+    
   }
-  deleteMessage(){}
+  sendMessage(){}
 }
 

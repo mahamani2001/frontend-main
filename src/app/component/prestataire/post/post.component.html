@@ -24,12 +24,12 @@
 
     
       <div class="button">
-        <button class="btn btn-primary" routerLink="/serviceform">Ajouter un service</button>
+        <button class="boutton" routerLink="/serviceform">Ajouter un service</button>
       </div>
 
       <div class="search">
         <div class="input-group mb-3">
-          <input type="text" [(ngModel)]="searchTitle" (input)="filterJobsByTitle(searchTitle)" placeholder="Search by job title...">
+          <input type="text" [(ngModel)]="searchTitle" (input)="filterJobsByTitle(searchTitle)" placeholder="Recherche par titre de service...">
         </div>
          
       </div>
@@ -40,7 +40,7 @@
               <th>ID</th>
               <th>Title</th>
               <th>Description</th>
-              <th>Prix moyen pour unr heure de travail</th>
+              <th>Prix moyen pour une heure de travail</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -71,15 +71,14 @@
               </td>
               <td>
                 <ng-container *ngIf="editingJob === job; else showButtons">
-                  <button class="btn btn-primary" (click)="saveJob()">Save</button>
-                  <button class="btn btn-secondary ms-2" (click)="cancelEdit()">Cancel</button>
+                  <button class="save" (click)="saveJob()">Save</button>
+                  <button class="cancel" (click)="cancelEdit()">Cancel</button>
                 </ng-container>
                 <ng-template #showButtons>
-                  <button class="btn btn-secondary" (click)="editJob(job)">Edit</button>
-                  <button class="btn btn-secondary ms-2" (click)="deleteJob(job.id)">Delete</button>
+                  <button class="modifier" (click)="editJob(job)">Edit</button>
+                  <button class="delete" (click)="deleteJob(job.id)">Delete</button>
                 </ng-template>
-              </td>
-           
+              </td>          
 </tr>
       </tbody>
     </table>

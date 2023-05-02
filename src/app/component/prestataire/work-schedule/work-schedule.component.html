@@ -23,8 +23,8 @@
         <tr>
           <th scope="col">ID</th>
           <th scope="col">Actif</th>
-          <th scope="col">Heure</th>
-          <th scope="col">Heure</th>
+          <th scope="col">Heure de début de travail</th>
+          <th scope="col">Heure de fin de travail</th>
 
           <th scope="col">Jour</th>
           <th scope="col">Actions</th>
@@ -42,12 +42,13 @@
           </td>
           <td>{{ disponibilite.jour }}</td>
           <td>
-            <a routerLink="/edit-disponibilite/{{ disponibilite.id }}">
-              <i class="fa fa fa-trash"></i> Edit
-            </a>
+            <button class="edit" routerLink="/edit-disponibilite/{{ disponibilite.id }}">
+              <i class="fas fa fa-edit"></i>
+              Modifier 
+            </button>
             
             
-            <button class="btn btn-sm btn-danger" (click)="removeDisponibilite(disponibilite.id)">
+            <button class="delete" (click)="removeDisponibilite(disponibilite.id)">
               <i class="fa fa fa-trash"></i> Delete
             </button>
           </td>

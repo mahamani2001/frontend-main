@@ -21,3 +21,45 @@ margin-top: 50px;
 padding: 100px;
 }
 
+.boutton{
+  cursor: pointer;
+  font-size: 16px;
+  height:50px;
+  width:150px;
+  margin-right: 50px;
+  border-radius: 15px;
+  border: none;
+  background-color: #412c4a;
+  color: #fff;
+  cursor: pointer;
+  right: -60px;
+  position: relative;
+    right: -700px;
+}
+.modifier{
+  position: relative;
+  right: 50px;
+  background-color: #ee8282;
+  width: 80%;
+}
+.delete{
+  position: relative;
+  bottom: 31px;
+  right: -54px;
+  width: 75%;
+  background-color: #fffe07;
+}
+.cancel{
+  position: relative;
+    bottom: 31px;
+    right: -84px;
+    width: 70%;
+    background-color: #fffe07;
+}
+.save
+{
+  position: relative;
+  background-color: #92f377;
+  width: 90px;
+  right: 10px;
+}

@@ -33,6 +33,7 @@ export class ProfileComponent {
       err => {       
        alert("Erreur");
       }) 
+      
   }
  
  
@@ -49,6 +50,7 @@ export class ProfileComponent {
         console.log('Profil mis à jour avec succès');
         this.showMessage = true;
         // hide message after 1.5 seconds
+        this.refreshUsers();
         Swal.fire({
           position: 'center',
           icon: 'success',
@@ -57,6 +59,18 @@ export class ProfileComponent {
           timer: 1500
         });
       }
+      
     );
-  }    
+    
+  }   
+  refreshUsers(){
+    this.userService.getUserProfile().subscribe(
+      user => {
+          this.user = user;
+      },
+      error => {
+          console.log(error);
+      }
+  ); 
+    }
 }

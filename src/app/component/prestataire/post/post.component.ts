@@ -19,7 +19,7 @@ export class PostComponent implements OnInit{
   editingJob: Job | undefined;
   data:any;
   filteredJobs: Job[] = []; // initialize with empty array
-  
+
   constructor(private job: DataService,private dataService: DataService,private categoryService: CategoryService,private router:Router) { 
     this.filteredJobs = [];
     this.categories=[];

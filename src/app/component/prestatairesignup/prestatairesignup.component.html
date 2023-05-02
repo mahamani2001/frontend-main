@@ -3,6 +3,7 @@
       <div class="row">
          <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
           <div class="panel border bg-white">
+          
             <div class="panel-heading">
               <h3 class="pt-3 font-weight-blod">
                   S'inscrire
@@ -12,7 +13,7 @@
                   <form [formGroup]="psignUpFrom"> 
                           <div class="form-group pt-3">
                               <div class="input-field" [ngClass]="{ 'is-invalid-input': submitted && form['firstname'].errors }"> 
-                                  <span class="fa fa-user p-2"></span>
+                                  <span class="fa fa-user p-2" style="color:black"></span>
                                   <input type="text" placeholder="Prénom" formControlName="firstname">
                               </div>
                           </div> 
@@ -22,7 +23,7 @@
 
                           <div class="form-group pt-3">
                               <div class="input-field" [ngClass]="{ 'is-invalid-input': submitted && form['lastname'].errors }">
-                                  <span class="fa fa-user p-2"></span>
+                                  <span class="fa fa-user p-2" style="color:black"></span>
                                   <input type="text" placeholder="nom" formControlName="lastname">
                               </div>
                           </div>
@@ -33,7 +34,7 @@
 
                           <div class="form-group pt-3">
                               <div class="input-field" [ngClass]="{ 'is-invalid-input': submitted && form['email'].errors }">
-                                  <span class="fa fa-envelope p-2"></span>
+                                  <span class="fa fa-envelope p-2" style="color:black"></span>
                                   <input type="text" placeholder="Email"  formControlName="email" >
                               </div>
                           </div>
@@ -42,7 +43,7 @@
                           </div>     
                           <div class="form-group pt-3">
                             <div class="input-field" [ngClass]="{ 'is-invalid-input': submitted && form['address'].errors }">
-                                <span class="fa fa-envelope p-2"></span>
+                                <span class="fa fa-envelope p-2" style="color:black"></span>
                                 <input type="text" placeholder="address"  formControlName="address" >
                             </div>
                         </div>
@@ -52,7 +53,7 @@
 
                           <div class="form-group pt-3">
                               <div class="input-field"  [ngClass]="{ 'is-invalid-input': submitted && form['phone'].errors }">
-                                  <span class="fa fa-phone p-2"></span>
+                                  <span class="fa fa-phone p-2" style="color:black"></span>
                                   <input type="text"
                                   formControlName="phone"
                                    placeholder="Téléphone">
@@ -64,7 +65,7 @@
 
                           <div class="form-group pt-3">
                               <div class="input-field" [ngClass]="{ 'is-invalid-input': submitted && form['numero_cin'].errors }">
-                               <span class=" fa fa-address-card p-2"> </span>
+                               <span class=" fa fa-address-card p-2" style="color:black"> </span>
                                <input formControlName="numero_cin" type="text" placeholder="numeroCIN">
                              </div>
                            </div>
@@ -76,7 +77,7 @@
 
                            <div class="form-group pt-3">
                               <div class="input-field" [ngClass]="{ 'is-invalid-input': submitted && form['competence'].errors }">
-                               <span class="  fa fa-star p-2"> </span>
+                               <span class="  fa fa-star p-2" style="color:black"> </span>
                                <input formControlName="competence" type="text" placeholder="competence">
                              </div>
                            </div>
@@ -91,9 +92,9 @@
 
                            <div class="form-group pt-3">
                             <div class="input-field" [ngClass]="{ 'is-invalid-input': submitted && form['password'].errors }">
-                             <span class="fa fa-lock p-2"> </span>
+                             <span class="fa fa-lock p-2" style="color:black"> </span>
                              <input formControlName="password" [type]="type" placeholder="mot de passe">
-                             <span (click) ="hideShowPass()" class=" fa {{eyeIcon}}"></span>
+                             <span (click) ="hideShowPass()" class=" fa {{eyeIcon}}" style="color:black"></span>
                            </div>
                          </div>
 
@@ -103,16 +104,16 @@
 
                           <div class="form-group pt-3">
                           <div class="input-field" [ngClass]="{ 'is-invalid-input': submitted && form['confirmpassword'].errors }">
-                           <span class="fa fa-lock p-2"> </span>
+                           <span class="fa fa-lock p-2" style="color:black"> </span>
                            <input formControlName="confirmpassword" [type]="type" placeholder="confirmez mot de passe ">
-                           <span (click) ="hideShowPass()" class=" fa {{eyeIcon}}"></span>
+                           <span (click) ="hideShowPass()" class=" fa {{eyeIcon}}" style="color:black"></span>
                          </div>
                        </div>
                        <div *ngIf="submitted && form['confirmpassword'].errors">
                         <div *ngIf="form['confirmpassword'].errors['required']" class="text-danger">password is required  </div> 
                       </div> 
  
-                     <button type="submit" class="btn btn-primary btn-block mt-4 w-100" (click)="onSignup()">  S'inscrire</button>
+                     <button type="submit" class="btn  btn-block mt-4 w-100" (click)="onSignup()">  S'inscrire</button>
 
                      <div class="text-center pt-4 text-muted">Vous avez déjà un compte ?<a id="forget" routerLink="/login"> Connexion</a></div>                     
                   </form>

@@ -29,7 +29,12 @@ export class NavComponent {
   navigateDashboard():void{
       this.tokenService.isClient() ?      
         this.router.navigate(['/dashboardClient/']) : 
-        this.router.navigate(['/post/']);
+        this.router.navigate(['/post/']);  
+        
+        this.tokenService.isClient() ?      
+        this.router.navigate(['/dashboardClient/']) : 
+        this.router.navigate(['/dashboard']);
+      
      
   }
 }

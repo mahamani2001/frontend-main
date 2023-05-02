@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AdminService } from 'src/app/service/admin.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-password',
   templateUrl: './password.component.html',
@@ -24,7 +24,13 @@ export class PasswordComponent {
         () => {
           // Reset successful
           console.log('Password reset successful');
-          
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Password reset successful',
+            showConfirmButton: false,
+            timer: 1500
+          });
         },
         (error) => {
           // Reset failed
