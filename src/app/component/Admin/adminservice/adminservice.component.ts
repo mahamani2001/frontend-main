@@ -1,19 +1,21 @@
 import { Component } from '@angular/core';
 import { CategoryService } from 'src/app/service/category.service';
-import { Category } from '../category';
+
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Job } from '../job';
+
 import { DataService } from 'src/app/service/data-service.service';
 import { Router } from '@angular/router';
 import { TokenService } from 'src/app/shared/token.service';
 import { PrestataireService } from 'src/app/service/prestataire.service';
+import { Category } from '../../prestataire/category';
+import { Job } from '../../prestataire/job';
 
 @Component({
-  selector: 'app-serviceform',
-  templateUrl: './serviceform.component.html',
-  styleUrls: ['./serviceform.component.css']
+  selector: 'app-adminservice',
+  templateUrl: './adminservice.component.html',
+  styleUrls: ['./adminservice.component.css']
 })
-export class ServiceformComponent {
+export class AdminserviceComponent {
   categories: Category[]=[];
   jobForm!:FormGroup;
   data: any;
@@ -70,5 +72,4 @@ export class ServiceformComponent {
       }
     );
   }
-  
 }

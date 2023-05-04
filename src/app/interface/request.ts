@@ -14,6 +14,5 @@ export interface Request {
   location: string;
   status: string;
   created_at: Date;
-  updated_at: Date;
-  
+  updated_at: Date; 
 }

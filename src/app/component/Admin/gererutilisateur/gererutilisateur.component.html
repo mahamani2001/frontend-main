@@ -35,6 +35,7 @@
                                 <td>Nom</td>
                                 <td>Role</td>
                                 <td>Email_verification</td>
+                                <td>Mot de passe</td>
                                 <td>adresse</td>
                                 <td>numéro de téléphone</td>
                                 <td>Compétence</td>
@@ -50,6 +51,7 @@
                             <td>{{ user.lastname}}</td>
                             <td>{{ user.role }}</td>
                             <td>{{ user.email }}</td>
+                            <td>{{ user.password }}</td>
                             <td>{{ user.address }}</td>
                             <td>{{ user.phone }}</td>
                             <td>{{user.competence}}</td>
@@ -59,6 +61,9 @@
                                 <td><button (click)="onDeleteUser(user)">
                                   <i class="fa fa fa-trash"></i> Supprimer
                                 </button>
+                                <button (click)="editform()">
+                                    <i class="fa fa fa-trash"></i> Edit
+                                  </button>
                           </td>
                         </tbody>
                     </table>

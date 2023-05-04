@@ -60,9 +60,12 @@ import { TestComponent } from './test/test.component';
 import { CategorieComponent } from './component/Admin/categorie/categorie.component';
 import { SidebarAdminComponent } from './component/Admin/sidebar-admin/sidebar-admin.component';
 import { ChatComponent } from './component/Client/chat/chat.component';
-import { NgxEmojiPickerModule } from 'ngx-emoji-picker';
+ 
 import { PasswordComponent } from './component/Client/password/password.component';
 import { PasswordPrestataireComponent } from './component/prestataire/password-prestataire/password-prestataire.component';
+import { MessageComponent } from './component/prestataire/message/message.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -106,7 +109,8 @@ import { PasswordPrestataireComponent } from './component/prestataire/password-p
     PortfolioComponent,  
     
     OffreComponent, TestComponent, CategorieComponent, SidebarAdminComponent, 
-    ChatComponent, PasswordComponent, PasswordPrestataireComponent,
+    ChatComponent, PasswordComponent, PasswordPrestataireComponent, MessageComponent
+
 
     
   ],
@@ -126,11 +130,7 @@ import { PasswordPrestataireComponent } from './component/prestataire/password-p
     MatInputModule,
     NgxPaginationModule,
     FormsModule,
-    NgxEmojiPickerModule,
-   
-    
-  
-    
+    //NgxEmojiPickerModule, 
     
   ],
   providers: [

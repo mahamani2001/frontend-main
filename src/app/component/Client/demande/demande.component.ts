@@ -40,6 +40,12 @@ export class DemandeComponent implements OnInit {
     console.log(this.requestJobList);
   });
 }
+
+getStatusColor(status:String){
+  if(status=="pending") return "status_btn_pending";
+  else if(status=="completed") return "status_btn_completed";
+  else return "status_btn_cancelled";
+}
   refreshList(): void {
     this.getRequestJobList();
     this.currentRequest = null;
@@ -50,6 +56,7 @@ export class DemandeComponent implements OnInit {
     this.currentIndex = index;
   }
   removeRequest(id: number): void {
+    console.log("---<< delete ");
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: 'btn btn-success',
@@ -146,7 +153,6 @@ export class DemandeComponent implements OnInit {
         const location = (<HTMLInputElement>document.getElementById('location')).value;
 
         // You can add your own logic for validating the form data here
-
         return { title, description, status,end_date, start_date, time ,location};
       }
     }).then((result: any) => {
@@ -157,12 +163,6 @@ export class DemandeComponent implements OnInit {
             console.log('User created successfully!', response);
             // Show success message
             Swal.fire('Success', 'User created successfully!', 'success');
-          },
-          (error) => {
-            console.error('Error creating user', error);
-            // Show error message
-            Swal.fire('Error', 'Failed to create user', 'error');
-
           }
         );
       }

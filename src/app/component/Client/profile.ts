@@ -1,3 +1,4 @@
+
 export class Profile {
     id:any;
     "firstname":string;
@@ -11,7 +12,7 @@ export class Profile {
     "token_type": string;
     "expires_in": number;
     "username": string;
-    "photo": "string";
+    "photo": File;
     "competence": "string";
     "numero_cin": "string";
     "diplome": "string";

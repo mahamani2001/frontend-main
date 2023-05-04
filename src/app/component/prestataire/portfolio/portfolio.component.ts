@@ -6,11 +6,13 @@ import { TokenService } from 'src/app/shared/token.service';
 import { Disponiblite } from 'src/app/interface/disponiblite';
 import { WorkScheduleService } from 'src/app/service/work-schedule.service';
 import { PrestataireService } from 'src/app/service/prestataire.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/service/data-service.service';
 import { Profile } from '../../Client/profile';
 import { Job } from '../job';
 import Swal from 'sweetalert2';
+import { MessageService } from 'src/app/service/message.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-portfolio',
@@ -23,17 +25,33 @@ export class PortfolioComponent {
   data!:any;
   prestataire: Profile = {} as Profile;
   mesJobs: Job[] = [];
+  jobberId!: number;
+  textMessage!: string;
+  vu!: boolean;
+  messageForm!: FormGroup;
 
   constructor(
     private userService:DataService,
     private reviewService:ReviewServiceService
     ,private token: TokenService,private disponibilite:WorkScheduleService,
-    private route: ActivatedRoute) { }
-
-  
+    private route: ActivatedRoute,
+    private tokenService: TokenService,
+    private router:Router,
+    private fb: FormBuilder,
+    private messageService: MessageService,
+    private formBuilder: FormBuilder,
+    ){ }
+   
+   
+   
   ngOnInit(): void {
-    const jobber_id = Number(window.location.pathname.split('/').pop());
+    this.messageForm = this.formBuilder.group({
+      text_message: ['', Validators.required]
+    });
 
+    
+   
+    const jobber_id = Number(window.location.pathname.split('/').pop());
     this.userService.getPrestataire(jobber_id).subscribe(
       res => { 
          this.data=res;
@@ -42,8 +60,7 @@ export class PortfolioComponent {
       err => {       
        alert("Erreur");
       }) 
-
-
+      
       this.userService.getJobsByPrestatire(jobber_id).subscribe(
         (res:any) => {  
           console.log(res)
@@ -78,6 +95,8 @@ export class PortfolioComponent {
    
   
   }
+ 
+
   onSubmit(jobberId: number, comment: string, rating: number) {
     this.reviewService.postReview(jobberId, comment, rating)
       .subscribe(response => console.log(response));
@@ -113,6 +132,23 @@ export class PortfolioComponent {
         }
       );
   }
+  sendToJobber() {
+    const jobber_id = Number(window.location.pathname.split('/').pop());
+    if (this.messageForm.valid) {
+      const textMessage = this.messageForm.get('text_message')!.value;
+      const vu = false;
+      this.messageService.sendToJobber(jobber_id, textMessage, vu).subscribe(
+        (res: any) => {
+          console.log(res);
+          this.messageForm.reset();
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    }
+  }
+  
   @ViewChild('chatDialog') chatDialog!: TemplateRef<any>; // Reference to the chat dialog template
   message: string = ''; // Message input field value
   emojiPicker: boolean = false;
@@ -124,17 +160,13 @@ export class PortfolioComponent {
    openChat() {
     Swal.fire({
       html: `
-        <div class="chat-box">
-          <div class="chat-history" style="position: relative; height: 370px; width: 378px; top: 11px;">
-            <!-- chat history messages here -->
-          </div>
-          <div class="chat-input">
-            <input type="text" [(ngModel)]="message" placeholder="Type your message..." emojiPicker>
-            <button (click)="toggleEmojiPicker()">😀</button>
-            <button (click)="sendMessage()">Send</button>
-          </div>
-          <ngx-emoji-picker [theme]="'light'" [autoClose]="true" (emojiClick)="addEmoji($event)"></ngx-emoji-picker>
-        </div>     
+      <form [formGroup]="messageForm" (ngSubmit)="sendToJobber()">
+      <div class="form-group">
+        <label for="text_message">Message</label>
+        <textarea class="form-control" id="text_message" rows="3" formControlName="text_message"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!messageForm.valid">Send</button>
+    </form>      
       `,
       showCloseButton: true,
       showConfirmButton: false,
@@ -162,6 +194,15 @@ export class PortfolioComponent {
   // Function to send the message
   sendMessage() {
     // your code here to handle sending the message
+  }
+  isLoggedIn(): boolean {
+    return this.tokenService.isLoggedIn(); 
+  }
+  review(){
+    if(!this.isLoggedIn()) {
+      this.router.navigate(['/login']);
+    } 
+ 
   }
   }
   

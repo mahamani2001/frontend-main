@@ -10,18 +10,20 @@ export class AdminService {
 
   constructor(private http: HttpClient) { }
   getAllUsers(): Observable<Profile[]> {
-    return this.http.get<Profile[]>(`${this.apiUrl}/alluser`);
+    return this.http.get<any>(`${this.apiUrl}/alluser`);
   }
   deleteUser(user: Profile): Observable<any> {
     return this.http.delete<any>(`http://127.0.0.1:8000/api/users/${user.id}`);
 }
+
 createUser(user: Profile): Observable<any> {
   const url = `${this.apiUrl}/users`;
   return this.http.post(url, user);
 }
+update(id: any, data: any): Observable<any> {
+  return this.http.put(`${this.apiUrl}/user/${id}`, data);
+}
 private resetPasswordUrl = 'http://127.0.0.1:8000/api/reset-password';
-
-
 
   resetPassword(currentPassword: string, newPassword: string, confirmPassword: string): Observable<any> {
     const body = { currentPassword, newPassword, confirmPassword };

@@ -33,6 +33,7 @@ export class DataService {
     
   }
   registerprestataire(data:any){
+  
     return this.http.post( 'http://127.0.0.1:8000/api/jobbers',data);
     
   }
@@ -96,7 +97,10 @@ getJobsByPrestatire(id:number)  {
   return this.http.get(`http://127.0.0.1:8000/api/job/${id}`);
 }
 
- 
+uploadPhoto(formData: FormData): Observable<any> {
+  return this.http.post<any>(`${this.baseUrl}/upload-photo`, formData);
+}
+
 
 
 updateProfile(user: Profile): Observable<Profile> {

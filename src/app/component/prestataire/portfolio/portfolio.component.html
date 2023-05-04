@@ -8,6 +8,7 @@
 </head>
 <body>
   <app-nav></app-nav>
+  
   <div class="container-fluid breadcrumb_section">
     <div class="row">
       <div class="col-md-12">
@@ -243,7 +244,7 @@
                     </div>
                     <div class="btn">
   
-                      <button type="submit" [disabled]="!reviewForm.valid">Poster</button>
+                      <button type="submit" (click)="review()" [disabled]="!reviewForm.valid">Poster</button>
                     </div>
                 </form>
              </div>
@@ -253,7 +254,15 @@
       </div>
     </div>
     </div>
+    <form [formGroup]="messageForm" (ngSubmit)="sendToJobber()">
+      <div class="form-group">
+        <label for="text_message">Message</label>
+        <textarea class="form-control" id="text_message" rows="3" formControlName="text_message"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!messageForm.valid">Send</button>
+    </form>    
   </section> 
+
  
 </body>
 </html>

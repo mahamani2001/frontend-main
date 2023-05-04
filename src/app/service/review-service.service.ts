@@ -12,6 +12,10 @@ export class ReviewServiceService {
   getReviews(id:any) {
     return this.http.get(this.apiUrl);
   }
+
+  getReviewsByJobber(jobberId:any){
+    return this.http.get(this.apiUrl+'/jobbers/' + jobberId + '/reviews');
+  }
  /* postReview(id:any){
     this.http.post(`http://127.0.0.1:8000/api/review`, {
       headers: {
@@ -20,9 +24,7 @@ export class ReviewServiceService {
     });
   }*/
  
-  getReviewsByJobber(jobberId:any){
-    return this.http.get(this.apiUrl+'/jobbers/' + jobberId + '/reviews');
-  }
+  
  /* postReview(id:any){
     this.http.post(`http://127.0.0.1:8000/api/review`, {
       headers: {

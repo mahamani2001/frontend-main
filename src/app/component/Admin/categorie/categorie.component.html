@@ -8,78 +8,31 @@
       <div class="d-flex justify-content-end mb-2">
         <button type="button" class="btn btn-primary btn-sm custom-btn" (click)="onAddCategory()">Ajouter catégorie</button>
       </div>
-
+ 
       <!-- Table content here -->
       <div class="table-container">
         <table class="table table-bordered table-hover">
           <thead>
             <tr>
+              <th scope="col">Id</th>
               <th scope="col">Nom</th>
               <th scope="col">Catégorie</th>
+              <th scope="col" >Action</th>
             </tr>
           </thead>
           <tbody>
-            <tr class="table-light">
-              <td>Produit 1</td>
+            <tr class="table-light" *ngFor="let categorie of category">
+              <td >{{categorie.id}}</td>
+              <td>{{categorie.name}}</td>
               <td>
                 <div class="d-flex align-items-center">
-                  <img src="https://via.placeholder.com/50" class="mr-2">
-                  <span>Catégorie 1</span>
+                  <img [src]="categorie.picture">
+                
                 </div>
               </td>
-            </tr>
-            <tr class="table-primary">
-              <td>Produit 2</td>
               <td>
-                <div class="d-flex align-items-center">
-                  <img src="https://via.placeholder.com/50" class="mr-2">
-                  <span>Catégorie 2</span>
-                </div>
-              </td>
-            </tr>
-            <tr class="table-secondary">
-              <td>Produit 3</td>
-              <td>
-                <div class="d-flex align-items-center">
-                  <img src="https://via.placeholder.com/50" class="mr-2">
-                  <span>Catégorie 3</span>
-                </div>
-              </td>
-            </tr>
-            <tr class="table-success">
-              <td>Produit 4</td>
-              <td>
-                <div class="d-flex align-items-center">
-                  <img src="https://via.placeholder.com/50" class="mr-2">
-                  <span>Catégorie 4</span>
-                </div>
-              </td>
-            </tr>
-            <tr class="table-danger">
-              <td>Produit 5</td>
-              <td>
-                <div class="d-flex align-items-center">
-                  <img src="https://via.placeholder.com/50" class="mr-2">
-                  <span>Catégorie 5</span>
-                </div>
-              </td>
-            </tr>
-            <tr class="table-warning">
-              <td>Produit 6</td>
-              <td>
-                <div class="d-flex align-items-center">
-                  <img src="https://via.placeholder.com/50" class="mr-2">
-                  <span>Catégorie 6</span>
-                </div>
-              </td>
-            </tr>
-            <tr class="table-info">
-              <td>Produit 7</td>
-              <td>
-                <div class="d-flex align-items-center">
-                  <img src="https://via.placeholder.com/50" class="mr-2">
-                  <span>Catégorie 7</span>
-                </div>
+                <button>Modifier</button>
+                <button (click)="onDeleteCategory(categorie)">Supprimer</button>
               </td>
             </tr>
           </tbody>

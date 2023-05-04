@@ -33,9 +33,14 @@ export class PrestatairesignupComponent {
       numero_cin:['',Validators.required],
       competence:['',Validators.required],
       role:['prestataire'],
-      photo:"https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80",
-      diplome:"fichier"
-    })
+      diplome:"fichier",
+      photo: null
+    });
+  }
+
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    this.psignUpFrom.patchValue({ photo: file });
   }
   hideShowPass(){
     this.isText=!this.isText;

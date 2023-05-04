@@ -10,7 +10,7 @@
               </h3>
             </div>
             <div class="panel-body p-3" >
-                  <form [formGroup]="psignUpFrom"> 
+              <form [formGroup]="psignUpFrom" enctype="multipart/form-data">
                           <div class="form-group pt-3">
                               <div class="input-field" [ngClass]="{ 'is-invalid-input': submitted && form['firstname'].errors }"> 
                                   <span class="fa fa-user p-2" style="color:black"></span>
@@ -112,6 +112,9 @@
                        <div *ngIf="submitted && form['confirmpassword'].errors">
                         <div *ngIf="form['confirmpassword'].errors['required']" class="text-danger">password is required  </div> 
                       </div> 
+
+                      <input type="file" (change)="onFileSelected($event)" formControlName="photo" accept=".jpg,.jpeg,.png">
+
  
                      <button type="submit" class="btn  btn-block mt-4 w-100" (click)="onSignup()">  S'inscrire</button>
 

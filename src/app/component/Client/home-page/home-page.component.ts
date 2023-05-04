@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataService } from 'src/app/service/data-service.service';
 import { TokenService } from 'src/app/shared/token.service';
 
@@ -13,7 +14,7 @@ export class HomePageComponent implements OnInit{
   userLoggedIn: boolean =false;
 
 
-  constructor(private tokenService: TokenService) {     
+  constructor(private tokenService: TokenService,private router:Router) {     
   }
   ngOnInit(): void {
     this.userLoggedIn=this.isLoggedIn();
@@ -22,10 +23,13 @@ export class HomePageComponent implements OnInit{
       this.userLoggedIn=true;
      this.userName=this.tokenService.getUsername();
     }
-    
-    
   }
   isLoggedIn(): boolean {
     return this.tokenService.isLoggedIn(); 
   }
+  demandeService(){
+    if(this.isLoggedIn()) this.router.navigate(['/besoin']); 
+    else  this.router.navigate(['/login']);
+  }
+  
 }

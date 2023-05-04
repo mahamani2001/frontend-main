@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
-import { JobRequestService } from 'src/app/service/job-request.service';
+import { Component } from '@angular/core'; 
 import { Request } from 'src/app/interface/request';
 import { RequestJobService } from 'src/app/service/requestjob.service';
 
@@ -49,6 +48,7 @@ export class RespondToJobRequestComponent {
     );
   }
 
+ 
   
 
 }

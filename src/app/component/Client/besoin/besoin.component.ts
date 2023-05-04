@@ -7,6 +7,7 @@ import { RequestJobService } from 'src/app/service/requestjob.service';
 import { Category } from '../../prestataire/category';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { TokenService } from 'src/app/shared/token.service';
 
 
 @Component({
@@ -27,7 +28,14 @@ export class BesoinComponent implements OnInit {
     requestForm!: FormGroup ; // Define the requestForm property
   
   
-    constructor(private http: HttpClient,private category:CategoryService,private data:DataService,private fb:FormBuilder,private request:RequestJobService ,private router:Router )
+    constructor(private http: HttpClient,
+      private category:CategoryService,
+      private data:DataService,
+      private fb:FormBuilder,
+      private request:RequestJobService ,
+      private router:Router,
+      private tokenService: TokenService,
+    )
     {
       
     }
@@ -72,8 +80,15 @@ export class BesoinComponent implements OnInit {
               confirmButtonText: 'Yes, send to all'
            });
           } );
-    
         }
-    
+        isLoggedIn(): boolean {
+          return this.tokenService.isLoggedIn(); 
+        }
+        besoin(){
+          if(!this.isLoggedIn())  
+          {
+            this.router.navigate(['/login']);
+          } 
+        }
   
 }

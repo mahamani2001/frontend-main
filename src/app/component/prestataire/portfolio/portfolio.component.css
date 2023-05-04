@@ -1,301 +1,300 @@
 .container2{
-  margin:50px  ;
-
-}
-.container2 ul{
-  list-style: none;
-  margin:0;
-  padding:0;
-  position:0;
-  position:relative;
-}
-
-.container2 ul:before{
-  content:'';
-  position:absolute;
-  top:0;
-  left:0;
-  width:0px;
-  height:100%;
-  border:1px dashed #aaa;
-}
-.container2 ul li {
-  margin:50px 60px;
-  position:relative;
-}
-.container2 ul li > span{
-  content:'';
-  position:absolute;
-  top:0;
-  left: -60px;
-  width:0px;
-  height:100%;
-  border:1px solid #aaa;
-}
-
-.container2  ul li >span:before,.container2  ul li > span:after{
-content:'';
-width:10px;
-height:10px;
-border:2px solid #aaa;
-position:absolute;
-border-radius :50px;
-left:-7px;
-background:#fff;
-}
-.container2 ul li > span:before{
-top:-10px
-}
-.container2 ul li > span:after{
-  top:100%;
+	margin:50px  ;
+  
   }
-  .container2 ul li .time span{
-    position:absolute;
-    font-size: 12px;
-    left:-105px;
-    text-align:right;
-    }
-    .container2 ul li .time span:first-child{
-    
-      top:-12px;
-      }
-      .container2 ul li .time span:last-child{
-        top:100%;
-        }
-
-  .container2 ul li span{
-    content:'';
-    position:absolute;
-    top:0;
-    left:-60px;
-    width:0px;
-    height:100%;
-    border:1px solid #aaa;
-  }
-  .container2 ul li .box{
-    
-      width: 250px;
-      height: 70px;
-      background-color: #B2DFDB; /* Couleur pastel verte d'eau */
-      border: 1px solid #ccc;
-      padding: 10px;
-    
-    
-  }
-.containerRating{
-  position:relative;
-  width: 400px;
-  background: #111;
-  padding:20px 30px;
-  border:1px solid #444;
-  border-radius: 5px;
-  align-items:center;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-.container .post{
-  display: none;
-}
-.container .text{
-  font-size: 25px;
-  color:#666;
-  font-weight: 500;
-}
-
-.container .edit{
-  position: absolute;
-  right: 10px;
-  top:5px;
-  font-size:16px;
-  color:#666;
-  font-weight: 500;
-}
-.container .edit:hover{
-  text-decoration:underline;
-}
-.container .star-widget input{
-  display: none;
-
-}
-.star-widget label{
-  font-size: 40px;
-  color:#444;
-  padding: 10px;
-  float:right;
-  transition: all 0.2s ease;
-}
-  input:not(:checked)~ label:hover,
-  input:not(:checked) ~ label:hover ~ label{
-     color:#fd4
-  }
-  input:checked ~ label {
-    color:#fd4;
-
-  }
-  input#rate-5:checked ~ label {
-    color:#fe7;
-    text-shadow:0 0 20px #952;
-  }
- 
-  #rate-1:checked ~ form header:before{
-    content: "J'adore 😍";
-  }
-  #rate-2:checked ~ form header:before{
-    content: "C'est génial 😊 ";
-  }
-  #rate-3:checked ~ form header:before{
-    content: "J'aime juste ça 😎 ";
-  }
-  #rate-4:checked ~ form header:before{
-    content: "je n'aime pas ça 😒 ";
-  }
-  #rate-5:checked ~ form header:before{
-    content: "je déteste ça 😠 ";
-  }
-  .container form{
-    display:none ;
-  }
-  input:checked  ~  form{
-    display:block;
-  }
-
-  form header{
-    width: 100%;
-    font-size:25px;
-    color:#fe7;
-    font-weight:500;
-    margin:5px 0 20px 0;
-    text-align: center;
-    transition : all 0.2s ease;
-  }
-
-  form .textarea{
-    height: 100px;
-    width:100%;
-    overflow:hidden;
-  }
-  form .textarea textarea{
-    height:100%;
-    width:100%;
-    outline:none;
-    color:#eee;
-    border:1px solid #333;
-    background: #222;
-    padding:10px;
-    font-size:17px;
-    resize:none;
-  }
-  form .btn{
-    height:45px;
-    width:100px;
-    margin:15px 0;
-    align-items: center;
-  }
-  form .btn button{
-    height:100%;
-    width:100%;
-    border:1px solid #444;
-    outline:none;
-    background:#222;
-    color:#999;
-    font-size:17px;
-    font-weight:500px;
-    text-transform: uppercase;
-    cursor:pointer; 
-    transition: all 0.3s ease;
-  }
-  form .btn button:hover{
-    background: #1b1b1b;
-  }
-
-  .prestataire-image{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-  }
-
-  .title_header{
-    color: black;
-    margin: 30px 0;
-    text-align: center;
-    font-size: 45px;
-  }
-  .bg_grey{
-    background-color: #f2f2f2;
-    padding: 50px 0;
-  }
-  .spacer50{
-    height: 50px;
-  }
-  section{
-    padding: 50px 0;
-  }
-  .fa{
-    padding-right: 5px;
-  }
-
-
-
-  .menu_prest { 
-    list-style: none;
-    display: inline-block;
-    margin: 0;
-    padding: 0;
+  .container2 ul{
+	list-style: none;
+	margin:0;
+	padding:0;
+	position:0;
+	position:relative;
   }
   
-  .menu_prest li {
-    float: left;
-    font-size: 1.2rem;
-    padding: 10px 20px;
-    margin: 10px 0;
-    background: rgb(241 241 241);
-    z-index: 5;
-    position: relative;
-    cursor: pointer;
-    transition: all .4s;
-    border-radius: 30px;
-    margin-right: 10px;
+  .container2 ul:before{
+	content:'';
+	position:absolute;
+	top:0;
+	left:0;
+	width:0px;
+	height:100%;
+	border:1px dashed #aaa;
   }
-  .menu_prest li::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 5px;
-    height: 100%;
-    z-index: -1; 
+  .container2 ul li {
+	margin:50px 60px;
+	position:relative;
   }
-  .menu_prest li a{
-    text-decoration: none;
-    color: black;
-  }
-  .menu_prest li:hover {
-    background-color: #141315;
+  .container2 ul li > span{
+	content:'';
+	position:absolute;
+	top:0;
+	left: -60px;
+	width:0px;
+	height:100%;
+	border:1px solid #aaa;
   }
   
-  .menu_prest li:hover  a{
-    color: white;
-    text-decoration: none;
+  .container2  ul li >span:before,.container2  ul li > span:after{
+  content:'';
+  width:10px;
+  height:10px;
+  border:2px solid #aaa;
+  position:absolute;
+  border-radius :50px;
+  left:-7px;
+  background:#fff;
   }
-  .border-left-success {
-    border-left: 0.25rem solid #1cc88a!important;
-}
-.text-success {
-  color: #000000!important;
-  font-weight: bold;
-}
-/* chat box container */
-.chat-box-container {
-  width: 400px;
-  height: 500px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
-}
-
-
+  .container2 ul li > span:before{
+  top:-10px
+  }
+  .container2 ul li > span:after{
+	top:100%;
+	}
+	.container2 ul li .time span{
+	  position:absolute;
+	  font-size: 12px;
+	  left:-105px;
+	  text-align:right;
+	  }
+	  .container2 ul li .time span:first-child{
+	  
+		top:-12px;
+		}
+		.container2 ul li .time span:last-child{
+		  top:100%;
+		  }
+  
+	.container2 ul li span{
+	  content:'';
+	  position:absolute;
+	  top:0;
+	  left:-60px;
+	  width:0px;
+	  height:100%;
+	  border:1px solid #aaa;
+	}
+	.container2 ul li .box{
+	  
+		width: 250px;
+		height: 70px;
+		background-color: #B2DFDB; /* Couleur pastel verte d'eau */
+		border: 1px solid #ccc;
+		padding: 10px;
+	  
+	  
+	}
+  .containerRating{
+	position:relative;
+	width: 400px;
+	background: #111;
+	padding:20px 30px;
+	border:1px solid #444;
+	border-radius: 5px;
+	align-items:center;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+  }
+  .container .post{
+	display: none;
+  }
+  .container .text{
+	font-size: 25px;
+	color:#666;
+	font-weight: 500;
+  }
+  
+  .container .edit{
+	position: absolute;
+	right: 10px;
+	top:5px;
+	font-size:16px;
+	color:#666;
+	font-weight: 500;
+  }
+  .container .edit:hover{
+	text-decoration:underline;
+  }
+  .container .star-widget input{
+	display: none;
+  
+  }
+  .star-widget label{
+	font-size: 40px;
+	color:#444;
+	padding: 10px;
+	float:right;
+	transition: all 0.2s ease;
+  }
+	input:not(:checked)~ label:hover,
+	input:not(:checked) ~ label:hover ~ label{
+	   color:#fd4
+	}
+	input:checked ~ label {
+	  color:#fd4;
+  
+	}
+	input#rate-5:checked ~ label {
+	  color:#fe7;
+	  text-shadow:0 0 20px #952;
+	}
+   
+	#rate-1:checked ~ form header:before{
+	  content: "J'adore 😍";
+	}
+	#rate-2:checked ~ form header:before{
+	  content: "C'est génial 😊 ";
+	}
+	#rate-3:checked ~ form header:before{
+	  content: "J'aime juste ça 😎 ";
+	}
+	#rate-4:checked ~ form header:before{
+	  content: "je n'aime pas ça 😒 ";
+	}
+	#rate-5:checked ~ form header:before{
+	  content: "je déteste ça 😠 ";
+	}
+	.container form{
+	  display:none ;
+	}
+	input:checked  ~  form{
+	  display:block;
+	}
+  
+	form header{
+	  width: 100%;
+	  font-size:25px;
+	  color:#fe7;
+	  font-weight:500;
+	  margin:5px 0 20px 0;
+	  text-align: center;
+	  transition : all 0.2s ease;
+	}
+  
+	form .textarea{
+	  height: 100px;
+	  width:100%;
+	  overflow:hidden;
+	}
+	form .textarea textarea{
+	  height:100%;
+	  width:100%;
+	  outline:none;
+	  color:#eee;
+	  border:1px solid #333;
+	  background: #222;
+	  padding:10px;
+	  font-size:17px;
+	  resize:none;
+	}
+	form .btn{
+	  height:45px;
+	  width:100px;
+	  margin:15px 0;
+	  align-items: center;
+	}
+	form .btn button{
+	  height:100%;
+	  width:100%;
+	  border:1px solid #444;
+	  outline:none;
+	  background:#222;
+	  color:#999;
+	  font-size:17px;
+	  font-weight:500px;
+	  text-transform: uppercase;
+	  cursor:pointer; 
+	  transition: all 0.3s ease;
+	}
+	form .btn button:hover{
+	  background: #1b1b1b;
+	}
+  
+	.prestataire-image{
+	  width: 100px;
+	  height: 100px;
+	  border-radius: 50%;
+	}
+  
+	.title_header{
+	  color: black;
+	  margin: 30px 0;
+	  text-align: center;
+	  font-size: 45px;
+	}
+	.bg_grey{
+	  background-color: #f2f2f2;
+	  padding: 50px 0;
+	}
+	.spacer50{
+	  height: 50px;
+	}
+	section{
+	  padding: 50px 0;
+	}
+	.fa{
+	  padding-right: 5px;
+	}
+  
+  
+  
+	.menu_prest { 
+	  list-style: none;
+	  display: inline-block;
+	  margin: 0;
+	  padding: 0;
+	}
+	
+	.menu_prest li {
+	  float: left;
+	  font-size: 1.2rem;
+	  padding: 10px 20px;
+	  margin: 10px 0;
+	  background: rgb(241 241 241);
+	  z-index: 5;
+	  position: relative;
+	  cursor: pointer;
+	  transition: all .4s;
+	  border-radius: 30px;
+	  margin-right: 10px;
+	}
+	.menu_prest li::before {
+	  content: "";
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  width: 5px;
+	  height: 100%;
+	  z-index: -1; 
+	}
+	.menu_prest li a{
+	  text-decoration: none;
+	  color: black;
+	}
+	.menu_prest li:hover {
+	  background-color: #141315;
+	}
+	
+	.menu_prest li:hover  a{
+	  color: white;
+	  text-decoration: none;
+	}
+	.border-left-success {
+	  border-left: 0.25rem solid #1cc88a!important;
+  }
+  .text-success {
+	color: #000000!important;
+	font-weight: bold;
+  }
+  /* chat box container */
+  .chat-box-container {
+	width: 400px;
+	height: 500px;
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	overflow: hidden;
+  }
+  

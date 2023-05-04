@@ -40,3 +40,27 @@
 .glow-on-hover:hover {
   background-color: #8e44ad;
 }
+
+
+
+.status_btn{
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  font-size: 13px;   
+  width: 100px;
+  display: inline-block;
+}
+.status_btn_pending{
+  background-color: #a7a4a0;
+}
+.status_btn_cancelled{
+  background-color: red;
+}
+.status_btn_completed{
+  background-color: green;
+}
+.primary_btn{
+  background-color: #4176c8!important;
+}

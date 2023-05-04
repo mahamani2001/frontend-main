@@ -38,6 +38,7 @@ import { CategorieComponent } from './component/Admin/categorie/categorie.compon
 import { ChatComponent } from './component/Client/chat/chat.component';
 import { PasswordComponent } from './component/Client/password/password.component';
 import { PasswordPrestataireComponent } from './component/prestataire/password-prestataire/password-prestataire.component';
+import { MessageComponent } from './component/prestataire/message/message.component';
 
 
 
@@ -84,7 +85,8 @@ const routes: Routes = [
 {path:'categorie',component:CategorieComponent},
 {path:'test',component:TestComponent} ,
 {path:'password',component:PasswordComponent},
-{path:'passwordprestataire',component:PasswordPrestataireComponent}
+{path:'passwordprestataire',component:PasswordPrestataireComponent},
+{path:'message',component:MessageComponent}
 ];
 
 @NgModule({

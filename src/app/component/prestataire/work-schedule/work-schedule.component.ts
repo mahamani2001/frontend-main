@@ -17,7 +17,9 @@ export class WorkScheduleComponent implements OnInit {
   jour = ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche'];
   errorMessage = '';
   disponibiliteForm!: FormGroup;
-  constructor(private disponibiliteService: WorkScheduleService,private formBuilder:FormBuilder,private token: TokenService) {}
+  constructor(private disponibiliteService: WorkScheduleService,
+    private formBuilder:FormBuilder,
+    private token: TokenService) {}
 
   ngOnInit(): void {
     this.retrieveDisponibilites();
