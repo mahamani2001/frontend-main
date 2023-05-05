@@ -1,4 +1,89 @@
-.f{
-    margin-left: 300px;
-    padding: 100px;
+/* Style for the form wrapper */
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: sans-serif;
+    background-color: #F6F4F4;
+    background-image: linear-gradient(to bottom right, #F6F4F4, #E2DADA);
+    left: 180px;
+    position: relative;
+  }
+  
+  /* Style for the form container */
+  .form-container {
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+    background-color: #fff;
+    max-width: 30rem;
+    width: 100%;
+  }
+  
+  /* Style for the form fields */
+  .form-group {
+    margin-bottom: 1rem;
+    font-family: Arial, sans-serif;
+    color: #4A4A4A;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+      border-color: #6FA8DC;
+      outline: none;
+  }
+  .form-group .input-group-append span:hover {
+    background-color: #6FA8DC;
+    color: #FFFFFF;
+    border-color: #6FA8DC;
+}
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  
+  input,
+  textarea,
+  select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+  }
+  
+  select {
+    appearance: none;
+    background-color: #fff;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="#000000"><path d="M 2 6 L 2 26 L 30 26 L 30 6 L 2 6 z M 4 8 L 28 8 L 28 24 L 4 24 L 4 8 z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    background-size: 1rem;
+    padding-right: 2rem;
+  }
+  
+  /* Style for the form buttons */
+  button[type="submit"] {
+    display: block;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: #8800ff;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    float: right;
+    width:35%
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #412c4a;
+  }
+  .button:hover {
+    background-color: #b24e79;
+    border-color: #b24e79;
 }

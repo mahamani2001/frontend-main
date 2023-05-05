@@ -82,9 +82,6 @@ getServices(): Observable<any> {
   return this.http.get(`http://127.0.0.1:8000/api/jobs`);
 }
 //
-
-
-
 getUserProfile(): Observable<Profile> {
   return this.http.get<Profile>(`http://127.0.0.1:8000/api/profile`);
 }
@@ -110,5 +107,8 @@ updateProfile(user: Profile): Observable<Profile> {
     })
   };
   return this.http.put<Profile>(`${this.baseUrl}/profile-update`, user, httpOptions);
+}
+getPassword(): Observable<any> {
+  return this.http.get<any>(`http://localhost:8000/api/password`);
 }
 }

@@ -7,40 +7,41 @@
     <title>Document</title>
 </head>
 <body>
-  <div class="container">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Demande</th>
-          <th>Nom du prestataire</th>
-          <th>Prix de l'offre</th>
-          <th>Date d'envoi de l'offre</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let offre of offres ">
-          <td class="status-cell">
-            <i class="fas fa  fa-{{offre.statut === 'accepte' ? 'check' : 'times'}}"></i>
-            <span class="status-badge {{offre.statut}}">{{offre.statut}}</span>
-          </td>
-          <td>{{offre.jobber_firstname}}</td>
-          <td>{{offre.prix}}</td>
-          <td>{{offre.created_at| date:'yyyy-MM-dd'}}</td>
-          <td>
-            <button class="accept-button" (click)="acceptOffre(offre.id)" >
-              <i class="fas fa fa-check"></i>
-              Accepter l'offre</button>
-            <button  class="reject-button" >
-              Refuser l'offre
-              <i class="fas fa fa-times"></i>
-              
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
+  <app-sidebar></app-sidebar>
+        <div class="container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Demande</th>
+                <th>Nom du prestataire</th>
+                <th>Prix de l'offre</th>
+                <th>Date d'envoi de l'offre</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngFor="let offre of offres">
+                <tr>
+                  <td class="status-cell">
+                    <i class="fas fa fa-{{offre.statut === 'accepte' ? 'check' : 'times'}}"></i>
+                    <span class="status-badge {{offre.statut}}">{{offre.statut}}</span>
+                  </td>
+                  <td>{{offre.jobber_firstname}}</td>
+                  <td>{{offre.prix}}</td>
+                  <td>{{offre.created_at | date:'yyyy-MM-dd'}}</td>
+                  <td>
+                    <button class="accept-button" (click)="acceptOffre(offre.id)">
+                      <i class="fas fa fa-check"></i> Accepter l'offre
+                    </button>
+                    <button class="reject-button">
+                      Refuser l'offre <i class="fas fa fa-times"></i>
+                    </button>
+                  </td>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
+      </div>
+
 </body>
 </html>

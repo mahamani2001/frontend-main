@@ -59,11 +59,12 @@ import { OffreComponent } from './component/Client/offre/offre.component';
 import { TestComponent } from './test/test.component';
 import { CategorieComponent } from './component/Admin/categorie/categorie.component';
 import { SidebarAdminComponent } from './component/Admin/sidebar-admin/sidebar-admin.component';
-import { ChatComponent } from './component/Client/chat/chat.component';
+//import { ChatComponent } from './component/Client/chat/chat.component';
  
 import { PasswordComponent } from './component/Client/password/password.component';
 import { PasswordPrestataireComponent } from './component/prestataire/password-prestataire/password-prestataire.component';
 import { MessageComponent } from './component/prestataire/message/message.component';
+import { LocationComponent } from './component/location/location.component';
 
 
 @NgModule({
@@ -108,8 +109,10 @@ import { MessageComponent } from './component/prestataire/message/message.compon
     RespondToJobRequestComponent,
     PortfolioComponent,  
     
-    OffreComponent, TestComponent, CategorieComponent, SidebarAdminComponent, 
-    ChatComponent, PasswordComponent, PasswordPrestataireComponent, MessageComponent
+    OffreComponent,
+     TestComponent, CategorieComponent, SidebarAdminComponent, 
+    //ChatComponent,
+     PasswordComponent, PasswordPrestataireComponent, MessageComponent, LocationComponent
 
 
     

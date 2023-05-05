@@ -18,5 +18,10 @@ export class PrestataireService  {
   getServices(): Observable<any> {
     return this.http.get(`http://127.0.0.1:8000/api/jobs`);
   }
+  private baseUrl = 'http://127.0.0.1:8000/api/prestataires';
+
+  getPrestatairesWithinDistance(lat: number, lng: number, distance: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/nearby?lat=${lat}&lng=${lng}&distance=${distance}`);
+  }
   
 }

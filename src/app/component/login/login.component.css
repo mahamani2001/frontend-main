@@ -1,6 +1,6 @@
 .outer{
     height: 100vh;
-      background-color: #ad8db5;
+    background-color: var(--dark-blue);
 }
 .panel-heading{
     text-align: center;
@@ -20,13 +20,7 @@ a:hover{
  padding-left:10px;
  margin:0;
  cursor: pointer;
-}
-.btn{
-    margin-top:20px;
-    border-radius: 15px;
-    background-color:#be8de6;
-
-}
+} 
 .panel{
     min-height:380;
     box-shadow: 20px 20px 80px rgb(218,218, 218);
@@ -83,4 +77,17 @@ position: relative;
 .alert{
     margin-bottom: 0;
     margin-top: 15px;
+}
+.btn{
+    margin-top: 20px;
+    border-radius: 8px;
+    background-color: var(--yellow-btn);
+    color: var(--white-color); 
+    border: 1px solid;
+    padding: 15px;
+}
+.btn:hover{
+  color: var(--yellow-btn);
+    background-color: var(--white-color); 
+    border-color:var(--yellow-btn)
 }

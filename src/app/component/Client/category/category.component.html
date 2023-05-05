@@ -24,27 +24,34 @@
 				</section>
 		
 			<section>
-				<div class="product-field">
-					<ul class="items">
-						<li data-category="" data-price="">
-							<picture>
-								<img src="./assets/category/img.png" alt="">
-							</picture>
-							<div class="detail">
-								<p class="icon">
-								   <span></span>
-								   <span></span>
-								   <span></span>
-								</p>
-								<strong>jardinage</strong>
-								<span>Réservez vos services de jardinage ponctuels ou récurrents</span>
-								<small routerLink="/category_service">Demander un service de jardinage</small>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4" *ngFor="let categorie of category"> 
+							<div class="product-field " >
+								<ul class="items">
+									<li data-category="" data-price="">
+										<picture>
+											<img [src]="categorie.picture" alt="">
+										</picture>
+										<div class="detail">
+											<p class="icon">
+											   <span></span>
+											   <span></span>
+											   <span></span>
+											</p>
+											<strong>{{categorie.name}} </strong>
+											<span>Réservez vos services de jardinage ponctuels ou récurrents</span>
+											<small routerLink="/besoin" (click)="demandeService()">Demander ce service</small>
+										</div>
+									
+									</li>
+									
+								</ul>
 							</div>
-						
-						</li>
-						
-					</ul>
+						</div>
+					</div>
 				</div>
+				
 			</section>
 			
 		</body>

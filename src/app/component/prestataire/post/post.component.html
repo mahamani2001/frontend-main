@@ -6,36 +6,29 @@
   <title>Document</title>
 </head>
 <body>
-  <app-navbar class="fixed-top"></app-navbar>
+ 
   <div class="container-fluid my-3">
    <div class="row flex-nowrap">
 
-    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-      <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-       
+    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0">
+      <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 min-vh-100">
+        <app-navbar class="fixed-top"></app-navbar>
         <hr>
-          
       </div>
-  </div>
-  <div class="containt">
-
-
-  <div class="col-md-9 col-xl-10 py-3 marging_left30">
-
-    
-      <div class="button">
-        <button class="boutton" routerLink="/serviceform">Ajouter un service</button>
-      </div>
-
-      <div class="search">
-        <div class="input-group mb-3">
-          <input type="text" [(ngModel)]="searchTitle" (input)="filterJobsByTitle(searchTitle)" placeholder="Recherche par titre de service...">
+    </div>
+    <div class="col-md-4 col-xl-10 py-3">
+      <div class="marginal_left30">
+        <div class="d-flex justify-content-between mb-3">
+          <h2>Service List</h2>
+          <button class="btn btn-success" style="background-color: #4d1573;border-color: black; position: relative;
+          left: -268px;" routerLink="/serviceform">Add Service</button>
         </div>
-         
-      </div>
-      <div class="col">
-        <table class="table">
-          <thead>
+        <div class="mb-3">
+          <input type="text" [(ngModel)]="searchTitle" (input)="filterJobsByTitle(searchTitle)" class="form-control" placeholder="Rechercher par nom de service...">
+        </div>
+        <div class="table-responsive">
+          <table class="table table-dark table-hover">
+            <thead>
             <tr>
               <th>ID</th>
               <th>Title</th>
@@ -71,12 +64,23 @@
               </td>
               <td>
                 <ng-container *ngIf="editingJob === job; else showButtons">
-                  <button class="save" (click)="saveJob()">Save</button>
+                  <button class="save"  (click)="saveJob()">Save</button>
                   <button class="cancel" (click)="cancelEdit()">Cancel</button>
                 </ng-container>
                 <ng-template #showButtons>
-                  <button class="modifier" (click)="editJob(job)">Edit</button>
-                  <button class="delete" (click)="deleteJob(job.id)">Delete</button>
+                  <button class="modifier" class="btn btn-outline-light btn-sm" 
+                  style="position: relative;
+                  left: -9px;
+                  width: 50%;" 
+                  (click)="editJob(job)">Edit</button>
+                  <button class="delete" class="btn btn-outline-danger btn-sm" (click)="deleteJob(job.id)" style="position: relative;
+                  padding-bottom: -29px;
+                  bottom: 53px;
+                  left: 50;
+                  left: 35px;
+                  width: 61px;
+                  padding: -2px;
+              ">Delete</button>
                 </ng-template>
               </td>          
 </tr>

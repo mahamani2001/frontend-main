@@ -1,1 +1,74 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+:root {
+    --body-bg-color: #05043e;
+    --card-primary-color: #151450;
+    --card-secondary-color: #211c5c;
+    --btn-bg-color: #7259db;
+    --secondary-color:#7259db;
+    --icon-bg-01: #f7a025;
+    --icon-bg-02: #2d70ab;
+    --icon-bg-03: #fe1161;
+    --icon-bg-04: #0389fe;
+    --text-small :1rem ;
+    --text-heading : 2rem;
+    font-family: 'Poppins', sans-serif; 
+    --dark-blue: #010c4a;
+    --white-color:#ffffff;
+    --black-color:#000000;
+    --menu-color:#020c4a;
+    --purple-color:#b500fc;
+    --yellow-btn :#ab702a;
+
+}
+p{
+    font-size: 19px;
+}
+h1,h2,
+body{
+    font-family: "Poppins",sans-serif;
+} 
+.container{
+    margin: 0 auto;
+}
+.main_content{
+    margin-top: 100px!important;
+    padding-left: 200px;
+}
+.custom-btn{ 
+    color: #fff!important;
+    border-radius: 4px!important;
+    padding: 10px 15px!important; 
+}
+.btn_purlpe{
+    background-color: #3F51B5; 
+    border: 2px solid #3F51B5;
+}
+.btn-danger{
+    margin-right: 15px;
+}
+.margin_right10{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.float_right{
+    float: right;
+}
+.table_header_title{
+    margin-top: 10px;
+    font-weight: bold;
+    color: #211b5c;
+}
+.btn{
+    margin-top: 20px;
+    border-radius: 8px;
+    background-color: var(--dark-blue);
+    color: var(--white-color); 
+    border: 1px solid;
+    padding: 15px;
+}
+.btn:hover{
+  color: var(--dark-blue);
+    background-color: var(--white-color); 
+    border-color:var(--dark-blue)
+}

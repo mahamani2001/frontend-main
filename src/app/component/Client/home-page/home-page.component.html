@@ -5,39 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home </title>
-   
-    
     <!-- remix icon cdn link -->
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
       rel="stylesheet"
-    />
-    
-
-    <!-- custom css file 
-    <link rel="stylesheet" href="responsive.css" />
-  
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
-    </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
-  </head>
+    />  
+   </head>
   <body>
     <!-- ========== header start ========== -->
     <app-nav></app-nav>
     <!-- ========== header end ========== -->
 
     <!-- ========== main start ========== -->
-    <section class="hero__section">
+    <section class="hero__section dark_section">
         <div class="container">
-            <div class="hero__wrapper">
-                <div class="hero__content">
-                    <h2>Bienvenue ♥</h2>
-                    <p>Tous les services du quotidien, 
-                        <br>clé en main</p>
-                 <button (click)="demandeService()" class="btn">Demander un service maintenant </button>
-                </div>
-                <div class="hero__img">
-                    <img src="./assets/images/hero-img.png" alt="hero-img">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="hero__wrapper">
+                        <div class="hero__content">
+                            <h2>Bienvenue ♥</h2>
+                            <p>Tous les services du quotidien, 
+                                <br>clé en main</p>
+                         <button (click)="demandeService()" class="btn">Demander un service maintenant </button>
+                        </div>
+                        <div class="hero__img">
+                            <img src="./assets/images/hero-img.png" alt="hero-img">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -147,7 +141,7 @@
         </section>
            <!--amine section start-->
            <!--offer section start-->
-           <section>
+           <section class="dark_section">
             <div class="container">
                 <div class="choose__us-top">
                     <h2 class="title_header"> Ce que nous offrons </h2>
@@ -213,7 +207,7 @@
            </section>
            <!--About us section end -->
          <!--Customer review section start-->
-         <section>
+         <section class="dark_section">
             <div class="container">
               <div class="customer__review-wrapper">
                   <div class="customer__review-top">

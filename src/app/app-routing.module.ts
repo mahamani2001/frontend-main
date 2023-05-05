@@ -43,7 +43,7 @@ import { MessageComponent } from './component/prestataire/message/message.compon
 
 
 const routes: Routes = [
-  {path:'',component:HomeComponent},
+  {path:'',component:HomePageComponent},
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
  {path:'compte',component:CompteComponent},

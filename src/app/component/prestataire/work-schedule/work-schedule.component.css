@@ -5,13 +5,19 @@
 
 
  .delete{ 
-    background-color: rgb(241 13 13 / 70%);
+    background-color: rgba(241, 0, 96, 0.7);
     position: relative;
     right: -13px;
     border: white;
 }
 .edit{
     position: relative;
-    background-color: #8aff8a;
+    background-color: #d603f6;
     border: white;
+}
+.btn{
+    position: relative;
+    right: -678px;
+    background-color: #a400ff;
+    border: black;
 }

@@ -31,10 +31,7 @@ export class NavComponent {
         this.router.navigate(['/dashboardClient/']) : 
         this.router.navigate(['/post/']);  
         
-        this.tokenService.isClient() ?      
-        this.router.navigate(['/dashboardClient/']) : 
-        this.router.navigate(['/dashboard']);
-      
+       
      
   }
 }

@@ -15,11 +15,15 @@ height: 50vh; /* set the height of the container to the full viewport height */
 }
 .search{
 margin-top: 50px;
+
 }
 .containt{
 padding: 100px;
 }
- 
+ .mb-3{
+  position: relative;
+  left: 77px;
+ }
 
 .boutton{
   cursor: pointer;
@@ -32,9 +36,8 @@ padding: 100px;
   background-color: #412c4a;
   color: #fff;
   cursor: pointer;
-  right: -60px;
   position: relative;
-    right: -700px;
+  left: -268px;
 }
 .modifier{
   position: relative;
@@ -62,4 +65,27 @@ padding: 100px;
   background-color: #92f377;
   width: 90px;
   right: 10px;
+}
+
+.table-responsive{
+  position:relative;
+  padding: 200px;
+  padding-top: 1px;
+}
+.save{
+  position: relative;
+    background-color: #9377f3;
+    width: 72px;
+    right: 10px;
+    border-radius: 180px;
+}
+.cancel{
+  position: relative;
+    background-color: #730054;
+    
+    width: 72px;
+    border-radius: 180px;
+ 
+    left: -8px;
+    top: 3px;
 }

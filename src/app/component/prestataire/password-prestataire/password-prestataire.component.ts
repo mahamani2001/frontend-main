@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AdminService } from 'src/app/service/admin.service';
+import { DataService } from 'src/app/service/data-service.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -10,15 +11,33 @@ import Swal from 'sweetalert2';
 })
 export class PasswordPrestataireComponent  implements OnInit{
   resetPasswordForm!: FormGroup;
-
-  constructor(private resetPasswordService: AdminService, private formBuilder: FormBuilder) {
+  passwordForm!: FormGroup;
+  password!: string;
+  constructor(private resetPasswordService: AdminService, 
+    private formBuilder: FormBuilder,
+    private passwordService:DataService
+    ) {
     this.resetPasswordForm = this.formBuilder.group({
       currentPassword: new FormControl('', Validators.required),
       newPassword: new FormControl('', [Validators.required, Validators.minLength(8)]),
       confirmPassword: new FormControl('', Validators.required),
     });
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.passwordForm = this.formBuilder.group({
+      currentPassword: ['', Validators.required]
+    });
+
+    this.passwordService.getPassword().subscribe(
+      data => {
+        this.password = data.data.password; // Assuming the password is returned in the 'password' field of the JSON response
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+  
   onSubmit() {
     const { currentPassword, newPassword, confirmPassword } = this.resetPasswordForm.value;
     this.resetPasswordService.resetPassword(currentPassword, newPassword, confirmPassword)

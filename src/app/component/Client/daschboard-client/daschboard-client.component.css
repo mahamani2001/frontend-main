@@ -25,6 +25,7 @@ body {
   min-height: 100vh;
   background: #fff;
   transition: 0.5s;
+  padding-left: 200px;
 }
 .main.active {
   width: calc(100% - 80px);
@@ -141,7 +142,7 @@ select::-ms-expand {
 }
 
 .cardBox .card {
-  position: relative;
+  position: relative;                               
   background: #fff;
   padding: 30px;
   border-radius: 20px;

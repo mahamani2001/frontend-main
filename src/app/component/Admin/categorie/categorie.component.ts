@@ -33,9 +33,9 @@ export class CategorieComponent implements OnInit{
   }
   ngOnInit() {
     this.getCategory();   
-    this. refreshCategory();
+    this.refreshCategory();
     console.log(typeof this.category);
-    }
+ }
     getCategory(){
       this.categService.getCategories().subscribe(
        (response) => {
@@ -85,7 +85,6 @@ export class CategorieComponent implements OnInit{
         'aria-label': 'Upload your profile picture'
       }
     })
-
     if (file) {
       const reader = new FileReader()
       reader.onload = (e) => {

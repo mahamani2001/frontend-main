@@ -8,23 +8,24 @@
 <body>
   <app-navbar class="fixed-top"></app-navbar>
    <div class="f">
-    <form [formGroup]="jobForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="category">Category:</label>
-        <select class="form-control"  formControlName="category_id">
-          <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
-        </select>
-      </div> 
-    
-      <div class="form-group">
-        <label for="title">Service Title:</label>
-        <input type="text" class="form-control"  formControlName="title">
-      </div>
-    
-      <div class="form-group">
-        <label for="description">Description:</label>
-        <textarea class="form-control"  formControlName="description"></textarea>
-      </div>
+    <div class="form-wrapper">
+      <form class="form-container" [formGroup]="jobForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="category">Category:</label>
+          <select formControlName="category_id">
+            <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+          </select>
+        </div> 
+      
+        <div class="form-group">
+          <label for="title">Service Title:</label>
+          <input type="text" formControlName="title">
+        </div>
+      
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea formControlName="description"></textarea>
+        </div>
     
       <div class="form-group">
         <label for="price_min">Price (minimum):</label>
@@ -49,6 +50,7 @@
       <button type="submit" class="btn btn-primary" >Submit</button>
     </form>
    </div>
+    </div>
       
 </body>
 </html>

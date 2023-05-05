@@ -4,6 +4,8 @@ import { CategoryService } from 'src/app/service/category.service';
 import { DataService } from 'src/app/service/data-service.service';
 import { Category } from '../../prestataire/category';
 import { Job } from '../../prestataire/job';
+import { TokenService } from 'src/app/shared/token.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-service',
@@ -15,9 +17,9 @@ export class ServiceComponent implements OnInit {
   categories: Category[] = [];
   data!: any[]; // declare the category_id variable and set it to a default value
 
-  
-  
-  constructor(private service:DataService,private category:CategoryService){}
+  constructor(private service:DataService,private category:CategoryService,
+    private tokenService: TokenService,private router:Router
+    ){}
   ngOnInit() {
     this.service.getAlljobs().subscribe(
       jobs => {
@@ -65,6 +67,12 @@ console.log(this.searchText);
   const value = element.value;
   this.selectedCategory = value;
 }
+
+
+get filteredCategories() {
+  return this.categories.filter(category => category.name.toLowerCase().includes(this.searchText.toLowerCase()));
+}
+
 sortB:string='';
 sortByLatest(event: Event) {
   const sortBy = (event.target as HTMLSelectElement).value;
@@ -78,10 +86,13 @@ sortByLatest(event: Event) {
   }
 
 }
-
-
-
-
+isLoggedIn(): boolean {
+  return this.tokenService.isLoggedIn(); 
+}
+demandeService(){
+  if(this.isLoggedIn()) this.router.navigate(['/besoin']); 
+  else  this.router.navigate(['/login']);
+}
 }
 
 
