@@ -35,8 +35,6 @@ export class RespondToJobRequestComponent {
         }
       );
 }
-
-   
   getJobberRequest(){
     this.jobRequestService.getJobberRequest().subscribe(
     res => {

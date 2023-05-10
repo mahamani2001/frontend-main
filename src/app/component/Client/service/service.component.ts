@@ -16,11 +16,19 @@ export class ServiceComponent implements OnInit {
   services!: Job[];
   categories: Category[] = [];
   data!: any[]; // declare the category_id variable and set it to a default value
-
+  pictureUrl!: any[];
   constructor(private service:DataService,private category:CategoryService,
-    private tokenService: TokenService,private router:Router
+    private tokenService: TokenService,
+    private router:Router,
+    private categService:CategoryService,
     ){}
   ngOnInit() {
+    this.categService.getAllImages().subscribe(
+      (data: any[]) => {
+        this.pictureUrl = data;
+      },
+      error => console.log(error)
+    );
     this.service.getAlljobs().subscribe(
       jobs => {
         this.services = jobs;

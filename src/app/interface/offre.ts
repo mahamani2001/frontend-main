@@ -7,4 +7,5 @@ export interface Offre {
   created_at: string;
   updated_at: string;
   jobber_firstname:string;
+  competence:string;
 }

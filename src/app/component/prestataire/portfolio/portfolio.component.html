@@ -153,10 +153,11 @@
            <img src="{{job.pictureUrl}}" class="card-img-top" alt="Sunset Over the Sea">
            <div class="card-body">
             <h1>{{job.title}}</h1>
-            <span>Category name</span>
+            <span>{{job.categoryName}}</span>
              <p class="card-text">
-              {{job.description}}
+              {{job.description}} 
              </p>
+              Prix moyen :{{job.price_max}} --{{job.price_min}}
            </div>
          </div>
         </div>
@@ -202,15 +203,16 @@
               <div class="d-flex flex-start">
                 <img class="rounded-circle shadow-1-strong me-3 img_review" src="https://st.depositphotos.com/2218212/2938/i/450/depositphotos_29387653-stock-photo-facebook-profile.jpg" alt="avatar" width="60" height="60">
                 <div>
-                  <h6 class="fw-bold mb-1">Prénom</h6>
+                  <h6 class="fw-bold mb-1">{{review.client_firstname}}</h6>
                   <div class="d-flex align-items-center ">
                     <p class="mb-0 padding_right_5">
                        {{review.created_at| date:'mediumDate'}}  
                     </p> 
+                    <br>
                     <i class="fa fa-star active_star" *ngFor="let i of getNumberArray(review.rating)"> </i>  
                     <i class="fa fa-star-o inactive" *ngFor="let i of getNumberArray(5-review.rating)"> </i>  
                   </div>
-                  <span class="badge bg-primary badge_categ">Bricolage</span>
+                  <span class="badge bg-primary badge_categ">{{review.categoryName}}</span>
                   <p class="mb-0">
                    {{review.comment}}
                   </p>

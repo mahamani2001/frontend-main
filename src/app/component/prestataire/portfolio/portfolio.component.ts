@@ -32,8 +32,8 @@ export class PortfolioComponent {
 
   constructor(
     private userService:DataService,
-    private reviewService:ReviewServiceService
-    ,private token: TokenService,private disponibilite:WorkScheduleService,
+    private reviewService:ReviewServiceService,
+    private disponibilite:WorkScheduleService,
     private route: ActivatedRoute,
     private tokenService: TokenService,
     private router:Router,

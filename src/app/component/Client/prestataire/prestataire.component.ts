@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Profile } from '../profile';
 import { PrestataireService } from 'src/app/service/prestataire.service';
 import { HttpClient } from '@angular/common/http';
+import { TokenService } from 'src/app/shared/token.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-prestataire',
@@ -13,7 +15,11 @@ export class PrestataireComponent  implements OnInit{
     prestataires: Profile[] = [];
     filteredPrestataires: Profile[] = [];
      searchQuery:string ='';
-    constructor(private service: PrestataireService,private http: HttpClient) {}
+    constructor(private service: PrestataireService,
+      private http: HttpClient,
+      private tokenService: TokenService,
+      private router:Router,
+      ) {}
     ngOnInit(): void { 
       this.service.getAllPrestataires().subscribe((response: any) => {
         this.prestataires = response.data; // extract the prestataires array from the API response
@@ -47,4 +53,13 @@ export class PrestataireComponent  implements OnInit{
         }
       });
     }   
+    isLoggedIn(): boolean {
+      return this.tokenService.isLoggedIn(); 
+    }
+    besoin(){
+      if(!this.isLoggedIn())  
+      {
+        this.router.navigate(['/login']);
+      } 
+    }
 }

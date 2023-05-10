@@ -6,6 +6,7 @@ export interface Review {
         user_id: number;
         created_at: string;
         updated_at: string;
+        client_firstname:string;
         user: {
           id: number;
           firstname: string;
@@ -14,5 +15,6 @@ export interface Review {
           created_at: string;
           updated_at: string;
         };  
+        categoryName:string;
         
 }

@@ -67,7 +67,7 @@
 							<div class="status"><i class="fa fa-solid fa-globe"></i><b>{{prestataire.address}}</b></div>
 							<div><i class="fa fa-star" aria-hidden="true"></i><b class="tags"> 4.5</b></div>
 							<p class="card-text small">{{prestataire.competence}}</p>
-							<a routerLink="/besoin/{{prestataire.id}}" class="btn button-text" style="background-color: #ab702a;						;"> Demander un service à {{ prestataire.firstname }}</a>
+							<a routerLink="/besoin/{{prestataire.id}}" class="btn button-text" style="background-color: #ab702a;"  (click)="besoin()"> Demander un service à {{ prestataire.firstname }}</a>
 						  <br>
             	          <a routerLink="/portfolio/{{prestataire.id}}">voir Profil</a><!--len nhout l'id eli bech nab3edhou fel url bech ya3tinin profil-->
 						  </div>

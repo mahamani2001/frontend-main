@@ -47,5 +47,8 @@ export class CategoryService {
   deleteCategory(categorie: Category): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/categories/${categorie.id}`);
 }
-  
+baseUrl="http://localhost:8000/api/images"
+getAllImages(): Observable<any> {
+  return this.http.get(`${this.baseUrl}`);
+}
 }

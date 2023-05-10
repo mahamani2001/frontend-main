@@ -1,5 +1,5 @@
 body{
-    background-color: beige;
+    background: linear-gradient(to bottom, #12547A, #80D0C7);
 }
 
 .contaienr{
@@ -15,4 +15,14 @@ body{
 .note{
     margin: 100px;
     margin-left: 100px; 
+}
+.btn{
+    position: relative;
+    left: 1000px;
+    width: 10%;
+    border: none;
+    top: -20px;
+    background-color: #fa8f04;
+      
+      
 }

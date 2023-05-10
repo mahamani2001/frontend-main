@@ -11,7 +11,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HeaderComponent } from './component/header/header.component';
 import { LoginComponent } from './component/login/login.component';
 import { PrestatairesignupComponent } from './component/prestatairesignup/prestatairesignup.component';
-import { ToastrModule } from 'ngx-toastr';
+
 import { SignupComponent } from './component/signup/signup.component';
 import { HttpClientModule , HttpClientJsonpModule,HTTP_INTERCEPTORS} from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -53,7 +53,7 @@ import { EditDisponibiliteComponent } from './component/prestataire/edit-disponi
 import { ProfileComponent } from './component/prestataire/profile/profile.component';
 import { RespondToJobRequestComponent } from './component/prestataire/respond-to-job-request/respond-to-job-request.component';
 import { AuthInterceptor } from './shared/auth.interceptor.service';
-import { NgxPaginationModule } from 'ngx-pagination';
+//import { NgxPaginationModule } from 'ngx-pagination';
 import { PortfolioComponent } from './component/prestataire/portfolio/portfolio.component';
 import { OffreComponent } from './component/Client/offre/offre.component';
 import { TestComponent } from './test/test.component';
@@ -65,6 +65,7 @@ import { PasswordComponent } from './component/Client/password/password.componen
 import { PasswordPrestataireComponent } from './component/prestataire/password-prestataire/password-prestataire.component';
 import { MessageComponent } from './component/prestataire/message/message.component';
 import { LocationComponent } from './component/location/location.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -131,7 +132,7 @@ import { LocationComponent } from './component/location/location.component';
     HttpClientJsonpModule,
     MatDatepickerModule,
     MatInputModule,
-    NgxPaginationModule,
+   // NgxPaginationModule,
     FormsModule,
     //NgxEmojiPickerModule, 
     

@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { Category } from '../../prestataire/category';
 import { Router } from '@angular/router';
 import { CategoryService } from 'src/app/service/category.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-categorie',
@@ -19,11 +20,14 @@ export class CategorieComponent implements OnInit{
   users = [];
   categoryForm!: FormGroup;
   category: Category[] = [];
+  imageUrl!:any;
+  images!: any[];
   constructor(
     public fb: FormBuilder,
     public router: Router,
     private http: HttpClient,
-    private categService:CategoryService
+    private categService:CategoryService,
+    private sanitizer: DomSanitizer
    ) {
     // Reactive Form
     this.categoryForm = this.fb.group({
@@ -35,6 +39,14 @@ export class CategorieComponent implements OnInit{
     this.getCategory();   
     this.refreshCategory();
     console.log(typeof this.category);
+    this.categService.getAllImages().subscribe(
+      (data: any[]) => {
+        this.images = data;
+      },
+      error => console.log(error)
+    );
+  
+    
  }
     getCategory(){
       this.categService.getCategories().subscribe(

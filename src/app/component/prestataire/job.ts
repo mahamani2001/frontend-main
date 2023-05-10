@@ -11,6 +11,7 @@ import { Category } from "./category";
         category?: Category;
         categoryName?: string; 
         jobber_id: string; //
+
       }
       
 
