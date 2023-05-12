@@ -44,7 +44,6 @@ export class EditDisponibiliteComponent {
 
   onSubmit() {
     const formData = this.disponibiliteForm.value;
-  
     if (this.disponibiliteId) {
       // We're editing an existing disponibilite
       this.workScheduleService.update(this.disponibiliteId, formData).subscribe(

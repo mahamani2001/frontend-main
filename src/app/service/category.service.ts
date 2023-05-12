@@ -1,7 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+
 import { Category } from '../component/prestataire/category';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -50,5 +52,29 @@ export class CategoryService {
 baseUrl="http://localhost:8000/api/images"
 getAllImages(): Observable<any> {
   return this.http.get(`${this.baseUrl}`);
+}
+private url = 'http://localhost:8000/api/categorie';
+/*updateCategory(id: any ,category: string, image: File): Observable<any> {
+  const formData = new FormData();
+  formData.append('name', category);
+  formData.append('image', image);
+  let headers = new HttpHeaders();
+  headers = headers.set('Content-Type', 'multipart/form-data');
+  return this.http.put(`${this.url}/${id}`, formData, { headers });
+}*/
+getCategoryById(id: string): Observable<Category> {
+  const endpoint = `'http://localhost:8000/api/categories/${id}`;
+  return this.http.get<Category>(endpoint);
+}
+updateCategory(id: number, formData: FormData): Observable<any> {
+  const httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'multipart/form-data' })
+  };
+  return this.http.put<any>(`${this.url}/${id}`, formData, httpOptions)
+    .pipe(
+      catchError((error: any) => {
+        return throwError(error);
+      })
+    );
 }
 }

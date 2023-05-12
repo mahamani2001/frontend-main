@@ -29,14 +29,7 @@
 								  </label>
 							  </div>							
 						  </div>
-					  <h2 class="blog-sidebar-title">Localistion</h2>
-					  <input type="checkbox" name="localisation">
-					  <hr/>      
-					  <label for="notation" class="blog-sidebar-title"> le plus recommandée<input class="blog-sidebar-title" name="notation" type="radio"></label> 
-				    <hr/> 
-					  <label for="price" class="blog-sidebar-title"> prix<input class="blog-sidebar-title" name="prix" type="radio"></label> 
-					  <hr/> 
-					  <button type="button" class="btn  btn-lg" style="background-color: #012a5f;	">Filter</button> 
+					  <button type="button" class="btn  btn-lg" style="background-color: #012a5f;" (click)="sortByRecommendation()">Filter par le plus recommandée</button> 
 					  <hr /> 
 					  <div>&nbsp;</div>
 					  <div>&nbsp;</div> 
@@ -62,10 +55,10 @@
 					  <div class="col-sm-3 col-md-6 col-lg-4 d-inline-block" *ngFor="let prestataire of filteredPrestataires ">
 						  <div class="card">
 						   <div class="card-body text-center">
-							  <img class="prestataire-image" src={{prestataire.photo}} crossorigin="anonymous">
-							<h5 class="card-title"><b>{{ prestataire.firstname }}</b></h5>
+							  <img src="http://localhost:8000/storage/images/{{prestataire.photo}} " alt="Image description" style="border-radius: 10%;width:100px;">
+							  <h5 class="card-title"><b>{{ prestataire.firstname }}</b></h5>
 							<div class="status"><i class="fa fa-solid fa-globe"></i><b>{{prestataire.address}}</b></div>
-							<div><i class="fa fa-star" aria-hidden="true"></i><b class="tags"> 4.5</b></div>
+							<div><i class="fa fa-star" aria-hidden="true"></i><b class="tags"> {{prestataire.recommendations_count}}</b></div>
 							<p class="card-text small">{{prestataire.competence}}</p>
 							<a routerLink="/besoin/{{prestataire.id}}" class="btn button-text" style="background-color: #ab702a;"  (click)="besoin()"> Demander un service à {{ prestataire.firstname }}</a>
 						  <br>

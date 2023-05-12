@@ -24,4 +24,17 @@ export class PrestataireService  {
     return this.http.get(`${this.baseUrl}/nearby?lat=${lat}&lng=${lng}&distance=${distance}`);
   }
   
-}
+  private url="http://127.0.0.1:8000/api/recommande";
+  getProviders(): Observable<any[]> {
+    const url = `${this.url}`;
+    return this.http.get<any[]>(url);
+  }
+  private  urlapi = ' http://127.0.0.1:8000/prestatai/';
+  getHighlyRatedPrestataires(minRecommendations: number, minRating: number): Observable<any> {
+    const params = { minRecommendations: minRecommendations.toString(), minRating: minRating.toString() };
+    return this.http.get<any>(`${this.urlapi}`, { params });
+  }
+  }
+  
+  
+

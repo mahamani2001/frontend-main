@@ -31,7 +31,11 @@ export class OffreComponent implements OnInit {
 acceptOffre(id:any): void {
   this.offreService.acceptOffre(id)
     .subscribe(offre => this.offre = offre);
+    alert("Votre acceptation a été effectuée avec succès.")
 }
-
-
+refuseOffre(id:any): void {
+  this.offreService.refuseOffre(id)
+    .subscribe(offre => this.offre = offre);
+  
+}
 }

@@ -58,13 +58,13 @@
     </div>
       <div class="container">
         <div class="row">
-          <div class="box col-md-3"  *ngFor="let service of services |  filter: searchText | filter:selectedCategory ">
+          <div class="box col-md-3"  *ngFor="let service of  filteredServices|  filter: searchText ">
             <div class="image">
               <img src="http://localhost:8000/storage/images/{{service.category.name.image}}" alt="Image description" style="border-radius: 10%;">
             </div> 
             <h2 class="category">{{service.category.name.name}} </h2> 
             <div class="details"> 
-              <a>{{service.jobber_firstname}}</a>
+              <a routerLink="/portfolio/{{service.jobber_id}}">{{service.jobber_firstname}}</a>
               <h2 class="title">{{service.title}}</h2>
               <p class="description">{{service.description}}</p>
               <p class="price">Prix [{{service.price_min}} - {{service.price_max}}]</p>

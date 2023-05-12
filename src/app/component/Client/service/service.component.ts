@@ -68,18 +68,24 @@ console.log(this.searchText);
         
   
  }
- 
- selectedCategory: string = '';
- onCategorySelected(event: Event) {
+ get filteredServices() {
+  return this.services.filter(service => {
+    const nameMatch = service.title.toLowerCase().includes(this.searchText.toLowerCase());
+    const categoryMatch = !this.selectedCategory || (service.category && service.category.name === this.selectedCategory.name);
+    return nameMatch && categoryMatch;
+  });
+}
+
+selectedCategory!: Category;
+onCategorySelected(event: Event) {
   const element = event.target as HTMLInputElement;
   const value = element.value;
-  this.selectedCategory = value;
+  const selectedService = this.services.find(service => service.category?.name === value);
+  if (selectedService && selectedService.category) {
+    this.selectedCategory = selectedService.category;
+  }
 }
 
-
-get filteredCategories() {
-  return this.categories.filter(category => category.name.toLowerCase().includes(this.searchText.toLowerCase()));
-}
 
 sortB:string='';
 sortByLatest(event: Event) {

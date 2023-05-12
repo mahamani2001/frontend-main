@@ -39,6 +39,7 @@ import { ChatComponent } from './component/Client/chat/chat.component';
 import { PasswordComponent } from './component/Client/password/password.component';
 import { PasswordPrestataireComponent } from './component/prestataire/password-prestataire/password-prestataire.component';
 import { MessageComponent } from './component/prestataire/message/message.component';
+import { CategorieUpdateComponent } from './component/categorie-update/categorie-update.component';
 
 
 
@@ -52,6 +53,7 @@ const routes: Routes = [
  //Admin
   {path:'dashboard',component:DashboardAdminComponent},
  {path:'gererutilisateur',component:GererutilisateurComponent},
+ {path:'categorieUpdate/:id',component:CategorieUpdateComponent},
  //Client
 {path:'dashboardClient',component:DaschboardClientComponent},
 {path:'profil',component:ProfilComponent},

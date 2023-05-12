@@ -1,8 +1,15 @@
-.f{
-    margin-left: 300px;
-    padding: 100px;
-}
-
+.outer{
+    height: 100vh;
+    background: linear-gradient(to top,#EAD6EE) no-repeat;
+  }
+  .main {
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background: #fff;
+    transition: 0.5s;
+  }
 
  .delete{ 
     background-color: rgba(241, 0, 96, 0.7);
@@ -17,7 +24,15 @@
 }
 .btn{
     position: relative;
-    right: -678px;
+    
     background-color: #a400ff;
     border: black;
+}
+.margin_top90{
+    margin-top: 90px;
+}
+ 
+.title_page{
+  font-size: 40px;
+  font-weight: bold;
 }

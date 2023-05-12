@@ -92,7 +92,7 @@ submitlogin(){
            this.router.navigate(['/profil']);
            // redirecte to client dashboard
          } else if(role =="admin"){
-           this.router.navigate(['/dashboard']);
+           this.router.navigate(['/gererutilisateur']);
            // redirecte to admin dashboard
          }
          else if(role=="prestataire"){

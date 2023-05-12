@@ -6,7 +6,8 @@ section{
   color:var(--white-color);
 }
 .dark_section{
-  background-color: var(--dark-blue);
+  background:radial-gradient(circle,rgba(34,128,193,1) 0% ,
+  rgba(9,9,121,1)65%,rgba(9,9, 121, 1)100%);
 }
 .header{
   width:100%; 
@@ -72,7 +73,7 @@ section{
 .btn{
   border: none;
   padding: 10px 30px;
-  background:#ab702a;
+  background: #f7a025;
   color:#ffffff;
   border-radius: 5px;
   cursor: pointer;

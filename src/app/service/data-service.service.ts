@@ -32,11 +32,7 @@ export class DataService {
        return this.http.post( 'http://127.0.0.1:8000/api/register',data);
     
   }
-  registerprestataire(data:any){
-  
-    return this.http.post( 'http://127.0.0.1:8000/api/jobbers',data);
-    
-  }
+
   
   logout(): void {
     this.token = null;
@@ -110,5 +106,27 @@ updateProfile(user: Profile): Observable<Profile> {
 }
 getPassword(): Observable<any> {
   return this.http.get<any>(`http://localhost:8000/api/password`);
+}
+registerprestataire(data:any,image: File) {
+ 
+  const headers = new HttpHeaders();
+  headers.append('Content-Type', 'multipart/form-data');
+  const formData = new FormData(); 
+  formData.append('firstname', data["firstname"]);
+  formData.append('lastname', data["lastname"]);
+  formData.append('email', data["email"]);
+  formData.append('address', data["address"]);
+  formData.append('phone', data["phone"]); 
+  formData.append('competence',data["competence"]);
+  formData.append('confirmpassword', data["confirmpassword"]);
+  formData.append('diplome', data["diplome"]);
+  formData.append('numero_cin', data["numero_cin"]);
+  formData.append('password',  data["password"]);
+  formData.append('role', "prestataire");
+  formData.append('photo', image);
+  return this.http.post( 'http://127.0.0.1:8000/api/jobbers',formData,{
+   headers: headers,  
+ });
+ 
 }
 }

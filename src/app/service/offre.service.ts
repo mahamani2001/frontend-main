@@ -14,12 +14,14 @@ export class OffreService {
   getOffresByDemandes(idDemande:any): Observable<Offre[]> {
     return this.http.get<Offre[]>(`${this.apiUrl}/${idDemande}`);
   }
-
   acceptOffre(idOffre:any): Observable<Offre> {
     const url = `${this.apiUrl}/${idOffre}/accepte`;
     return this.http.put<Offre>(url, {});
   }
-  
+  refuseOffre(idOffre:any): Observable<Offre> {
+    const url = `${this.apiUrl}/${idOffre}/refuse`;
+    return this.http.put<Offre>(url, {});
+  }
   
   
 }

@@ -6,91 +6,86 @@
   <title>Document</title>
 </head>
 <body>
- 
-  <div class="container-fluid my-3">
-   <div class="row flex-nowrap">
+  <app-navbar class="fixed-top"></app-navbar>
 
-    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0">
-      <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 min-vh-100">
-        <app-navbar class="fixed-top"></app-navbar>
-        <hr>
-      </div>
-    </div>
-    <div class="col-md-4 col-xl-10 py-3">
-      <div class="marginal_left30">
-        <div class="d-flex justify-content-between mb-3">
-          <h2>Service List</h2>
-          <button class="btn btn-success" style="background-color: #4d1573;border-color: black; position: relative;
-          left: -268px;" routerLink="/serviceform">Add Service</button>
-        </div>
-        <div class="mb-3">
-          <input type="text" [(ngModel)]="searchTitle" (input)="filterJobsByTitle(searchTitle)" class="form-control" placeholder="Rechercher par nom de service...">
-        </div>
-        <div class="table-responsive">
-          <table class="table table-dark table-hover">
-            <thead>
-            <tr>
-              <th>ID</th>
-              <th>Title</th>
-              <th>Description</th>
-              <th>Prix moyen pour une heure de travail</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr  *ngFor="let job of filteredJobs ">
-              <td>{{ job.id }}</td>
-              <td>
-                <ng-container *ngIf="editingJob === job; else showTitleInput">
-                  <input type="text" [(ngModel)]="editingJob.title" class="form-control">
-                </ng-container>
-                <ng-template #showTitleInput>{{ job.title }}</ng-template>
-              </td>
-              <td>
-                <ng-container *ngIf="editingJob === job; else showDescriptionInput">
-                  <input type="text" [(ngModel)]="editingJob.description" class="form-control">
-                </ng-container>
-                <ng-template #showDescriptionInput>{{ job.description }}</ng-template>
-              </td>
-              <td>
-                <ng-container *ngIf="editingJob === job; else showPrice">
-                  <div class="input-group">
-                    <input type="number" [(ngModel)]="editingJob.price_max" class="form-control">
-                    <span class="input-group-text">-</span>
-                    <input type="number" [(ngModel)]="editingJob.price_min" class="form-control">
-                  </div>
-                </ng-container>
-                <ng-template #showPrice>{{ job.price_max }} - {{ job.price_min }}</ng-template>
-              </td>
-              <td>
-                <ng-container *ngIf="editingJob === job; else showButtons">
-                  <button class="save"  (click)="saveJob()">Save</button>
-                  <button class="cancel" (click)="cancelEdit()">Cancel</button>
-                </ng-container>
-                <ng-template #showButtons>
-                  <button class="modifier" class="btn btn-outline-light btn-sm" 
-                  style="position: relative;
-                  left: -9px;
-                  width: 50%;" 
-                  (click)="editJob(job)">Edit</button>
-                  <button class="delete" class="btn btn-outline-danger btn-sm" (click)="deleteJob(job.id)" style="position: relative;
-                  padding-bottom: -29px;
-                  bottom: 53px;
-                  left: 50;
-                  left: 35px;
-                  width: 61px;
-                  padding: -2px;
-              ">Delete</button>
-                </ng-template>
-              </td>          
-</tr>
-      </tbody>
-    </table>
+ <div class="main">
+  <div class="container my-3 ">
+    <div class="row">
+ <div class="col-md-12">
+  <div class="d-flex justify-content-between mb-3 margin_top90">
+    <h2 class="title_page">Service List</h2>
+    <button class="btn btn-success" routerLink="/serviceform">Add Service</button>
   </div>
 </div>
-</div>
-</div>
+    </div>
+    <div class="row">
+       <div class="col-md-12">
+        <input type="text" [(ngModel)]="searchTitle" (input)="filterJobsByTitle(searchTitle)"
+        class="form-control" placeholder="Rechercher par nom de service..." class="search_bar">
+      </div>
+    </div>
+
+    <div class="row"> 
+     <div class="col-md-12  "> 
+         <div class="table-responsive">
+           <table class="table   table-hover">
+             <thead>
+             <tr>
+               <th>ID</th>
+               <th>Title</th>
+               <th>Description</th>
+               <th>Prix moyen pour une heure de travail</th>
+               <th>Action</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr  *ngFor="let job of filteredJobs ">
+               <td>{{ job.id }}</td>
+               <td>
+                 <ng-container *ngIf="editingJob === job; else showTitleInput">
+                   <input type="text" [(ngModel)]="editingJob.title" class="form-control">
+                 </ng-container>
+                 <ng-template #showTitleInput>{{ job.title }}</ng-template>
+               </td>
+               <td>
+                 <ng-container *ngIf="editingJob === job; else showDescriptionInput">
+                   <input type="text" [(ngModel)]="editingJob.description" class="form-control">
+                 </ng-container>
+                 <ng-template #showDescriptionInput>{{ job.description }}</ng-template>
+               </td>
+               <td>
+                 <ng-container *ngIf="editingJob === job; else showPrice">
+                   <div class="input-group">
+                     <input type="number" [(ngModel)]="editingJob.price_max" class="form-control">
+                     <span class="input-group-text">-</span>
+                     <input type="number" [(ngModel)]="editingJob.price_min" class="form-control">
+                   </div>
+                 </ng-container>
+                 <ng-template #showPrice>{{ job.price_max }} - {{ job.price_min }}</ng-template>
+               </td>
+               <td>
+                 <ng-container *ngIf="editingJob === job; else showButtons">
+                   <button class="save"  (click)="saveJob()">Save</button>
+                   <button class="cancel" (click)="cancelEdit()">Cancel</button>
+                 </ng-container>
+                 <ng-template #showButtons>
+                   <button class="btn btn-success "  (click)="editJob(job)">Edit</button>
+                   <button class=" btn-edit btn btn-danger "
+                    (click)="deleteJob(job.id)" >Delete</button>
+                 </ng-template>
+               </td>          
+ </tr>
+       </tbody>
+     </table>
    </div>
+ 
+ </div>
+ </div>
+
+
+    </div>
+ </div>
+ 
   
 
 </body>

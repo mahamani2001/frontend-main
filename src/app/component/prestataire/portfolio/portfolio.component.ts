@@ -205,6 +205,3 @@ export class PortfolioComponent {
  
   }
   }
-  
- 
-

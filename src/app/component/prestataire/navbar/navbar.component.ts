@@ -13,9 +13,11 @@ export class NavbarComponent  implements OnInit{
   username:string="";
  
 
-  constructor(private authState: AuthStateService,  private token: TokenService,private router:Router){}
+  constructor(private authState: AuthStateService,
+      private token: TokenService,
+      private router:Router){}
   ngOnInit(): void {
-    this.username= this.token.getUsername();
+
   }
   logout() {
     Swal.fire({

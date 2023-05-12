@@ -13,65 +13,74 @@
 
 <body>
     <!-- =============== Navigation ================ -->
-
-    <div class="container">
-        <div class="sidebar">
-            <!-- Sidebar content goes here -->
-            <app-sidebar-admin></app-sidebar-admin>
+    <app-sidebar-admin></app-sidebar-admin>
+    <div class="main">
+        <div class="container"> 
+             <div class="row">
+                <div class="col-md-8 title-page">
+                    <h3>Gérer les utilisateurs</h3>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-primary btn_action" (click)="showForm()">Ajouter compte</button>
+                </div>
+             </div>
+                     
+                <!-- Main content goes here -->
+                <div class="details">
+                    <div class="recentOrders">
+                        
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Id</td>
+                                    <td>Nom & Prénom</td> 
+                                    <td>Role</td>
+                                    <td>Email</td> 
+                                    <td>Adresse</td>
+                                    <td>Phone</td>
+                                    <td>Compétence</td>  
+                                    <td colspan="3">Action</td>
+                                </tr>
+                            </thead>
+    
+                            <tbody>
+                              <tr  *ngFor="let user of users">
+                                <td>{{ user.id }}</td>
+                                <td>{{ user.firstname }} {{ user.lastname}}</td> 
+                                <td>{{ user.role }}</td>
+                                <td>{{ user.email }}</td> 
+                                <td>{{ user.address }}</td>
+                                <td>{{ user.phone }}</td>
+                                <td>{{user.competence}}</td> 
+                                <td>  
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <button (click)="onDeleteUser(user)" class="btn btn-danger" style="    position: relative;
+                                            margin-left: 62px;
+                                            left: 47px;
+                                            width: 98px;
+                                        ">
+                                                <i class="fa fa fa-trash"></i> Supprimer
+                                              </button>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <button (click)="editform()" class="btn btn-success">
+                                                <i class="fa fa fa-pencil"></i> Modifier
+                                           </button>
+                                        </div>
+                                    </div>
+                                   
+                                   
+                              </td>
+                            </tbody>
+                        </table>
+                    </div> 
+              </div>
+              
         </div>
-        <div class="content">
-            <!-- Main content goes here -->
-            <div class="details">
-                <div class="recentOrders">
-                    <div class="cardHeader">
-                        <h2>Gérer les utilisateurs</h2>
-                        <button (click)="showForm()">Ajouter compte</button>
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <td>Id</td>
-                                <td>Prénom</td>
-                                <td>Nom</td>
-                                <td>Role</td>
-                                <td>Email_verification</td>
-                                <td>Mot de passe</td>
-                                <td>adresse</td>
-                                <td>numéro de téléphone</td>
-                                <td>Compétence</td>
-                                <td>numero_cin</td>
-                                <td>Action</td>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                          <tr  *ngFor="let user of users">
-                            <td>{{ user.id }}</td>
-                            <td>{{ user.firstname }}</td>
-                            <td>{{ user.lastname}}</td>
-                            <td>{{ user.role }}</td>
-                            <td>{{ user.email }}</td>
-                            <td>{{ user.password }}</td>
-                            <td>{{ user.address }}</td>
-                            <td>{{ user.phone }}</td>
-                            <td>{{user.competence}}</td>
-                            <td>{{ user.numero_cin }}</td>
-                            <td></td>
-                            <td>  
-                                <td><button (click)="onDeleteUser(user)">
-                                  <i class="fa fa fa-trash"></i> Supprimer
-                                </button>
-                                <button (click)="editform()">
-                                    <i class="fa fa fa-trash"></i> Edit
-                                  </button>
-                          </td>
-                        </tbody>
-                    </table>
-                </div> 
-          </div>
-          </div>
+       
     </div>
-   
+ 
     <!-- =========== Scripts =========  -->
     <script src="assets/js/main.js"></script>
 

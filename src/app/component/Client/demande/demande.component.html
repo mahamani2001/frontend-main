@@ -10,7 +10,9 @@
   <body>  
 <app-sidebar class="fixed-top"></app-sidebar>
 <div class="container">
-  <div class="main_content">  
+  <div class="main_content" 
+  style="padding-left: 184px!important;
+  margin-top: 100px!important;">  
    <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -31,7 +33,7 @@
                   <table class="table table-bordred table-striped text-center" id="mytable">
                       <thead>
                         <tr>
-                          <th scope="col">ID</th>
+                 
                           <th scope="col">Titre</th>
                           <th scope="col">Description</th>
                           <th scope="col">Status</th>
@@ -43,7 +45,7 @@
                       </thead>
                       <tbody>
                         <tr *ngFor="let request of requestJobList">
-                          <td>{{ request.id }}</td>
+                 
                           <td>{{ request.title }}</td>
                           <td>{{ request.description }}</td>
                           <td><span class="status_btn {{getStatusColor(request.status)}}"> {{ request.status }} </span></td>
@@ -53,8 +55,8 @@
                           <td class="text-center"> 
                             <button class="btn btn-success btn-xs" routerLink="/offre/{{request.id }}">
                             <span class="fa fa-eye"></span>Voir offre</button> 
-                            <button class="btn btn-primary btn-xs margin_right10" (click)="showForm()"
-                            ><span class="fa fa-pencil"> Edit</span>     </button>
+                            <button class="btn btn-primary btn-xs margin_right10" (click)="showForm(request.id)"
+                            ><span class="fa fa-pencil"> Modifier</span>     </button>
                             <button class="btn btn-danger btn-xs" (click)="removeRequest(request.id)">
                             <span class="fa fa-trash"></span>Delete</button> 
                         </td>

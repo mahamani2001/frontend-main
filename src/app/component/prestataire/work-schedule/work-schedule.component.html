@@ -7,54 +7,43 @@
 </head>
 <body>
   <app-navbar class="fixed-top"></app-navbar>
-  <div class="f">
+  <div class="main">
   <div class="container mt-4">
-    <h2 class="text-center mb-4">Disponibilites</h2>
-    <div class="row mb-3">
-      <div class="col-md-6">
-      
-        <button type="button" class="btn btn-primary"  routerLink="/app-add-disponibilite">Add Disponibilite</button>
-    
-
-      </div>
+    <div class="row">
+  
+<div class="col-md-12">
+  <div class="d-flex justify-content-between mb-3 margin_top90">
+    <h2 class="title_page">Disponibilites</h2>
+    <button class="btn btn-success" routerLink="/app-add-disponibilite">Add Disponibilite</button>
+  </div>
+</div>
     </div>
-    <table class="table table-dark table-hover">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Actif</th>
-          <th scope="col">Heure de début de travail</th>
-          <th scope="col">Heure de fin de travail</th>
 
-          <th scope="col">Jour</th>
-          <th scope="col">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let disponibilite of disponibilites">
-          <td>{{ disponibilite.id }}</td>
-          <td>{{ disponibilite.actif ? 'Yes' : 'No' }}</td>
-          <td>{{ disponibilite.heure_debut }}
-            
-          </td>
-          <td>{{ disponibilite.heure_fin}}
-            
-          </td>
-          <td>{{ disponibilite.jour }}</td>
-          <td>
-            <button class="edit" routerLink="/edit-disponibilite/{{ disponibilite.id }}">
+    <div class="space50"></div>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let disponibilite of disponibilites">
+        <div class="card cards text-center">
+          <div class="card-body">
+            <h5 class="card-title">Actif : {{ disponibilite.actif ? 'Yes' : 'No' }}</h5>
+            <p class="card-text">Jour : {{ disponibilite.jour }}</p>
+            <p class="card-text">Heure de début de travail: {{ disponibilite.heure_debut }}</p>
+            <p class="card-text">Heure de fin de travail: {{ disponibilite.heure_fin}}</p>
+      
+            <button class="edit btn btn-primary" routerLink="/edit-disponibilite/{{ disponibilite.id }}">
               <i class="fas fa fa-edit"></i>
               Modifier 
             </button>
             
             
-            <button class="delete" (click)="removeDisponibilite(disponibilite.id)">
+            <button class="delete btn btn-danger" (click)="removeDisponibilite(disponibilite.id)">
               <i class="fa fa fa-trash"></i> Delete
             </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </div>
+        </div>
+        <div class="space50"></div>
+      </div>
+    </div>
+   
   </div>
  </div>
 

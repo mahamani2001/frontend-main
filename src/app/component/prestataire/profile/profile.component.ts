@@ -19,11 +19,13 @@ export class ProfileComponent {
   showUpdateSuccessModal = false;
   showMessage = false;
   messageContent!: string;
+  username!:string;
   @Input() visible: boolean=false;
 
   constructor(private userService:DataService,private token: TokenService){}
 
   ngOnInit(): void {
+ 
     this.userService.getUserProfile().subscribe(
       res => { 
          this.data=res;
@@ -33,7 +35,7 @@ export class ProfileComponent {
       err => {       
        alert("Erreur");
       }) 
-      
+    
   }
  
  

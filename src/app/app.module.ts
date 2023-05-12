@@ -66,6 +66,7 @@ import { PasswordPrestataireComponent } from './component/prestataire/password-p
 import { MessageComponent } from './component/prestataire/message/message.component';
 import { LocationComponent } from './component/location/location.component';
 import { ToastrModule } from 'ngx-toastr';
+import { CategorieUpdateComponent } from './component/categorie-update/categorie-update.component';
 
 
 @NgModule({
@@ -113,7 +114,7 @@ import { ToastrModule } from 'ngx-toastr';
     OffreComponent,
      TestComponent, CategorieComponent, SidebarAdminComponent, 
     //ChatComponent,
-     PasswordComponent, PasswordPrestataireComponent, MessageComponent, LocationComponent
+     PasswordComponent, PasswordPrestataireComponent, MessageComponent, LocationComponent, CategorieUpdateComponent
 
 
     

@@ -102,18 +102,18 @@ getStatusColor(status:String){
       }
     });
   }
-  showForm(){
+  showForm(id:any){
     Swal.fire({
       title: 'edit demande ',
       html: `
       <div class="form-group">
       
-      <input type="text" class="form-control" id="title" name="title" placeholder="Taper  préfirstname">
+      <input type="text" class="form-control" id="title" name="title" placeholder="Taper  Titre">
     </div>
 
     <div class="form-group">
       <label for="description"></label>
-      <input type="text" class="form-control" id="description"  name="description" placeholder="Taper  title">
+      <input type="text" class="form-control" id="description"  name="description" placeholder="Taper  Description">
     </div>
     <div class="form-group">
     <label for="status"></label>
@@ -122,23 +122,23 @@ getStatusColor(status:String){
 
   <div class="form-group">
   <label for="start_date"></label>
-  <input type="start_date" class="form-control" id="start_date" name="start_date"  placeholder="Taper l' start_date">
+  <input type="start_date" class="form-control" id="start_date" name="start_date"  placeholder="Taper la date de début">
 </div>
 
     <div class="form-group">
       <label for="end_date"></label>
-      <input type="text" class="form-control" id="end_date" name="end_date"  placeholder="Taper  end_date">
+      <input type="text" class="form-control" id="end_date" name="end_date"  placeholder="Taper  la date de fin">
+    </div>
+
+    <div class="form-group">
+      <label for="time"></label>
+      <input type="text" class="form-control" id="time" name="time" placeholder="Donner l'heure" >
     </div>
 
     <div class="form-group">
     <label for="location"></label>
-    <input type="text" class="form-control" id="location" name="location"  placeholder="Taper  location">
+    <input type="text" class="form-control" id="location" name="location"  placeholder="Taper  localisation ">
   </div>
-
-    <div class="form-group">
-      <label for="time"></label>
-      <input type="text" class="form-control" id="time" name="time" placeholder="Taper numéro de télétime" >
-    </div>
       `,
       showCancelButton: true,
       confirmButtonText: 'Enregistrer',
@@ -147,13 +147,12 @@ getStatusColor(status:String){
         const title = (<HTMLInputElement>document.getElementById('title')).value;
         const description = (<HTMLInputElement>document.getElementById('description')).value;
         const status = (<HTMLInputElement>document.getElementById('status')).value;
-        const end_date = (<HTMLInputElement>document.getElementById('end_date')).value;
         const start_date = (<HTMLInputElement>document.getElementById('start_date')).value;
+        const end_date = (<HTMLInputElement>document.getElementById('end_date')).value;
         const time = (<HTMLInputElement>document.getElementById('time')).value;
         const location = (<HTMLInputElement>document.getElementById('location')).value;
-
         // You can add your own logic for validating the form data here
-        return { title, description, status,end_date, start_date, time ,location};
+        return { title, description, status, start_date, end_date, time ,location};
       }
     }).then((result: any) => {
       if (result.value) {

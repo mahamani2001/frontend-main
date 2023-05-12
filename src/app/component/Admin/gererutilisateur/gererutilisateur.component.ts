@@ -56,12 +56,12 @@ export class GererutilisateurComponent {
       html: `
       <div class="form-group">
       
-      <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Taper  préfirstname">
+      <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Taper  prénom">
     </div>
 
     <div class="form-group">
       <label for="lastname"></label>
-      <input type="text" class="form-control" id="lastname"  name="lastname" placeholder="Taper  firstname">
+      <input type="text" class="form-control" id="lastname"  name="lastname" placeholder="Taper  nom">
     </div>
     <div class="form-group">
     <label for="role"></label>
@@ -70,11 +70,11 @@ export class GererutilisateurComponent {
 
   <div class="form-group">
   <label for="email"></label>
-  <input type="email" class="form-control" id="email" name="email"  placeholder="Taper l' email">
+  <input type="email" class="form-control" id="email" name="email"  placeholder="Taper l'email">
 </div>
 <div class="form-group">
 <label for="password"></label>
-<input type="text" class="form-control" id="password" name="password"  placeholder="Taper  address">
+<input type="text" class="form-control" id="password" name="password"  placeholder="Taper  password">
 </div>
 
     <div class="form-group">
@@ -85,7 +85,7 @@ export class GererutilisateurComponent {
    
     <div class="form-group">
       <label for="phone"></label>
-      <input type="text" class="form-control" id="phone" name="phone" placeholder="Taper numéro de téléphone" >
+      <input type="text" class="form-control" id="phone" name="phone" placeholder="Taper le  numéro de téléphone" >
     </div>
       `,
       showCancelButton: true,

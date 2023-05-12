@@ -15,6 +15,7 @@ export class PrestataireComponent  implements OnInit{
     prestataires: Profile[] = [];
     filteredPrestataires: Profile[] = [];
      searchQuery:string ='';
+     providers: any[] = [];
     constructor(private service: PrestataireService,
       private http: HttpClient,
       private tokenService: TokenService,
@@ -26,6 +27,19 @@ export class PrestataireComponent  implements OnInit{
         this.filteredPrestataires =  response.data;
       });
       this.getPosition();
+      this.getPrestataires();
+      this.sortByRecommendation();
+    }
+    getPrestataires(): void {
+      this.service.getProviders()
+        .subscribe((data: any[]) => {
+          this.prestataires = data;
+    this.sortByRecommendation();
+        });
+      }
+      sortByRecommendation(): void {
+      let p= this.prestataires.sort((a, b) => b.recommendations_count - a.recommendations_count);
+      console.log(p);
     }
     filterPrestataires() {
       const query = this.searchQuery.toLowerCase();
@@ -62,4 +76,5 @@ export class PrestataireComponent  implements OnInit{
         this.router.navigate(['/login']);
       } 
     }
+    
 }

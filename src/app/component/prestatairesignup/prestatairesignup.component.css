@@ -1,6 +1,6 @@
 .outer{
     height: 100vh;
-    background-color: #ad8db5;
+    background-color: var(--dark-blue);
 }
 .panel-heading{
     text-align: center;
@@ -30,17 +30,10 @@ a:hover{
     border-radius: 12px;
     margin-top:100px;
 }
-.panel .border .bg-white{
-    position: relative;
-    top: -76px;
-    left: -47px;
-}
 .input-field{
     border-radius: 5px;
-    padding: 5px;
-    display:flex;
-    align-items: center;
-    cursor:pointer;
+    padding: 5px; 
+    align-items: center; 
     border:1px solid #000000;
     color:#4343ff;
 }
@@ -53,7 +46,7 @@ input[type='password']{
     border:none;
     outline:none;
     box-shadow: none;
-    width:100%;
+    width:100px;
 }
 .fa-eye-slash.btn{
     border:none;
@@ -80,6 +73,19 @@ position: relative;
     padding: 0 8px ;
 }
 .btn{
-   
-    background-color:#be8de6;
+    margin-top: 20px;
+    border-radius: 8px;
+    background-color: var(--yellow-btn);
+    color: var(--white-color); 
+    border: 1px solid;
+    padding: 15px;
+}
+.btn:hover{
+  color: var(--yellow-btn);
+    background-color: var(--white-color); 
+    border-color:var(--yellow-btn)
+}
+.panel .border .bg-white{
+    position: relative;
+    margin-top: 3px;
 }

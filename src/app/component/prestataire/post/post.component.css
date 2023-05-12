@@ -1,12 +1,24 @@
 .table{
   margin-top: 40px;
 }
-.marging_left30{
-margin-left: 30px;
+.outer{
+  height: 100vh;
+  background: linear-gradient(to top,#EAD6EE) no-repeat;
 }
-body{
-background-color: rgb(255, 255, 255);
+.main {
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 300px;
+  min-height: 100vh;
+  background: #fff;
+  transition: 0.5s;
 }
+.main.active {
+  width: calc(100% - 80px);
+  left: 80px;
+}
+ 
+ 
 .table-container {
 display: flex;
 justify-content: center;
@@ -17,14 +29,8 @@ height: 50vh; /* set the height of the container to the full viewport height */
 margin-top: 50px;
 
 }
-.containt{
-padding: 100px;
-}
- .mb-3{
-  position: relative;
-  left: 77px;
- }
-
+ 
+ 
 .boutton{
   cursor: pointer;
   font-size: 16px;
@@ -36,22 +42,9 @@ padding: 100px;
   background-color: #412c4a;
   color: #fff;
   cursor: pointer;
-  position: relative;
-  left: -268px;
+  position: relative; 
 }
-.modifier{
-  position: relative;
-  right: 50px;
-  background-color: #ee8282;
-  width: 80%;
-}
-.delete{
-  position: relative;
-  bottom: 31px;
-  right: -54px;
-  width: 75%;
-  background-color: #fffe07;
-}
+ 
 .cancel{
   position: relative;
     bottom: 31px;
@@ -68,8 +61,7 @@ padding: 100px;
 }
 
 .table-responsive{
-  position:relative;
-  padding: 200px;
+  position:relative; 
   padding-top: 1px;
 }
 .save{
@@ -82,10 +74,27 @@ padding: 100px;
 .cancel{
   position: relative;
     background-color: #730054;
-    
     width: 72px;
-    border-radius: 180px;
- 
+    border-radius: 180px; 
     left: -8px;
     top: 3px;
+}
+.search_bar{ 
+  border: 1px solid #020c4a3d;
+  padding: 10px 15px;
+  width: 30%;
+  border-radius: 5px;
+}
+.margin_top90{
+  margin-top: 90px;
+}
+.title_page{
+  font-size: 40px;
+  font-weight: bold;
+}
+.btn{
+  margin-top: 0!important;
+}
+.btn-edit{
+  margin-left: 10px!important;
 }
