@@ -16,6 +16,7 @@
             "outputPath": "dist/front-end",
             "index": "src/index.html",
             "main": "src/main.ts",
+            
             "polyfills": [
               "zone.js"
             ],
@@ -29,12 +30,14 @@
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/ngx-toastr/toastr.css",
               "./node_modules/@mobiscroll/angular/dist/css/mobiscroll.min.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/leaflet/dist/leaflet.css"
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.js",          
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
-              "node_modules/jquery/dist/jquery.min.js"
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/leaflet/dist/leaflet.js"
 
 
 

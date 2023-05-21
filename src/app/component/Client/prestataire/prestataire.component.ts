@@ -21,14 +21,22 @@ export class PrestataireComponent  implements OnInit{
       private tokenService: TokenService,
       private router:Router,
       ) {}
+      
     ngOnInit(): void { 
       this.service.getAllPrestataires().subscribe((response: any) => {
         this.prestataires = response.data; // extract the prestataires array from the API response
         this.filteredPrestataires =  response.data;
+        
       });
       this.getPosition();
       this.getPrestataires();
       this.sortByRecommendation();
+      this.getPosition().then(coords => {
+        this.http.get<any[]>(`http://127.0.0.1:8000/api/prestataires/nearby?latitude=${coords.latitude}&longitude=${coords.longitude}&distance=10`)
+          .subscribe(data => {
+            this.prestataires = data;
+          });
+      });
     }
     getPrestataires(): void {
       this.service.getProviders()
@@ -38,6 +46,7 @@ export class PrestataireComponent  implements OnInit{
         });
       }
       sortByRecommendation(): void {
+
       let p= this.prestataires.sort((a, b) => b.recommendations_count - a.recommendations_count);
       console.log(p);
     }
@@ -51,6 +60,34 @@ export class PrestataireComponent  implements OnInit{
     getPrestatairesWithinDistance(distance: number) {
  
     }
+    sortB:string='';
+sortFilter(event: Event) {
+  console.log("--- change ")
+  const sortBy = (event.target as HTMLSelectElement).value;
+  this.sortB = sortBy;
+  if (sortBy === 'recommended') {
+    console.log("---> recommended chaneg ");
+    this.sortByRecommendation(); 
+  }
+}
+    
+    getcurrentposition(): Promise<any> {
+      return new Promise((resolve, reject) => {
+        if (!navigator.geolocation) {
+          reject(new Error('Geolocation is not supported'));
+        } else {
+          navigator.geolocation.getCurrentPosition(
+            position => {
+              const coords = {latitude: position.coords.latitude, longitude: position.coords.longitude};
+              console.log('Position:', coords);
+              resolve(coords);
+            },
+            error => reject(error)
+          );
+        }
+      });
+    }
+    
      getPosition(): Promise<{latitude: number, longitude: number}> {
       return new Promise((resolve, reject) => {
         if (!navigator.geolocation) {

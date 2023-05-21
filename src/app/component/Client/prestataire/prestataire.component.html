@@ -41,10 +41,10 @@
 						  <div class="col"> 
 						  </div> 
 						  <div class="col">
-							  <select class="form-control">
-								  <option value="">Tri par défaut</option>
-								  <option value="popularity">par popularité</option> 
-							  </select>
+							<select class="form-control form_tri" (change)="sortFilter($event)">
+								<option value="">Tri par défaut</option>
+								 <option value="recommended">Filter par le plus recommandée</option>
+							</select>
 						  </div> 
 					  </div>
 					  <!-- Sorting by <div class="row"> -->
