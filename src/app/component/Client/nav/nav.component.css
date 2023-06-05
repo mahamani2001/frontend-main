@@ -42,6 +42,8 @@ body{background-color: beige;}
 	display: fex;
 	align-items: center;
 	column-gap: 2rem;
+	position: relative;
+    left: -64px;
 }
 .logo h1 {
 	color:#151450;

@@ -12,47 +12,101 @@
 </head>
 <body>
     <app-nav></app-nav>
-    
-<!-- Add FormsModule to your module imports for two-way data binding to work -->
-<form [formGroup]="requestForm" (ngSubmit)="onSubmit()">
-  <div class="container">
-      <div class="mb-3">
-          <label for="categorie" class="form-label">Catégorie</label>
-          <select class="form-control" id="categorie" formControlName="category_id">
-              <option value="">Sélectionner une catégorie</option>
-              <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
-          </select>
-      </div>
-      <div class="mb-3">
-          <label for="service" class="form-label">Titre Service</label>
-          <input type="text" class="form-control"  formControlName="title">
-      </div>
-      <div class="mb-3">
-          <label for="description" class="form-label">Description</label>
-          <textarea class="form-control"  formControlName="description" rows="3"></textarea>
-      </div>
-      <h5>Quel jour convient le mieux</h5>
-      <div class="mb-3">
-          <label for="startDate" class="form-label">Date de début</label>
-          <input type="date" class="form-control" 
-           formControlName="start_date">
-      </div>
-      <div class="mb-3">
-          <label for="endDate" class="form-label">Date de fin</label>
-          <input type="date" class="form-control"  formControlName="end_date">
-      </div>
-      <div class="mb-3">
-          <label for="time">Time:</label>
-          <input type="time" class="form-control"  formControlName="time">
-      </div>
-      <div class="mb-3">
-          <label for="location" class="form-label">Quelle est votre adresse</label>
-          <input type="text" class="form-control"  formControlName="location">
-      </div>
-      <button type="submit" class="btn" (click)="besoin()">Envoyer</button>
-  </div>
-</form>
+    <section class="dark_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                  <h1 class="sub_page_title">{{this.pageTitle}} <span class="name_pres">{{user.firstname | titlecase}}</span></h1> 
+                </div>
+              </div>
+            <div class="row">
+                 <div  class="col-md-4"> 
+                    <div class="card card_service">
+                        <div class="card-body">
+                            <div class="image">
+                                <img src="http://localhost:4200/assets/images/hero-img.png" alt="Image description" class="img_service">
+                                <!--img src="http://localhost:8000/storage/images/{{service.category.name.image}}" alt="Image description" style="border-radius: 10%;"-->
+                              </div>  
+                              <div class="details"> 
+                                <h3>{{user.firstname|titlecase}} {{user.lastname|titlecase}}</h3>
+                                <br> <br> <br> <br>
+                                <div *ngIf="service!=null">
+                                    <p class="price">Prix [{{service.price_min}} - {{service.price_max}}]</p>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-md-8" >
+    <!-- Add FormsModule to your module imports for two-way data binding to work -->
+    <div class="card page_demande_service">
+        <div class="card-body">
+            <form [formGroup]="requestForm" (ngSubmit)="onSubmit()" class="form_demande_service">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Information Generale</h5>
+                            <div class="mb-3">
+                                <label for="categorie" class="form-label">Catégorie</label><br>
+                                <ng-container *ngIf="allJobber==true">
+                                   
+                                    <select class="form-control" id="categorie" formControlName="category_id">
+                                        <option value="">Sélectionner une catégorie</option>
+                                        <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+                                    </select>
+                                </ng-container>
+                                <ng-container *ngIf="allJobber==false"> 
+                                 <ng-container *ngFor="let category of categories"> 
+                                    <input type="text" class="form-control" *ngIf="category.id==user.category_id"  value="{{category.name}}" disabled>
+                                  </ng-container> 
+                                </ng-container> 
 
+                            </div>
+                            <div class="mb-3">
+                                <label for="service" class="form-label">Titre Service</label>
+                                <input type="text"
+                                [ngClass]="service!=null ? 'form-control disbled_click' : 'form-control'"
+                                 formControlName="title" required  >
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Description</label>
+                                <textarea [ngClass]="service!=null ? 'form-control disbled_click' : 'form-control'"  formControlName="description" rows="3" required ></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Quel jour convient le mieux</h5>
+                            <div class="mb-3">
+                                <label for="startDate" class="form-label">Date de début</label>
+                                <input type="date" class="form-control" 
+                                 formControlName="start_date" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="endDate" class="form-label">Date de fin</label>
+                                <input type="date" class="form-control"  formControlName="end_date" required="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="time">Time:</label>
+                                <input type="time" class="form-control"  formControlName="time" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="location" class="form-label">Quelle est votre adresse</label>
+                                <input type="text" class="form-control"  formControlName="location" required>
+                            </div>
+                        </div>
+                    </div>
+                   
+                   
+                    <button type="submit" class="btn btn_send_demande" (click)="besoin()" >{{this.btnTitle}}</button>
+                </div>
+              </form>
+        </div>
+    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+  
            
 </body>
 </html>

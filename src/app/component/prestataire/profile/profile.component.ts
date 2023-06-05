@@ -52,7 +52,7 @@ export class ProfileComponent {
         console.log('Profil mis à jour avec succès');
         this.showMessage = true;
         // hide message after 1.5 seconds
-        this.refreshUsers();
+     //   this.refreshUsers();
         Swal.fire({
           position: 'center',
           icon: 'success',
@@ -60,6 +60,9 @@ export class ProfileComponent {
           showConfirmButton: false,
           timer: 1500
         });
+        setTimeout(()=>{
+          window.location.reload();
+        }, 100);
       }
       
     );

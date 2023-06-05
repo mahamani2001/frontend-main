@@ -23,7 +23,7 @@
       </div>
     </div>
   </div>
-  <section>
+  <section class="dark_section"> 
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
@@ -42,14 +42,14 @@
         <div class="col-lg-4 d-inline-block">
           <div class="card mb-4">
             <div class="card-body text-center">
-              <img src={{prestataire.photo}} alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+              <img src="http://localhost:8000/storage/images/{{prestataire.photo}}" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
               <h5 class="my-3 prest_name">{{prestataire.firstname}}</h5>
 							<div class="status"><i class="fa fa-solid fa-globe"></i><b>{{prestataire.address}}</b></div>
-              <div><i class="fa fa-star" aria-hidden="true"></i><b class="tags"> 4.5</b></div>
-              <p class="card-text small"> {{prestataire.competence}}  </p>
+              <div><i class="fa fa-star" aria-hidden="true"></i><b class="tags"> {{prestataire.recommendations_count}}</b></div>
+              <p class="card-text small description">{{prestataire.competence}}  </p>
                 <div class="d-flex justify-content-center mb-2">
                 <a routerLink="/besoin/1" class="btn btn-success button-text"> Demander un service</a>
-                <button (click)="openChat()">Discussion with Prestataire</button>  
+                <!--button (click)="openChat()">Discussion with Prestataire</button-->  
               </div>
             </div>
           </div> 
@@ -138,33 +138,7 @@
 
     </div>
   </section>
-
-  <section class="bg_grey" id="services">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h2 class="title_header">Services</h2>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4" *ngFor="let job of mesJobs"> 
-         <div class="card card_service">
-           <img src="{{job.pictureUrl}}" class="card-img-top" alt="Sunset Over the Sea">
-           <div class="card-body">
-            <h1>{{job.title}}</h1>
-            <span>{{job.categoryName}}</span>
-             <p class="card-text">
-              {{job.description}} 
-             </p>
-              Prix moyen :{{job.price_max}} --{{job.price_min}}
-           </div>
-         </div>
-        </div>
-     </div>
-     <div class="spacer50"></div>
-    </div>
-  </section> 
-  <section id="reviews">  
+  <section id="reviews" class=" bg_grey">  
     <div class="container"> 
      <div class="row">
       <div class="col-md-12">
@@ -186,6 +160,38 @@
     </div>
     <div class="spacer40"></div>
   </section>
+  <section class="dark_section" id="services">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="title_header">La liste des mes services</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4" *ngFor="let job of mesJobs"> 
+         <div class="card card_service">
+           <!--img src="{{job.pictureUrl}}" class="card-img-top" alt="Sunset Over the Sea"-->
+           <img *ngIf="job.category" src="http://localhost:8000/storage/images/{{job.category.image}}" alt="Image description" style="border-radius: 10%;">
+
+           <div class="card-body">
+            <h1>{{job.title}}</h1>
+            <span>{{job.categoryName}}</span>
+             <p class="card-text">
+              {{job.description}} 
+             </p>
+             <p class="price">Prix :{{job.price_max}} --{{job.price_min}}</p> 
+           </div>
+           <button class="serviceliste"  routerLink="/besoin/reserve/{{job.id}}" 
+           (click)="besoin()">
+           Réserver ce service
+           </button>
+         </div>
+        </div>
+     </div>
+     <div class="spacer50"></div>
+    </div>
+  </section> 
+  
   <section id="reviews" class="bg_grey">  
     <div class="container">
      <div class="row">
@@ -225,7 +231,7 @@
         <div class="col-md-4">
          
           <div class="card card_review containerRating"> 
-          <h3>Ajouter un commentaire</h3> 
+          <h3>Donner Avis</h3> 
             <div class="star-widget" >
               <input type="radio" name="rate" id="rate-1"  [(ngModel)]="rating" value="1">
               <label for="rate-1" class="fas fa fa-star"></label>
@@ -238,15 +244,15 @@
               <input type="radio" name="rate" id="rate-5" [(ngModel)]="rating" value="5">
               <label for="rate-5" class="fas fa fa-star"></label> 
                 
-                   <form (ngSubmit)="submitReview()" #reviewForm="ngForm">
+                   <form (ngSubmit)="submitReview()" #reviewForm="ngForm" class="form_review">
                     <header></header>
                     <div class="textarea">
                       <textarea cols="30" placeholder="Décrivez votre expérience" [(ngModel)]="comment" name="comment" required></textarea>
                     </div>
-                    <div class="btn">
+                     
   
-                      <button type="submit" (click)="review()" [disabled]="!reviewForm.valid">Poster</button>
-                    </div>
+                      <button type="submit" class="btn_marron review" (click)="review()" [disabled]="!reviewForm.valid">Poster</button>
+                    
                 </form>
              </div>
           

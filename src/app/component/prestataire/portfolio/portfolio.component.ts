@@ -204,4 +204,10 @@ export class PortfolioComponent {
     } 
  
   }
+  besoin(){
+    if(!this.isLoggedIn())  
+    {
+      this.router.navigate(['/login']);
+    } 
+  }
   }

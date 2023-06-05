@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CategoryService } from '../service/category.service';
+import { Category } from '../component/prestataire/category';
 
 @Component({
   selector: 'app-test',
@@ -9,8 +10,16 @@ import { CategoryService } from '../service/category.service';
 export class TestComponent {
   name = '';
   image: File | null = null;
+  categories: Category[]=[];
 
   constructor(private categoryService: CategoryService) {}
+
+  ngOnInit(): void {
+     this.categoryService.getCategories().subscribe(categories => {
+      this.categories = categories;
+    });
+   
+  }
 
   onSubmit() {
     if (this.image) {

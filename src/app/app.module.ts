@@ -69,8 +69,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { CategorieUpdateComponent } from './component/categorie-update/categorie-update.component';
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -116,8 +114,7 @@ import { CategorieUpdateComponent } from './component/categorie-update/categorie
     OffreComponent,
      TestComponent, CategorieComponent, SidebarAdminComponent, 
     //ChatComponent,
-     PasswordComponent, PasswordPrestataireComponent, MessageComponent, LocationComponent, 
-     CategorieUpdateComponent
+     PasswordComponent, PasswordPrestataireComponent, MessageComponent, LocationComponent, CategorieUpdateComponent
 
 
     

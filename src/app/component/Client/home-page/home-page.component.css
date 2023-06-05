@@ -5,10 +5,7 @@ section{
   padding: 70px 0px; 
   color:var(--white-color);
 }
-.dark_section{
-  background:radial-gradient(circle,rgba(34,128,193,1) 0% ,
-  rgba(9,9,121,1)65%,rgba(9,9, 121, 1)100%);
-}
+
 .header{
   width:100%; 
   background-color:white;
@@ -309,7 +306,7 @@ section{
 }
 .about__us-text{
   
-  color:#470336 !important;
+  color:var(--dark-blue) !important;
   margin-bottom:15px ;
   font-size: 8rem;
   font-weight:600;

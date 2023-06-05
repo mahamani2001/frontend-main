@@ -11,9 +11,7 @@
     <app-navbar class="fixed-top"></app-navbar>
 
     <div class="main">
-        <div class="container-flui padding0"> 
-               
-                
+        <div class="container-flui padding0">  
                 <!-- Header -->
                 <div class="header  d-flex align-items-center top_banner_bloc">
                   <!-- Mask -->
@@ -22,7 +20,7 @@
                   <div class="container-fluid d-flex align-items-center">
                     <div class="row">
                       <div class="col-md-12">
-                        <h1 class="text-white">Hello , {{username}}</h1>
+                        <h1 class="text-white">Bonjour , {{user.lastname}}</h1>
                         </div>
                     </div>
                   </div>
@@ -36,7 +34,7 @@
                           <div class="col-lg-3 order-lg-2">
                             <div class="card-profile-image">
                               <a href="#">
-                                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="rounded-circle">
+                                <img src="" class="rounded-circle">
                               </a>
                             </div>
                           </div>
@@ -58,28 +56,25 @@
                                   <span class="heading">10</span>
                                   <span class="description">Demandes</span>
                                 </div>
-                                <div>
-                                  <span class="heading">89</span>
-                                  <span class="description">Comments</span>
-                                </div>
+                                
                               </div>
                             </div>
                           </div>
                           <div class="text-center">
                             <h3>
-                              Maha Mani<span class="font-weight-light"></span>
+                              {{user.lastname}} {{user.firstname}}<span class="font-weight-light"></span>
                             </h3>
                             <div class="h5 font-weight-300">
-                              <i class="ni location_pin mr-2"></i>Sousse, Tunisie
+                              <i class="ni location_pin mr-2"></i>{{user.address}}
                             </div>
                             <div class="h5 mt-4">
                               <i class="ni business_briefcase-24 mr-2"></i>
                             </div>
                             <div>
-                              <i class="ni education_hat mr-2"></i>Comptenece
+                              <i class="ni education_hat mr-2"></i>Compétence
                             </div>
                             <hr class="my-4">
-                            <p>Bonjour, Je suis sérieux et ponctuel. Je peux ramasser des feuilles,tondre le gazon,arroser le jardin, jardiner et ramasser les déchets vert</p>
+                            <p>{{user.competence}}</p>
                          
                           </div>
                         </div>
@@ -90,10 +85,10 @@
                         <div class="card-header bg-white border-0">
                           <div class="row align-items-center">
                             <div class="col-8">
-                              <h3 class="mb-0">My account</h3>
+                              <h3 class="mb-0">Mon profil</h3>
                             </div>
                             <div class="col-4 text-right">
-                              <a href="/passwordprestataire" class="btn btn-sm btn-primary btn-default">Modifier Mot de passe</a>
+                              <a href="/passwordprestataire" class="btn_outline">Modifier Mot de passe</a>
                             </div>
                           </div>
                         </div>
@@ -170,7 +165,7 @@
                               </div>
                             </div>
 
-                            <button class="btn btn-dark btn_submit" (click)="updateProfile()">Mettre à jour</button>        
+                            <button class="btn_marron float_right" (click)="updateProfile()">Mettre à jour</button>        
 
                           </form>
                         </div>

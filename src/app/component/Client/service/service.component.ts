@@ -16,13 +16,15 @@ export class ServiceComponent implements OnInit {
   services!: Job[];
   categories: Category[] = [];
   data!: any[]; // declare the category_id variable and set it to a default value
-  pictureUrl!: any[];
+  pictureUrl!: any[]; 
+
   constructor(private service:DataService,private category:CategoryService,
     private tokenService: TokenService,
     private router:Router,
     private categService:CategoryService,
     ){}
   ngOnInit() {
+    
     this.categService.getAllImages().subscribe(
       (data: any[]) => {
         this.pictureUrl = data;
@@ -54,8 +56,8 @@ getCategories(): void {
   
  searchText:string="";
  onSearchTextEntered(searchValue:string){
-this.searchText=searchValue;
-console.log(this.searchText);
+  this.searchText=searchValue;
+  console.log(this.searchText);
  }
 
 
@@ -78,12 +80,45 @@ console.log(this.searchText);
 
 selectedCategory!: Category;
 onCategorySelected(event: Event) {
+  const box = document.getElementById('service_list');
+  box?.classList.add('change_categ');
+
+
   const element = event.target as HTMLInputElement;
-  const value = element.value;
-  const selectedService = this.services.find(service => service.category?.name === value);
-  if (selectedService && selectedService.category) {
-    this.selectedCategory = selectedService.category;
+   var value = element.value; 
+   var x, i;
+   x = document.getElementsByClassName("column");
+  
+  if (value == "all" ) value = "";
+   for (i = 0; i < x.length; i++) {
+   this.w3RemoveClass(x[i], "show"); 
+    if (x[i].className.indexOf(value) > -1) {
+      this.w3AddClass(x[i], "show");
+    }
+  } 
+  
+} 
+  w3AddClass(element: Element, name: string) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {
+      element.className += " " + arr2[i];
+    }
   }
+}
+ 
+  w3RemoveClass(element: Element, name: string) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);
+    }
+  }
+  element.className = arr1.join(" ");
 }
 
 
@@ -107,7 +142,14 @@ demandeService(){
   if(this.isLoggedIn()) this.router.navigate(['/besoin']); 
   else  this.router.navigate(['/login']);
 }
-}
 
+
+besoin(){
+  if(!this.isLoggedIn())  
+  {
+    this.router.navigate(['/login']);
+  } 
+}
+}
 
 

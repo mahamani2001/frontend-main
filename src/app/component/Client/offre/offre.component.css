@@ -1,16 +1,12 @@
-.container {
- 
-  border-radius: 5px;
-  overflow: hidden;
-      position: relative;
+.main {
+
     margin-top: 119px!important;
-    padding-left: 174px;
-    padding: 33px;
-    padding-left: 219px;
+    margin-left: 270px;
+   
 }
 
 .table {
-  width: 100%;
+  width: 94%;
   border-collapse: collapse;
 }
 
@@ -76,4 +72,7 @@ tr:hover {
 
 .reject-button:hover {
   background-color: #c82333;
+}
+table{
+ margin-left:50px;
 }

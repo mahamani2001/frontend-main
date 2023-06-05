@@ -1,4 +1,5 @@
-.main {
+ 
+  .main {
     position: absolute;
     width: calc(100% - 300px);
     left: 300px;
@@ -10,6 +11,7 @@
     width: calc(100% - 80px);
     left: 80px;
   }
+   
 .marging_left30{
     margin-left: 30px;
  }
@@ -33,7 +35,7 @@
      font-size: 14px;
  }
  .card_job{
-     margin-bottom: 30px;
+    margin-top: 30px;
  }
  
  modal {
@@ -44,4 +46,24 @@
  body.modal-open {
      /* body overflow is hidden to hide main scrollbar when modal window is open */
      overflow: hidden;
+ }
+ .btn-primary{
+    margin-top: 5px;
+    width: 50%;
+    float: right;
+ }
+ .list_radios{
+    margin-top: 10px;
+ }
+ .list_radios label{
+    font-size: 16px;
+    margin-right: 20px;
+    padding-left: 10px;
+    font-weight: bold;
+    color: #020c4a;
+    margin-bottom: 17px;
+ }
+ .price_info label{
+    font-weight: bold;
+    margin-right: 15px;
  }

@@ -140,7 +140,7 @@ export class GererutilisateurComponent {
   
     editform(){
       Swal.fire({
-        title: 'edit demande ',
+        title: 'Modifier demande',
         html: `
         <div class="form-group">
       

@@ -62,8 +62,8 @@ private url = 'http://localhost:8000/api/categorie';
   headers = headers.set('Content-Type', 'multipart/form-data');
   return this.http.put(`${this.url}/${id}`, formData, { headers });
 }*/
-getCategoryById(id: string): Observable<Category> {
-  const endpoint = `'http://localhost:8000/api/categories/${id}`;
+getCategoryById(id: number): Observable<Category> {
+  const endpoint = `${this.apiUrl}/categories/${id}`;
   return this.http.get<Category>(endpoint);
 }
 updateCategory(id: number, formData: FormData): Observable<any> {

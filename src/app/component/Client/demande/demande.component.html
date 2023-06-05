@@ -9,10 +9,7 @@
   </head>
   <body>  
 <app-sidebar class="fixed-top"></app-sidebar>
-<div class="container">
-  <div class="main_content" 
-  style="padding-left: 184px!important;
-  margin-top: 100px!important;">  
+<div class="main">
    <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -23,7 +20,7 @@
                 <h5 class="table_header_title">Liste de mes demandes</h5>
               </div>
               <div class="col-md-8">
-                <button class="glow-on-hover custom-btn float_right primary_btn" routerLink="/besoin"><span class="fa fa-plus"></span> Demander un besoin</button> 
+                <button class="glow-on-hover custom-btn float_right primary_btn" routerLink="/besoin/demande"><span class="fa fa-plus"></span> Demander un besoin</button> 
               </div>
             </div>
               
@@ -53,12 +50,12 @@
                           <td>{{ request.end_date | date:'yyyy-MM-dd'}}</td>
                           <td>{{ request.time }}</td>
                           <td class="text-center"> 
-                            <button class="btn btn-success btn-xs" routerLink="/offre/{{request.id }}">
+                            <button class="btn btn-success btn-xs btn_table" routerLink="/offre/{{request.id }}">
                             <span class="fa fa-eye"></span>Voir offre</button> 
-                            <button class="btn btn-primary btn-xs margin_right10" (click)="showForm(request.id)"
+                            <button class="btn btn-primary btn-xs btn_table" (click)="showForm(request.id)"
                             ><span class="fa fa-pencil"> Modifier</span>     </button>
-                            <button class="btn btn-danger btn-xs" (click)="removeRequest(request.id)">
-                            <span class="fa fa-trash"></span>Delete</button> 
+                            <button class="btn btn-danger btn-xs btn_table" (click)="removeRequest(request.id)">
+                            <span class="fa fa-trash"></span>Supprimer</button> 
                         </td>
                          
                       </tr>
@@ -71,8 +68,7 @@
       </div>
     </div>
    </div> 
-               
-</div>
+ 
 </div>
   </body>
  

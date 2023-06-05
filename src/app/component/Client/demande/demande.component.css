@@ -61,3 +61,21 @@
 .primary_btn{
   background-color: #4176c8!important;
 }
+.main {
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 300px;
+  min-height: 100vh;
+  background: #fff;
+  transition: 0.5s;
+  margin-top:100px;
+}
+.main.active {
+  width: calc(100% - 80px);
+  left: 80px;
+}
+.btn_table{
+  width:82%;
+  margin:0 auto;
+  margin-bottom:20px;
+}

@@ -1,10 +1,6 @@
 .table{
   margin-top: 40px;
-}
-.outer{
-  height: 100vh;
-  background: linear-gradient(to top,#EAD6EE) no-repeat;
-}
+} 
 .main {
   position: absolute;
   width: calc(100% - 300px);
@@ -29,56 +25,12 @@ height: 50vh; /* set the height of the container to the full viewport height */
 margin-top: 50px;
 
 }
- 
- 
-.boutton{
-  cursor: pointer;
-  font-size: 16px;
-  height:50px;
-  width:150px;
-  margin-right: 50px;
-  border-radius: 15px;
-  border: none;
-  background-color: #412c4a;
-  color: #fff;
-  cursor: pointer;
-  position: relative; 
-}
- 
-.cancel{
-  position: relative;
-    bottom: 31px;
-    right: -84px;
-    width: 70%;
-    background-color: #fffe07;
-}
-.save
-{
-  position: relative;
-  background-color: #92f377;
-  width: 90px;
-  right: 10px;
-}
-
+  
 .table-responsive{
   position:relative; 
   padding-top: 1px;
 }
-.save{
-  position: relative;
-    background-color: #9377f3;
-    width: 72px;
-    right: 10px;
-    border-radius: 180px;
-}
-.cancel{
-  position: relative;
-    background-color: #730054;
-    width: 72px;
-    border-radius: 180px; 
-    left: -8px;
-    top: 3px;
-}
+ 
 .search_bar{ 
   border: 1px solid #020c4a3d;
   padding: 10px 15px;
@@ -92,9 +44,4 @@ margin-top: 50px;
   font-size: 40px;
   font-weight: bold;
 }
-.btn{
-  margin-top: 0!important;
-}
-.btn-edit{
-  margin-left: 10px!important;
-}
+ 

@@ -22,6 +22,7 @@ export class WorkScheduleComponent implements OnInit {
     private token: TokenService) {}
 
   ngOnInit(): void {
+    
     this.retrieveDisponibilites();
     this.disponibiliteForm = this.formBuilder.group({
       actif: [false],
@@ -33,7 +34,7 @@ export class WorkScheduleComponent implements OnInit {
         this.disponibiliteService.getUserAvailability()
       .subscribe(data => {
         this.disponibilites = data.disponibilites;
-        this.token.saveUserName(this.disponibilites);
+       // this.token.saveUserName(this.disponibilites);
         console.log(this.disponibilites);
       });
   }

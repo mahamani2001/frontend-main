@@ -8,6 +8,9 @@ import { Category } from '../../prestataire/category';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { TokenService } from 'src/app/shared/token.service';
+import { Profile } from '../profile';
+import { Job } from '../../prestataire/job';
+
 
 
 @Component({
@@ -16,17 +19,24 @@ import { TokenService } from 'src/app/shared/token.service';
   styleUrls: ['./besoin.component.css']
 })
 export class BesoinComponent implements OnInit {
+  
   description: string = '';
   startDate: string = '';
   endDate: string = '';
+  jobberId!: number;
+  service !: Job;
+  allJobber! : boolean;
   time: string = '';
+  pageTitle : string='';
+  btnTitle: string='';
    location: string = '';
     categories: Category[] = [];
     services:string ='';
     apiUrl = 'http://localhost:8000/api';
-  
+    user: Profile = {} as Profile;
+    dataProfile: any;
     requestForm!: FormGroup ; // Define the requestForm property
-  
+   
   
     constructor(private http: HttpClient,
       private category:CategoryService,
@@ -35,16 +45,17 @@ export class BesoinComponent implements OnInit {
       private request:RequestJobService ,
       private router:Router,
       private tokenService: TokenService,
+      private userService:DataService
     )
     {
       
     }
+    jobber_id!:number;
+    serviceId!:number;
     ngOnInit(): void {
-      this.category.getCategories().subscribe((data: any[]) => {
-        this.categories= data;
-      });
+        this.allJobber=false;
       this.requestForm = this.fb.group({
-        category_id: [''], // Add validation if needed
+        category_id: this.user.category_id, // Add validation if needed
         title: [''],
         description: ['', Validators.required],
         start_date: ['', Validators.required],
@@ -53,23 +64,89 @@ export class BesoinComponent implements OnInit {
         location: ['', Validators.required],
         jobber_id:['']
       }); 
+      
+      if(window.location.pathname.includes("reserve")) {
+        this.pageTitle="Reserver un service ";
+        this.btnTitle="Reserver"
+        this.serviceId = Number(window.location.pathname.split('/').pop());
+        // id job is sent on url
+        this.userService.getJobByJobId(this.serviceId).subscribe(
+          (res: any) => { 
+           console.log(res) 
+           this.service=res;
+           this.jobber_id=Number(this.service.jobber_id);
+         
+           this.requestForm.controls["title"].setValue(this.service.title); 
+           this.requestForm.controls["description"].setValue(this.service.description); 
+       
+           this.userService.getPrestataire(this.jobber_id).subscribe(
+             res => { 
+                this.dataProfile=res;
+                this.user=this.dataProfile.data; 
+               },
+             err => {       
+              alert("Erreur");
+             }) 
+            },
+          err => {       
+           alert("Erreur");
+          }) 
+      }   
+    else {
+      if(window.location.pathname.includes("demande")){
+        this.allJobber = true;
+        this.pageTitle="Demander un besoin ";
+        this.btnTitle="Envoyer votre demande";
+      }
+    else {
+      this.jobber_id = Number(window.location.pathname.split('/').pop()); 
+     
+       this.pageTitle="Demander un service a ";
+       this.btnTitle="Envoyer votre demande";
+       this.userService.getPrestataire(this.jobber_id).subscribe(
+        res => { 
+           this.dataProfile=res;
+           this.user=this.dataProfile.data; 
+          },
+        err => {       
+         alert("Erreur");
+        }) 
+   
+    }
+     
+    } 
+      this.category.getCategories().subscribe((data: any[]) => {
+        this.categories= data;
+      });
+     
    
       
     }
     onSubmit() {
-      const jobberId = Number(window.location.pathname.split('/').pop()); 
-      console.log("-- Jobber Id" +jobberId);
-      this.requestForm.controls['jobber_id'].setValue(jobberId); 
+      
+      console.log("-- Jobber Id" +this.jobber_id);
+      this.requestForm.controls['jobber_id'].setValue(this.jobber_id); 
+     if(this.allJobber==false) 
+     this.requestForm.controls["category_id"].setValue(this.user.category_id); 
       const formData = this.requestForm.value;
       console.log(formData);
       this.http.post(`${this.apiUrl}/post-to-jobber`, formData )
         .subscribe(response => {
           console.log(response);
-          console.log(jobberId)
-          
-          if(!isNaN(jobberId))
-            this.router.navigate(['/portfolio/'+jobberId]);
-            else 
+          console.log(this.jobber_id)
+          Swal.fire({
+            title: 'Envoyer demande pour obtenir devis ',
+            text: 'Êtes-vous sûr(e) de vouloir envoyer votre demande à ce prestataire ?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'oui'
+         });
+      
+          if(!isNaN(this.jobber_id))
+           
+           
             Swal.fire({
               title: 'Send to all',
               text: 'Are you sure you want to send your request to all jobbers?',
@@ -90,5 +167,9 @@ export class BesoinComponent implements OnInit {
             this.router.navigate(['/login']);
           } 
         }
-  
+          titleCaseWord(word: string) {
+          if (!word) return word;
+          return word[0].toUpperCase() + word.substr(1).toLowerCase();
+        }
+        
 }

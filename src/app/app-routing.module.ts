@@ -44,12 +44,12 @@ import { CategorieUpdateComponent } from './component/categorie-update/categorie
 
 
 const routes: Routes = [
-  {path:'',component:HomePageComponent},
-  {path:'login',component:LoginComponent},
-  {path:'signup',component:SignupComponent},
- {path:'compte',component:CompteComponent},
- {path:'psignup',component:PrestatairesignupComponent},
- {path:'contact',component:ContactComponent},
+{path:'',component:HomePageComponent},
+{path:'login',component:LoginComponent},
+{path:'signup',component:SignupComponent},
+{path:'compte',component:CompteComponent},
+{path:'psignup',component:PrestatairesignupComponent},
+{path:'contact',component:ContactComponent},
  //Admin
   {path:'dashboard',component:DashboardAdminComponent},
  {path:'gererutilisateur',component:GererutilisateurComponent},
@@ -70,8 +70,9 @@ const routes: Routes = [
 {path:'reserve',component:ResrvationComponent},
 {path:'abilty',component:AbiltyComponent},
 {path:'besoin/:id',component:BesoinComponent},
+{path:'besoin/reserve/:id',component:BesoinComponent},
+{path:'besoin/demande',component:BesoinComponent},
 {path:'portfolio/:id',component:PortfolioComponent},
-{path:'besoin',component:BesoinComponent},
 {path:'offre',component:OffreComponent},
 {path:'offre/:id',component:OffreComponent},
 {path:'chat',component:ChatComponent},

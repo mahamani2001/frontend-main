@@ -1,85 +1,72 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <!-- Site Icon -->
-     <link rel="shortcut Icon" type="image/png" href="img/favicon.png">
-
-     <!-- Font Awesome Icons -->
-     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-     <!-- Google Fonts -->
-     <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
-    <title>Document</title>
-</head>
-<body>
-
+<body> 
   <app-nav></app-nav>
-  <!--Rechercher services-->
- 
+  <!--Rechercher services--> 
    <section class="dark_section">
-    <div class="container">
-
+    <div class="container"> 
       <div class="row">
         <div class="col-md-12">
-          <h1 class="page_title"> Réservez vos services</h1>
-          
+          <h1 class="sub_page_title"> Réservez vos services</h1> 
         </div>
       </div>
-      <div class="row">
-        
+ 
+      <!--div class="row"> 
         <div class="col-md-8"></div>
         <div class="col-md-4">
-          <button class="glow-on-hover btn_demande" (click)="demandeService()"  routerLink="/besoin" type="button">Demander un besoin </button>
-
+          <button class="btn_marron" (click)="demandeService()"  routerLink="/besoin" type="button">Demander un besoin </button>
         </div>
-      </div>
+      </div-->
      
       <div class="row">
         <div class="col-md-4">
-          <app-search (searchTextChanged)=" onSearchTextEntered($event)"></app-search>
+          <app-search (searchTextChanged)="onSearchTextEntered($event)" ></app-search>
         </div>
         <div class="col-md-4"></div>
         <div class="col-md-4">
-          <select name="" id="" placeholder="catégorie" class="trie"   (change)="onCategorySelected($event)">
-            <option value="">Tous</option>
-            <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+          <select name="" id="filter_categ" placeholder="catégorie" class="trie" (change)="onCategorySelected($event)">
+            <option value="all">Catégories</option>
+            <option *ngFor="let category of categories" value="categ_{{category.id}}">{{ category.name }}</option>
           </select>
        
           <select name="" id="" placeholder="sortBy" class="trie" (change)="sortByLatest($event)"> 
             <option value="">Trier par</option>
-            <option value="latest">Derniers services</option>
+            <option value="latest">Les plus récents</option>
             <option value="lowest">Prix le plus bas</option>
             <option value="highest">Prix le plus élevé</option>
           </select>
         </div>
       </div>
-    </div>
-      <div class="container">
-        <div class="row">
-          <div class="box col-md-3"  *ngFor="let service of  filteredServices|  filter: searchText ">
+ 
+        <div class="row service_list" id="service_list">
+          <div class="col-md-3 column all_service categ_{{service.category.id}}" *ngFor="let service of  filteredServices|  filter: searchText ">
+            <div class="box"> 
+              <h2 class="category">{{service.category.name.name}} </h2> 
             <div class="image">
+            
               <img src="http://localhost:8000/storage/images/{{service.category.name.image}}" alt="Image description" style="border-radius: 10%;">
             </div> 
-            <h2 class="category">{{service.category.name.name}} </h2> 
+           
             <div class="details"> 
-              <a routerLink="/portfolio/{{service.jobber_id}}">{{service.jobber_firstname}}</a>
               <h2 class="title">{{service.title}}</h2>
               <p class="description">{{service.description}}</p>
               <p class="price">Prix [{{service.price_min}} - {{service.price_max}}]</p>
-              <div class="buttons-container" style="display: flex; justify-content: center;margin-top: 20px;">
-                <button class="glow-on-hover" routerLink="/reserve" style="width: 200px; margin-left: 10px; text-align: center;">
-                  <b>Réserver</b>
+            </div>
+            <div>
+              
+              <p class="published_by">Publiee par : <a routerLink="/portfolio/{{service.jobber_id}}">{{service.jobber_firstname}}</a></p>
+
+              <div class="buttons-container"  >
+                <button class="btn_marron margin_right_15"  routerLink="/besoin/reserve/{{service.id}}" 
+								(click)="besoin()">
+                Réserver 
                 </button>
-                <button class="glow-on-hover show_Details" routerLink="/detail" style="width: 200px; margin-left: 10px; text-align: center;">
-                  <b>Voir détail</b>
+                <button class="btn_outline" routerLink="/portfolio/{{service.jobber_id}}"  style="left: 68px;" >
+                 Voir Profil
                 </button>
               </div>
             </div>
           </div>
+          </div>
         </div>    
         </div>
       </section>
-</body>
-</html>
+</body> 

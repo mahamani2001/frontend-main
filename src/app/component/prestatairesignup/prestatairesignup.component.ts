@@ -3,6 +3,8 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/service/data-service.service';
 import Swal from 'sweetalert2';
+import { Category } from '../prestataire/category';
+import { CategoryService } from 'src/app/service/category.service';
 
 
 @Component({
@@ -25,9 +27,14 @@ export class PrestatairesignupComponent {
   errorMessage = '';
   isSignupFailed=false;
   image!: File;
+  categories: Category[]=[];
 
-
-  constructor(private fb : FormBuilder,private dataServices:DataService,private router:Router,private route:Router){}
+  constructor(private fb : FormBuilder,
+    private dataServices:DataService,
+    private router:Router,
+    private route:Router,
+    private categoryService: CategoryService, 
+    ){}
   ngOnInit(): void {
     this.psignUpFrom=this.fb.group({
       firstname:['',Validators.required],
@@ -50,11 +57,14 @@ export class PrestatairesignupComponent {
       competence:['',Validators.required],
       role:['prestataire'],
       diplome:"fichier",
-      photo: File
+      photo: File,
+      category_id: ['category_id'],
     },  {
       validator: this.ConfirmedValidator('password', 'confirmpassword'),
 
     } );
+    this.categoryService.getCategories()
+      .subscribe(categories => this.categories = categories);
   }
   hideShowPass(){
     this.showPassword = !this.showPassword;

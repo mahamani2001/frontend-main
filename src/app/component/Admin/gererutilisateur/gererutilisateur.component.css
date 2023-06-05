@@ -455,6 +455,6 @@ select::-ms-expand {
 table .btn{
   font-size: 12px; 
 }
-.btn-danger{
-  margin-right: 24px;
+.btn-danger,.btn-success{
+  width:100%;
 }

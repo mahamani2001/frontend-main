@@ -22,7 +22,7 @@ export class RespondToJobRequestComponent {
   }
   respondToJobRequest() {
     if (!this.selectedRequest) {
-      console.error('No request selected');
+      alert('No request selected');
       return;
     }
      

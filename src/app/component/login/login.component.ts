@@ -6,33 +6,29 @@ import { TokenService } from 'src/app/shared/token.service';
 import { AuthStateService } from 'src/app/shared/auth-state.service'; 
 
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit{
-
   submitted = false;
-
-  type:string   = "password";
   isText:boolean= false;
-  eyeIcon:string= "fa-eye-slash";
+  eyeIcon:string= "fa-eye";
+  typeInput :string = "password";
   loginForm!:FormGroup;
   data: any;
   errorMessage = '';
   isLoginFailed = false; 
+  showPassword = false;
 
 constructor(private fb:FormBuilder,
   private dataServices:DataService  ,
   private router:Router,
   private token: TokenService,
   private authState: AuthStateService ){
-
 }
-ngOnInit():void{
- 
+ngOnInit():void {
   this.loginForm = this.fb.group(
     { 
       email: ['', [Validators.required, Validators.email]],
@@ -45,25 +41,25 @@ ngOnInit():void{
       ], 
     } 
   );
-
 }
 get form(): { [key: string]: AbstractControl; }
 {
-    return this.loginForm.controls;
+  return this.loginForm.controls;
 }
-
 
 hideShowPass(){
-
-  this.isText=!this.isText;
-  this.isText ? this.eyeIcon="fa-eye" :this.eyeIcon="fa-eye-slash"
-  this.isText ? this.type="text" :this.type="password";
-
+  this.showPassword = !this.showPassword;
+  if(this.showPassword) {
+    this.eyeIcon="fa-eye-slash";
+    this.typeInput ="text"
+  } 
+  else{
+    this.eyeIcon="fa-eye";
+    this.typeInput ="password"
+  } 
 }
-public error:any=[];
 
 submitlogin(){
-
   this.submitted = true;
   if (this.loginForm.invalid) {
     return;
@@ -74,7 +70,7 @@ submitlogin(){
   return this.dataServices.login(this.loginForm.value)
      .subscribe(
       res => {
-       this.loginForm.reset()
+        
        this.data=res;
        if(this.data.success==true) {
          let role = this.data.role; 
@@ -89,7 +85,7 @@ submitlogin(){
          
          if(role == "client"){
           // dashboardClient
-           this.router.navigate(['/profil']);
+           this.router.navigate(['/dashboardClient']);
            // redirecte to client dashboard
          } else if(role =="admin"){
            this.router.navigate(['/gererutilisateur']);
@@ -104,8 +100,7 @@ submitlogin(){
        else {
         this.errorMessage = this.data.msg; 
         this.isLoginFailed = true;  
-        this.onReset();
-       //  alert("Something went wrong");
+        this.submitted = false; 
        }
      },
      err => {
@@ -113,13 +108,8 @@ submitlogin(){
       this.isLoginFailed = true;  
       alert("Erreur");
      }) 
- 
- 
+  
     }
-    onReset(): void {
-      this.submitted = false;
-      this.loginForm.reset();
-    }
+   
   
 }
-

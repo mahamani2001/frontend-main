@@ -15,10 +15,10 @@
 	</head>
   <body>
 	  <app-nav></app-nav>
-	  <section class="page-section">
+	  <section class="dark_section">
 		  <div class="container">
 			  <div class="row">
-				  <div class="col-lg-3 blog-form">
+				  <!--div class="col-lg-3 blog-form">
 					  <h2 class="blog-sidebar-title">Rechercher votre prestataire</h2>
 					  <hr />
 					  <p class="blog-sidebar-text">
@@ -33,18 +33,35 @@
 					  <hr /> 
 					  <div>&nbsp;</div>
 					  <div>&nbsp;</div> 
-				  </div>
+				  </div-->
 				  <!--END  <div class="col-lg-3 blog-form">-->
   
-				  <div class="col-lg-9" style="padding-left: 30px;">
+				  <div class="col-lg-12"  >
+					<div class="row">
+						<div class="col-md-12">
+						  <h1 class="sub_page_title"> Trouvez votre prestataire</h1> 
+						</div>
+					  </div>
 					  <div class="row">
-						  <div class="col"> 
+						  <div class="col-md-4"> 
+					 
+							<div class="search"> 
+									<input type="text" 
+									class="form-control" id="search" [(ngModel)]="searchQuery" (input)="filterPrestataires()"
+								  placeholder="Rechercher par nom du prestataire">
+								 
+							</div>
 						  </div> 
-						  <div class="col">
+						  <div class="col-md-4">
 							<select class="form-control form_tri" (change)="sortFilter($event)">
-								<option value="">Tri par défaut</option>
-								 <option value="recommended">Filter par le plus recommandée</option>
+								<option value="">Tri par domanie de service</option>
 							</select>
+						  </div>
+						  <div class="col-md-4">
+							  <select class="form-control form_tri" (change)="sortFilter($event)">
+								  <option value="">Tri par défaut</option>
+ 								  <option value="recommended">Filter par le plus recommandée</option>
+							  </select>
 						  </div> 
 					  </div>
 					  <!-- Sorting by <div class="row"> -->
@@ -55,14 +72,21 @@
 					  <div class="col-sm-3 col-md-6 col-lg-4 d-inline-block" *ngFor="let prestataire of filteredPrestataires ">
 						  <div class="card">
 						   <div class="card-body text-center">
-							  <img src="http://localhost:8000/storage/images/{{prestataire.photo}} " alt="Image description" style="border-radius: 10%;width:100px;">
-							  <h5 class="card-title"><b>{{ prestataire.firstname }}</b></h5>
+                            <img src="http://localhost:8000/storage/images/{{prestataire.photo}} " class="img_prestataire img-fluid rounded-circle">
+							<h5 class="card-title"><b>{{ prestataire.firstname }}</b></h5>
 							<div class="status"><i class="fa fa-solid fa-globe"></i><b>{{prestataire.address}}</b></div>
 							<div><i class="fa fa-star" aria-hidden="true"></i><b class="tags"> {{prestataire.recommendations_count}}</b></div>
 							<p class="card-text small">{{prestataire.competence}}</p>
-							<a routerLink="/besoin/{{prestataire.id}}" class="btn button-text" style="background-color: #ab702a;"  (click)="besoin()"> Demander un service à {{ prestataire.firstname }}</a>
-						  <br>
-            	          <a routerLink="/portfolio/{{prestataire.id}}">voir Profil</a><!--len nhout l'id eli bech nab3edhou fel url bech ya3tinin profil-->
+							<span class="category">{{prestataire.categroyName}} </span>
+							<div class="buttons-container"  >
+								<button routerLink="/besoin/{{prestataire.id}}" 
+								(click)="besoin()" class="btn_marron margin_right_15"   >
+									Demander un service 
+								</button>
+								<button   routerLink="/portfolio/{{prestataire.id}}" class="btn_outline" routerLink="/detail"  >
+									voir Profil
+								</button>
+							  </div>
 						  </div>
 					  	</div>
 					  </div>

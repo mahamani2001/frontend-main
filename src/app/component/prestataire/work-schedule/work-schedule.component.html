@@ -13,7 +13,7 @@
   
 <div class="col-md-12">
   <div class="d-flex justify-content-between mb-3 margin_top90">
-    <h2 class="title_page">Disponibilites</h2>
+    <h2 class="title_page">Disponibilités</h2>
     <button class="btn btn-success" routerLink="/app-add-disponibilite">Add Disponibilite</button>
   </div>
 </div>
@@ -24,7 +24,7 @@
       <div class="col-md-4" *ngFor="let disponibilite of disponibilites">
         <div class="card cards text-center">
           <div class="card-body">
-            <h5 class="card-title">Actif : {{ disponibilite.actif ? 'Yes' : 'No' }}</h5>
+            <h5 class="card-title">Actif : {{ disponibilite.actif ? 'Oui' : 'Non' }}</h5>
             <p class="card-text">Jour : {{ disponibilite.jour }}</p>
             <p class="card-text">Heure de début de travail: {{ disponibilite.heure_debut }}</p>
             <p class="card-text">Heure de fin de travail: {{ disponibilite.heure_fin}}</p>

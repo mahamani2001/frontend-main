@@ -32,7 +32,6 @@ export class DataService {
        return this.http.post( 'http://127.0.0.1:8000/api/register',data);
     
   }
-
   
   logout(): void {
     this.token = null;
@@ -90,6 +89,9 @@ getJobsByPrestatire(id:number)  {
   return this.http.get(`http://127.0.0.1:8000/api/job/${id}`);
 }
 
+getJobByJobId(id:number)  {
+  return this.http.get(`${this.baseUrl}/jobById/${id}`);
+}
 uploadPhoto(formData: FormData): Observable<any> {
   return this.http.post<any>(`${this.baseUrl}/upload-photo`, formData);
 }
@@ -124,6 +126,7 @@ registerprestataire(data:any,image: File) {
   formData.append('password',  data["password"]);
   formData.append('role', "prestataire");
   formData.append('photo', image);
+  formData.append('category_id',data["category_id"]);
   return this.http.post( 'http://127.0.0.1:8000/api/jobbers',formData,{
    headers: headers,  
  });

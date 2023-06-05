@@ -49,6 +49,8 @@ export class ProfilComponent implements OnInit {
       this.userService.updateProfile(this.user).subscribe(
         user => {
           if( this.user = user){
+            location.reload();
+
             this.showMessage = true;
             // hide message after 1.5 seconds
             Swal.fire({
@@ -59,10 +61,8 @@ export class ProfilComponent implements OnInit {
               timer: 1500
             });
               console.log('Profil mis à jour avec succès.');
-              
-          }
-         
-       
+             
+          } 
         },
         error => {
           console.log(error);

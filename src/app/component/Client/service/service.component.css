@@ -1,106 +1,14 @@
-
-   /* .bloc_popular img {
-    width: 85%;
-    }
-    .bloc_popular h1 {
-    text-align: left;
-    font-size: 16px;
-    color: #485974;
-    }
-   
-    .note {
-    text-align: right;
-    color: #EF9014;
-    font-size: 20px;
-    padding: 35px;
-    }
-   .button{
-    box-sizing: border-box;
-     background-color: #15d199;
-     border-radius:5%;
-      padding: 5%;
-   }*/
-
-   .dark_section{
+ .dark_section{
     background-color: var(--dark-blue);
-  }
-  .glow-on-hover {
-    width: 220px;
-    height: 50px;
-    text-align: center;
-    border: none;
-    outline: none;
-    color: #fff;
-    background: #111;
-    cursor: pointer;
-    position: relative;
-    z-index: 0;
-    border-radius: 10px;
-    float: right;
-  }
-  
-  .glow-on-hover:before {
-    content: '';
-    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-    position: absolute;
-    top: -2px;
-    left:-2px;
-    background-size: 400%;
-    z-index: -1;
-    filter: blur(5px);
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    animation: glowing 20s linear infinite;
-    opacity: 0;
-    transition: opacity .3s ease-in-out;
-    border-radius: 10px;
-  }
-  
-  .glow-on-hover:active {
-    color: #000
-  }
-  
-  .glow-on-hover:active:after {
-    background: transparent;
-  }
-  
-  .glow-on-hover:hover:before {
-    opacity: 1;
-  }
-  
-  .glow-on-hover:after {
-    z-index: -1;
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #ab702a;
-    left: 0;
-    top: 0;
-    border-radius: 10px;
-  }
-  
+}
+ 
   @keyframes glowing {
     0% { background-position: 0 0; }
     50% { background-position: 400% 0; }
     100% { background-position: 0 0; }
   }
-  /*filtre start*/
-  
-  
-  
-  
-  .topbar {
-    width: 100%;
-    height: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 100px;
-    
-  }
-  
-  
+  /*filtre start*/ 
+ 
   .search {
     position: relative;
     width: 400px;
@@ -132,44 +40,19 @@
     border-radius: 0;
     float: right;
   }
-  /*
-  .container{
-  padding: 800px;
-  margin: 100px;
-  
-  }
-  .bloc_popular {
-    margin-bottom: 30px;
-    border-radius: 40px;
-    background: #a7aaa9 0% 0% no-repeat padding-box;
-   
-  }
-  .custom-container {
-    max-width: 1200px; /* set the maximum width */
-  /*  margin: 0 auto; /* center the container horizontally */
-   /* padding: 0 80px; /* add some horizontal padding */
-  /*}
-  section{ /* center the section horizontally */
-    /*margin: 0 auto;
-    position the section vertically 
-    position: absolute;
-    top:60%;
-  
-    /* set a fixed width 
-    width: 100%;}*/
-    
+ 
     .box {
-      margin: 20px;
+      margin-bottom: 30px;
       padding: 20px;
       background-color: #ffffff;
       border: 1px solid #ddd;
       border-radius: 4px; 
-    }
-    
+      box-shadow: 2px 2px 4px rgb(218,218, 218);
+    } 
     .box img {
       width: 100%;
       height: 200px;
-      object-fit: cover;
+      object-fit: contain;
       border-radius: 4px;
       margin-bottom: 10px;
     }
@@ -204,7 +87,7 @@
     }
     .page_title{
       text-align: center;
-      padding-top: 60px;
+      padding-top: 80px;
       color: var(--white-color);
       margin-bottom: 60px;
     }
@@ -228,10 +111,49 @@
   .category{
     text-align: left;
     font-size: 13px;
-    margin-top: 20px;
+    margin: 0 0 20px 0; 
     background-color: #eaeaea;
     display: inline-block;
     padding: 5px 10px;
     border-radius: 15px
   }
   
+.service_list{
+  padding: 50px 0;
+}
+
+
+.change_categ .column{
+  display: none;
+  visibility: hidden;
+}
+.change_categ .show {
+  display: block!important;
+  visibility: visible;
+}
+
+.published_by{
+  border-top: 1px solid rgb(9 9 121 / 9%);
+  border-bottom: 1px solid rgb(9 9 121 / 9%);
+  padding: 10px 0;
+  margin-top: 25px;
+  font-size: 16px; 
+}
+
+.all_service .title{
+  font-size: 22px;
+    font-weight: bold;
+    color: #070749;
+    margin: 15px 0;
+}
+
+.buttons-container{
+  margin-top: 20px;
+  text-align: center;
+}
+.margin_right_15{
+  margin-right: 15px;
+}
+.description{
+  min-height: 70px;
+}

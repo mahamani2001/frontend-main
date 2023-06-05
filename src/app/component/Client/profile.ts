@@ -17,5 +17,7 @@ export class Profile {
     "numero_cin": "string";
     "diplome": "string";
     "recommendations_count": number;
+    "category_id":number;
+    "categroyName":string;
    
 }

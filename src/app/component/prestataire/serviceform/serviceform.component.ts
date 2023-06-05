@@ -41,7 +41,7 @@ export class ServiceformComponent {
         res => { 
            this.data=res;
            this.jobs=this.data.data;
-           this.token.saveUserName(this.jobs)
+          // this.token.saveUserName(this.jobs)
          },
         err => {       
          alert("Erreur");

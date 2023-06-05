@@ -6,65 +6,90 @@
     <title>Document</title>
 </head>
 <body>
- 
-  <app-navbar class="fixed-top"></app-navbar>
-<div class="main">
-  <div class="container">
-    <div class="row flex-nowrap">
-        
+ <app-navbar class="fixed-top"></app-navbar>
+ <div class="main">
+  <div class="container my-3 ">
+    <div class="row"> 
         <div class="col py-3 marging_left90">
           <div class="row mt-5">
             <div class="col-md-12">
-              <h2>Demandes services</h2>
-              
+              <h2>Mes missions</h2> 
               <div class="row">
-                <div class="col-md-4" *ngFor="let request of jobRequests" (click)="selectedRequest = request">
+                
+                <div class="col-md-6" *ngFor="let request of jobRequests" (click)="selectedRequest = request">
                   <div class="card card_job">
                     <div class="card-header">
                       {{ request.title }}
                     </div>
                     <div class="card-body"> 
-                      <span class="categ_span">{{request.category.name}}</span>
-                      <p class="card-text">
-                        {{ request.description }}<br>
-                      </p>
-                        <hr>
-                        <p class="card-text">
-                        Client :{{request.user.firstname}} <br>  
-                        Location :{{ request.location }} <br>
-                        Date debut: {{ request.start_date}}<br>
-                        Date Limit :{{ request.end_date}} <br>
-                        Horaire:{{request.time}}<br>
-                        Status: {{ request.status }}<br>
-                      </p>
-                      <button class="btn btn-primary" (click)="selectedRequest = request">sélectionner une demande</button>
-                    </div>
+                      <div class="row">
+                       
+                        <div class="col-md-12">
+                          <span class="categ_span">{{request.category.name}}</span>
+
+                          <p class="card-text">
+
+                            {{ request.description }}<br>
+                          </p>
+                            <hr>
+                           
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <p class="card-text">
+                                    Client : <br>  
+                                    Adresse :  <br>
+                                    Date de début :<br>
+                                    Date limite :<br>
+                                    Heure: <br>
+                                    Etat:<br>
+                                 </p>
+                                </div>
+                                <div class="col-md-6">
+                                  <p class="card-text">
+                                    {{request.user.firstname}} <br>  
+                                    {{ request.location }} <br>
+                                    {{ request.start_date | date:'yyyy-MM-dd'}}<br>
+                                    {{ request.end_date | date:'yyyy-MM-dd'}} <br>
+                                    {{request.time}}<br>
+                                    {{ request.status }}<br>
+                                 </p>
+                                </div>
+                              </div>
+                     
+                        </div>
+                      </div>
+                     
+                     
+                                       
+                     </div>
+                     <div class="card-footer">
+                      <form (submit)="respondToJobRequest()">
+                        <div class="row">
+                          <div class="col-md-6">
+                             <div class="list_radios">
+                              <input type="radio" id="response" name="response" value="accepte" [(ngModel)]="response" required>
+                              <label for="response">Faire une offre</label>
+
+                              <input type="radio" id="response" name="response" value="refuse" [(ngModel)]="response" required>
+                              <label for="response">Refuser</label>
+ 
+                             </div>
+                              <div *ngIf="response === 'accepte'" class="price_info">
+                                <label for="price">Prix:</label>
+                                <input type="number" name="price" [(ngModel)]="prix" required>
+                              </div>
+                          </div>
+                          <div class="col-md-6">
+                            <button type="submit" class="btn btn-primary">Envoyer</button>
+                          </div>
+                        </div>
+                        
+                      </form> 
+                     </div>
                   </div>
                 </div>
               </div>
-              <div  *ngIf="selectedRequest">
-                <form (submit)="respondToJobRequest()">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div>
-                        <input type="radio" name="response" value="accepte" [(ngModel)]="response" required> Accepte
-                        <input type="radio" name="response" value="refuse" [(ngModel)]="response" required> refuse
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div *ngIf="response === 'accepte'">
-                        <label for="price">Price:</label>
-                        <input type="number" name="price" [(ngModel)]="prix" required>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <button type="submit" class="btn btn-primary">envoyer</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
+               
             </div>
           </div>
              

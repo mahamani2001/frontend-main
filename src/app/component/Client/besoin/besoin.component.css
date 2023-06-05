@@ -1,28 +1,45 @@
-body{
-    background: linear-gradient(to bottom, #12547A, #80D0C7);
-}
-
-.contaienr{
-    margin: 100px;
-    margin-left: 400px;
-    width: 100px;
-}
-.description{
- width:100px;
- height:50px;
-
-}
+ 
 .note{
     margin: 100px;
     margin-left: 100px; 
 }
-.btn{
-    position: relative;
-    left: 1000px;
-    width: 10%;
-    border: none;
-    top: -20px;
-    background-color: #fa8f04;
-      
-      
+.page_demande_service{
+    margin-bottom: 70px;
+}
+.page_demande_service h5{
+    font-size: 25px;
+    margin-bottom: 25px;
+    text-decoration: underline;
+}
+.page_demande_service input{
+    border: 1px solid #d0cfcf;
+}
+.name_pres{
+    font-weight: bold;
+    color: #bebbb7;
+}
+textarea{
+    min-height: 118px;
+}
+.btn_send_demande{
+    float: right;
+    margin-bottom: 20px;
+}
+.img_service{
+    height: 200px;
+    margin: 20px auto;
+    text-align: center;
+    display: block;
+    object-fit: cover;
+}
+.card_service{
+    min-height: 505px;
+}
+.details{
+    border-top: 1px solid #c8c6c6;
+    padding: 20px 20px 20px;
+}
+.disbled_click{
+    cursor: not-allowed;
+    background-color: #e8ecef;
 }

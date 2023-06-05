@@ -141,6 +141,26 @@ background-color: #012a5f;
 color: white;
 border-radius: 5px;
 }
-.form_tri{
-margin-top: 30px;
+ 
+.search {
+  position: relative;
+  width: 100%; 
+}
+.img_prestataire{
+  height: 150px;
+  object-fit: contain;
+  width: 150px;
+  border: 1px solid #e6e6e6;
+  margin-top: 30px;
+  padding: 15px;
+}
+
+.category  {
+  text-align: left;
+  font-size: 13px;
+  margin: 0 0 20px 0;
+  background-color: #eaeaea;
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 15px;
 }

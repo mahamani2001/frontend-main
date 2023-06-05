@@ -32,7 +32,7 @@ export class AddDisponibiliteComponent {
       res => { 
          this.data=res;
          this.disponibilite=this.data.data;
-         this.token.saveUserName(this.disponibilite)
+      //   this.token.saveUserName(this.disponibilite)
        },
       err => {       
        alert("Erreur");
